@@ -12,5 +12,6 @@
 </head>
 <body>
 <a href="../admin/login.do">링크</a>
+테스트
 </body>
 </html>
