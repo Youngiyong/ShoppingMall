@@ -1,4 +1,4 @@
-package spring.mvc.domain;
+package spring.mvc.domain.vo;
 
 public class MemberVO {
 

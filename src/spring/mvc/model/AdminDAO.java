@@ -1,20 +1,21 @@
 package spring.mvc.model;
 
-import spring.mvc.domain.vo.MemberVO;
+import spring.mvc.domain.vo.AdminVO;
 
-public interface MemberDAO {
+public interface AdminDAO {
     /**
      * id 중복체트 기능 구현
      */
-    MemberVO  idCheck( MemberVO vo );
+    AdminVO idCheck(AdminVO vo );
 
     /**
      * 회원가입기능 구현
      */
-    int memberInsert(MemberVO vo);
+    int adminInsert(AdminVO vo);
 
     /**
      * 로그인 확인 기능 구현
      */
-    MemberVO memberLogin(MemberVO vo);
+    AdminVO adminLogin(AdminVO vo);
+
 }

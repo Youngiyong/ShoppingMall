@@ -2628,6 +2628,12 @@ fieldset:disabled a.btn {
   background-color: #f8f9fa;
   border-color: #f8f9fa;
 }
+.btn-yellow {
+  color : yellow;
+  background-color: yellow;
+  border-color: yellow;
+
+}
 
 .btn-light:hover {
   color: #212529;
@@ -2984,7 +2990,11 @@ fieldset:disabled a.btn {
 
 .btn-block {
   display: block;
+  margin: 20px;
   width: 100%;
+}
+.btn-test {
+  background-color : yellow;
 }
 
 .btn-block + .btn-block {

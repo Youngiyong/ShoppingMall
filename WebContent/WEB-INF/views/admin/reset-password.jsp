@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Dashtreme - Multipurpose Bootstrap4 Admin Template</title>
+  <title>비밀번호 찾기</title>
   <!-- loader-->
   <link href="/ShoppingMall/admin/assets/css/pace.min.css" rel="stylesheet"/>
   <script src="/ShoppingMall/admin/assets/js/pace.min.js"></script>
@@ -22,7 +23,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme1">
+<body class="bg-theme bg-theme9">
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -31,25 +32,25 @@
 	<div class="card card-authentication1 mb-0">
 		<div class="card-body">
 		 <div class="card-content p-2">
-		  <div class="card-title text-uppercase pb-2">Reset Password</div>
-		    <p class="pb-2">Please enter your email address. You will receive a link to create a new password via email.</p>
+		  <div class="card-title text-uppercase pb-2">비밀번호 초기화</div>
+		    <p class="pb-2">이메일 주소를 입력해주세요. </br>이메일 확인 후 비밀번호 설정을 진행해주세요. </p>
 		    <form>
 			  <div class="form-group">
-			  <label for="exampleInputEmailAddress" class="">Email Address</label>
+			  <label for="exampleInputEmailAddress" class="">이메일</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputEmailAddress" class="form-control input-shadow" placeholder="Email Address">
+				  <input type="text" id="exampleInputEmailAddress" class="form-control input-shadow" placeholder="이메일 주소">
 				  <div class="form-control-position">
 					  <i class="icon-envelope-open"></i>
 				  </div>
 			   </div>
 			  </div>
 			 
-			  <button type="button" class="btn btn-light btn-block mt-3">Reset Password</button>
+			  <button type="button" class="btn btn-light btn-block mt-3">비밀번호 변경</button>
 			 </form>
 		   </div>
 		  </div>
 		   <div class="card-footer text-center py-3">
-		    <p class="text-warning mb-0">Return to the <a href="/ShoppingMall/admin/login.do"> Sign In</a></p>
+		    <p class="text-warning mb-0">로그인 페이지 <a href="/ShoppingMall/admin/login.do"> 이동</a></p>
 		  </div>
 	     </div>
 	     </div>

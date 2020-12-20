@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
+  <title>관리자 회원가입 페이지</title>
   <!-- loader-->
   <link href="/ShoppingMall/admin/assets/css/pace.min.css" rel="stylesheet"/>
   <script src="/ShoppingMall/admin/assets/js/pace.min.js"></script>
@@ -23,7 +24,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme1">
+<body class="bg-theme bg-theme9">
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -38,60 +39,60 @@
 		 	<div class="text-center">
 		 		<img src="/ShoppingMall/admin/assets/images/logo-icon.png" alt="logo icon">
 		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">Sign Up</div>
+		  <div class="card-title text-uppercase text-center py-3">회원가입</div>
 		    <form>
+                <div class="form-group">
+                    <label for="a_Id" class="sr-only">ID</label>
+                    <div class="position-relative has-icon-right">
+                        <input type="text" id="a_Id" name="a_Id" class="form-control input-shadow" placeholder="아이디를 입력해주세요.">
+                        <div class="form-control-position">
+                            <i class="icon-lock"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="a_Pass" class="sr-only">Password</label>
+                    <div class="position-relative has-icon-right">
+                        <input type="text" id="a_Pass" name="a_Pass" class="form-control input-shadow" placeholder="비밀번호를 입력해주세요.">
+                        <div class="form-control-position">
+                            <i class="icon-lock"></i>
+                        </div>
+                    </div>
+                </div>
 			  <div class="form-group">
-			  <label for="exampleInputName" class="sr-only">Name</label>
+			  <label for="a_Name" class="sr-only">Name</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputName" class="form-control input-shadow" placeholder="Enter Your Name">
+				  <input type="text" id="a_Name" name="a_Name" class="form-control input-shadow" placeholder="이름을 입력해 주세요">
 				  <div class="form-control-position">
 					  <i class="icon-user"></i>
 				  </div>
 			   </div>
 			  </div>
 			  <div class="form-group">
-			  <label for="exampleInputEmailId" class="sr-only">Email ID</label>
+			  <label for="a_Email" class="sr-only">Email ID</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputEmailId" class="form-control input-shadow" placeholder="Enter Your Email ID">
+				  <input type="text" id="a_Email" name="a_Email" class="form-control input-shadow" placeholder="이메일 주소를 입력해 주세요.">
 				  <div class="form-control-position">
 					  <i class="icon-envelope-open"></i>
 				  </div>
 			   </div>
 			  </div>
-			  <div class="form-group">
-			   <label for="exampleInputPassword" class="sr-only">Password</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputPassword" class="form-control input-shadow" placeholder="Choose Password">
-				  <div class="form-control-position">
-					  <i class="icon-lock"></i>
-				  </div>
-			   </div>
-			  </div>
+
 			  
 			   <div class="form-group">
 			     <div class="icheck-material-white">
                    <input type="checkbox" id="user-checkbox" checked="" />
-                   <label for="user-checkbox">I Agree With Terms & Conditions</label>
+                   <label for="user-checkbox">이용약관에 동의합니다.</label>
 			     </div>
 			    </div>
 			  
-			 <button type="button" class="btn btn-light btn-block waves-effect waves-light">Sign Up</button>
-			  <div class="text-center mt-3">Sign Up With</div>
-			  
-			 <div class="form-row mt-4">
-			  <div class="form-group mb-0 col-6">
-			   <button type="button" class="btn btn-light btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-			 </div>
-			 <div class="form-group mb-0 col-6 text-right">
-			  <button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-			 </div>
-			</div>
-			
+			 <button type="button" class="btn btn-light btn-block waves-effect waves-light">회원가입</button>
+			  <div class="text-center mt-3"></div>
 			 </form>
 		   </div>
 		  </div>
 		  <div class="card-footer text-center py-3">
-		    <p class="text-warning mb-0">Already have an account? <a href="/ShoppingMall/admin/login.do"> Sign In here</a></p>
+		    <p class="text-warning mb-0">이미 계정이 있으신가요? <a href="/ShoppingMall/admin/login.do"> 로그인</a></p>
 		  </div>
 	     </div>
     

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
+  <title>관리자 페이지</title>
   <!-- loader-->
   <link href="/ShoppingMall/admin/assets/css/pace.min.css" rel="stylesheet"/>
   <script src="/ShoppingMall/admin/assets/js/pace.min.js"></script>
@@ -29,7 +30,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme1">
+<body class="bg-theme bg-theme9">
  
 <!-- Start wrapper-->
  <div id="wrapper">

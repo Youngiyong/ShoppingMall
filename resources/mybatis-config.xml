@@ -6,7 +6,7 @@
 
     <!-- VO객체 별칭 지정 -->
     <typeAliases>
-        <typeAlias type="spring.mvc.domain.MemberVO" alias="member"/>
+        <typeAlias type="spring.mvc.domain.vo.MemberVO" alias="member"/>
     </typeAliases>
 
 
