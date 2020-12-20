@@ -1,6 +1,6 @@
 package spring.mvc.model;
 
-import spring.mvc.domain.vo.AdminVO;
+import spring.mvc.domain.AdminVO;
 
 public interface AdminDAO {
     /**

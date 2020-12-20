@@ -7,13 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<script type="text/javascript" src="/admin/js/jquery.min.js">
-    alert("회원가입 성공")
+<script type="text/javascript" src="/ShoppingMall/admin/js/jquery.min.js"></script>
+<script type="text/javascript">
+    alert("회원가입 성공!")
+    $(location).attr('href', '/ShoppingMall/admin/login.do')
 </script>
 <head>
-    <title>regist_ok.jsp</title>
+    <title>register_ok.jsp</title>
 </head>
 <body>
-    <% response.sendRedirect("/ShoppingMall/admin/login.do"); %>
 </body>
 </html>

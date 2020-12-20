@@ -1,6 +1,6 @@
 package spring.mvc.model;
 
-import spring.mvc.domain.vo.MemberVO;
+import spring.mvc.domain.MemberVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

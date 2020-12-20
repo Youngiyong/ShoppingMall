@@ -1,6 +1,6 @@
 package spring.mvc.model;
 
-import spring.mvc.domain.vo.MemberVO;
+import spring.mvc.domain.MemberVO;
 
 public interface MemberDAO {
     /**

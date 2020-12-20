@@ -11,7 +11,7 @@
 		<hr>
 		<br> <a href="/ShoppingMall/login/login.do">로그인 바로가기</a>
 		<hr>
-		<br>
+		<br> <a href="/ShoppingMall/admin/login.do">관리자 페이지 바로가기</a>
 
 </body>
 </html>

@@ -2,8 +2,7 @@ package spring.mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spring.mvc.domain.vo.AdminVO;
-import spring.mvc.domain.vo.MemberVO;
+import spring.mvc.domain.AdminVO;
 import spring.mvc.model.AdminDAOImpl;
 
 @Service("adminService")

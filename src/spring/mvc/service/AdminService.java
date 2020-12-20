@@ -1,6 +1,6 @@
 package spring.mvc.service;
 
-import spring.mvc.domain.vo.AdminVO;
+import spring.mvc.domain.AdminVO;
 
 public interface AdminService {
     public AdminVO idCheck_Login(AdminVO vo);

@@ -3,7 +3,7 @@ package spring.mvc.model;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import spring.mvc.domain.vo.AdminVO;
+import spring.mvc.domain.AdminVO;
 
 @Repository("adminDAO")
 public class AdminDAOImpl implements AdminDAO {

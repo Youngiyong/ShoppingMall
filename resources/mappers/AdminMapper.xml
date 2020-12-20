@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
 
     <!-- 여기를 완성 -->
-    <insert id="adminInsert" parameterType="admin">
+<insert id="adminInsert" parameterType="admin">
         INSERT INTO admin
         (a_code, a_id, a_pass, a_email)VALUES (seq_admin_a_code.NEXTVAL, #{a_Id}, #{a_Pass}, #{a_Email})
 </insert>

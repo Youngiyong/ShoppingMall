@@ -2,7 +2,7 @@ package spring.mvc.service;
 
 
 import spring.mvc.model.MemberDAOImpl;
-import spring.mvc.domain.vo.MemberVO;
+import spring.mvc.domain.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
