@@ -22,7 +22,7 @@ $(function (){
             alert("이메일형식에 맞게 입력해주세요")
             $("#a_Email").val("");
             $("#a_Email").focus();
-            return false;
+            return;
         }
 
         //비밀번호 유효성
@@ -50,7 +50,7 @@ $(function (){
             alert("이름 똑띠 쓰세용");
             $("#a_Name").val("");
             $("#a_Name").focus();
-            return false;
+            return;
         }
 
         if($.trim($('#a_Name').val())==''){
@@ -63,14 +63,11 @@ $(function (){
     })
 
     $('#a_Id').keyup(function(){
-
-
         if(!getCheck.test($("#a_Id").val())){
             $('#idCheckResult').text("아이디 형식에 맞게 입력해주세요.");
             $("#a_Id").focus();
-            return false;
+            return;
         } else {
-
             $.ajax({
                 type: 'post',	// 전송방식
                 async: true, 	// 비동기통신

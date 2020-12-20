@@ -21,7 +21,7 @@
   <link href="/ShoppingMall/admin/css/icons.css" rel="stylesheet" type="text/css"/>
   <!-- Custom Style-->
   <link href="/ShoppingMall/admin/css/app-style.css" rel="stylesheet"/>
-  
+    <script src="/ShoppingMall/admin/js/login.js"></script>
 </head>
 
 <body class="bg-theme bg-theme9">
@@ -41,20 +41,20 @@
 		 		<img src="/ShoppingMall/admin/images/logo-icon.png" alt="logo icon">
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">관리자 로그인</div>
-		    <form>
+		    <form id="frm" method="post">
 			  <div class="form-group">
-			  <label for="exampleInputUsername" class="sr-only">Username</label>
+			  <label for="a_Id" class="sr-only">Username</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputUsername" class="form-control input-shadow" placeholder="아이디를 입력해 주세요.">
+				  <input type="text" id="a_Id" name="a_Id" class="form-control input-shadow" placeholder="아이디를 입력해 주세요.">
 				  <div class="form-control-position">
 					  <i class="icon-user"></i>
 				  </div>
 			   </div>
 			  </div>
 			  <div class="form-group">
-			  <label for="exampleInputPassword" class="sr-only">Password</label>
+			  <label for="a_Pass" class="sr-only">Password</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="비밀번호를 입력해주세요">
+				  <input type="password" id="a_Pass" name="a_Pass" class="form-control input-shadow" placeholder="비밀번호를 입력해주세요">
 				  <div class="form-control-position">
 					  <i class="icon-lock"></i>
 				  </div>
@@ -71,10 +71,8 @@
 			  <a href="/ShoppingMall/admin/reset-password.do">비밀번호 찾기</a>
 			 </div>
 			</div>
-                <button type="button" class="btn btn-light btn-block">로그인</button></br>
-                <button type="button" class="btn btn-light btn-block">카카오 로그인</button></br>
-
-
+                <button type="button" id="btn_login" class="btn btn-light btn-block">로그인</button></br>
+                <button type="button" id="btn_kakao_login" class="btn btn-light btn-block">카카오 로그인</button></br>
 			</form>
 		   </div>
 		  </div>
