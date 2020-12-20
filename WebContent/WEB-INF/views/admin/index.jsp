@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>관리자 페이지</title>
+  <title>관리자 페이지 test : ${sessionScope.login}</title>
   <!-- loader-->
   <link href="/ShoppingMall/admin/assets/css/pace.min.css" rel="stylesheet"/>
   <script src="/ShoppingMall/admin/assets/js/pace.min.js"></script>
@@ -31,7 +31,6 @@
 </head>
 
 <body class="bg-theme bg-theme9">
- 
 <!-- Start wrapper-->
  <div id="wrapper">
  

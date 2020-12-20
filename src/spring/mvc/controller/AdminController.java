@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import spring.mvc.domain.AdminVO;
 import spring.mvc.service.AdminService;
 
+
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -41,20 +42,19 @@ public class AdminController {
 
     }
 
-    //로그인 체크
-    @RequestMapping(value = "/ShoppingMall/admin/loginCheck.do", produces = "application/text;charset=utf-8" )
-    @ResponseBody
+    //로그인
+    @RequestMapping("/admin/loginCheck.do")
     public String loginCheck(AdminVO vo, HttpSession session){
-        System.out.println(vo.getA_Id());
         AdminVO result = adminService.idCheck_Login(vo);
-        String message = "로그인에 실패하였습니다. 아이디 패스워드를 다시 확인해 주세요.";
         if(result==null || result.getA_Id() == null){
-           return message;
+            System.out.println("실패");
+           return "/admin/login.do";
         }
         else{
-            //세션에 login 이름에 사용자이름 저장하기
+
             session.setAttribute("login", result.getA_Id());
-            return "redirect:/ShoppingMall/admin/index.do";
+            System.out.println("성공");
+            return "redirect:/admin/index.do";
         }
     }
 

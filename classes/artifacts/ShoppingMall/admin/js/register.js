@@ -1,6 +1,7 @@
 $(function (){
     var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
     var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
+    var getCheckPass = RegExp(/^[a-zA-Z0-9]{8,12}$/);
     var getName= RegExp(/^[가-힣]+$/);
 
     $("#btn_join").click(function (){
@@ -36,6 +37,12 @@ $(function (){
             alert("비밀번호가 일치하지 않습니다..");
             $('#a_Pass2').focus();
 
+            return;
+        }
+
+        if(!getCheckPass.test($("#a_Pass").val())){
+            alert("비밀번호 형식에 맞게 입력해주세요.");
+            $("#a_Pass").focus();
             return;
         }
 
