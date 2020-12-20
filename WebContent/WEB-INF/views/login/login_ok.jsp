@@ -11,8 +11,8 @@
     <title>login_ok.jsp</title>
 </head>
 <body>
-${messgae}
+로그인 성공
 
-<a href="/ShoppingMall/index.jsp">로그인 고고</a>
+<a href="/ShoppingMall/index.jsp">처음 화면</a>
 </body>
 </html>
