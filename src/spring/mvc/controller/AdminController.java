@@ -121,7 +121,7 @@ public class AdminController {
         String user = "kosmotest93@gmail.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
         String password = "test1234!";   // 패스워드
         AdminVO result;
-        int resultNum;
+        boolean flag = false;
         // SMTP 서버 정보를 설정한다.
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -130,16 +130,14 @@ public class AdminController {
         prop.put("mail.smtp.ssl.enable", "true");
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-        if (adminService.idSearch(vo) != null) {
-            result = adminService.idSearch(vo);
-            System.out.println("idSearch성공");
-            System.out.println(vo.getA_Id());
-            System.out.println(vo.getA_Email());
+        result = adminService.idSearch(vo);
+        if (result != null) {
+            flag = true;
         } else return "/admin/reset-password_no";
 
-        if (adminService.updatePass(vo) != 0) {
-            adminService.updatePass(vo);
-            System.out.println("update성공");
+        if (flag==true) {
+            adminService.updatePass(result);
+            result = adminService.idSearch(vo);
         } else return "/admin/reset-password_no";
 
         Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator() {

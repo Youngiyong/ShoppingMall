@@ -12,7 +12,7 @@
     <title>login_ok.jsp</title>
     <script type="text/javascript">
         alert("아이디와 이메일을 다시 확인해 주세요.")
-        $(location).attr('href', '/ShoppingMall/admin/reset-password_no.do')
+        $(location).attr('href', '/ShoppingMall/admin/reset-password.do')
     </script>
 </head>
 <body>

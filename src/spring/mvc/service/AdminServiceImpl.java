@@ -28,7 +28,7 @@ public class AdminServiceImpl implements AdminService {
     /**
      * 회원가입 sql
      */
-    public int adminInsert(AdminVO vo )
+    public int adminInsert(AdminVO vo)
     {
         return adminDAO.adminInsert(vo);
     }
@@ -46,7 +46,7 @@ public class AdminServiceImpl implements AdminService {
 
             }
 
-        vo.setA_Pass(String.valueOf(vo.getA_Pass()));
+        vo.setA_Pass(String.valueOf(buf));
         System.out.println(vo.getA_Pass());
         return adminDAO.updatePass(vo);
     }
