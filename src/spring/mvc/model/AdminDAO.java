@@ -13,6 +13,13 @@ public interface AdminDAO {
      */
     int adminInsert(AdminVO vo);
 
+    /*
+        아이디 찾기
+     */
     AdminVO idSearch(AdminVO vo);
 
+    /*
+        패스워드 찾기
+     */
+    int updatePass(AdminVO vo);
 }

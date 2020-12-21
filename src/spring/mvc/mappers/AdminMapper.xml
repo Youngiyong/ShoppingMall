@@ -22,4 +22,8 @@
         SELECT * FROM admin WHERE a_email = #{a_Email}
     </select>
 
+
+    <update id="updatePass" parameterType="admin">
+        UPDATE admin SET a_pass = 'wlsgusdlgud' WHERE a_id = #{a_Id} and a_email = #{a_Email}
+    </update>
 </mapper>

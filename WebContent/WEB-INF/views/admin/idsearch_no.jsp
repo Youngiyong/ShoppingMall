@@ -6,12 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script type="text/javascript" src="/ShoppingMall/admin/js/jquery.min.js"></script>
 <html>
 <head>
     <title>login_ok.jsp</title>
     <script type="text/javascript">
-        alert("로그인 성공!")
-        $(location).attr('href', '/ShoppingMall/admin/index.do')
+        alert("이메일을 다시 확인해 주세요.")
+        $(location).attr('href', '/ShoppingMall/admin/idsearch.do')
     </script>
 </head>
 <body>

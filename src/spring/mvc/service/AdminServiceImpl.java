@@ -31,4 +31,6 @@ public class AdminServiceImpl implements AdminService {
         return adminDAO.adminInsert(vo);
     }
 
+    @Override
+    public int updatePass(AdminVO vo) { return adminDAO.updatePass(vo); }
 }

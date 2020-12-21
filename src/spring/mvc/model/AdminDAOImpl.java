@@ -28,4 +28,10 @@ public class AdminDAOImpl implements AdminDAO {
         System.out.println("===> AdminMapper adminidSearch() 호출");
         return mybatis.selectOne("admin.idSearch", vo);
     }
+
+    @Override
+    public int updatePass(AdminVO vo) {
+        System.out.println("===> AdminMapper updatePass() 호출");
+        return mybatis.update("admin.updatePass", vo);
+    }
 }

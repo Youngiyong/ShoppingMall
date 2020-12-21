@@ -6,4 +6,5 @@ public interface AdminService {
     public AdminVO idCheck_Login(AdminVO vo);
     public int adminInsert(AdminVO vo);
     public AdminVO idSearch(AdminVO vo);
+    public int updatePass(AdminVO vo);
 }
