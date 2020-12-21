@@ -4,7 +4,7 @@ import spring.mvc.domain.MemberVO;
 
 public interface MemberDAO {
     /**
-     * id 중복체트 기능 구현
+     * id 중복체트 기능 구현, 로그인 기능 구현
      */
     MemberVO  idCheck( MemberVO vo );
 
@@ -13,8 +13,4 @@ public interface MemberDAO {
      */
     int memberInsert(MemberVO vo);
 
-    /**
-     * 로그인 확인 기능 구현
-     */
-    MemberVO memberLogin(MemberVO vo);
 }

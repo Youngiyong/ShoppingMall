@@ -11,6 +11,9 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminDAOImpl adminDAO;
 
+    @Override
+    public AdminVO idPwSearch(AdminVO vo) { return adminDAO.idPwSearch(vo); }
+
     /**
      * 아이디 중복 체크하는 sql + 로그인 기능 sql
      */
@@ -27,4 +30,5 @@ public class AdminServiceImpl implements AdminService {
     {
         return adminDAO.adminInsert(vo);
     }
+
 }

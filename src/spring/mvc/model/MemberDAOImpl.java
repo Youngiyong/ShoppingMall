@@ -23,10 +23,6 @@ public class MemberDAOImpl implements MemberDAO{
 		return mybatis.insert("user.userInsert", vo);
 	}
 
-	@Override
-	public MemberVO memberLogin(MemberVO vo) {
-		System.out.println("===> MemberMapper idCheck 호출");
-		return mybatis.selectOne("user.idCheck", vo);
-	}
+
 
 }

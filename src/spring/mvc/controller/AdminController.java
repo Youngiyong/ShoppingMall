@@ -58,4 +58,9 @@ public class AdminController {
         }
     }
 
+    @RequestMapping("/admin/idsearch.do")
+    public String idSearch(AdminVO vo){
+        AdminVO result = adminService.idPwSearch(vo);
+        return "/admin/login.do";
+    }
 }

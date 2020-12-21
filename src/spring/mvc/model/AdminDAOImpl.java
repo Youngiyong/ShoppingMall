@@ -24,8 +24,8 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
-    public AdminVO adminLogin(AdminVO vo) {
-        System.out.println("===> AdminMapper idCheck() 호출");
-        return mybatis.selectOne("admin.idCheck", vo);
+    public AdminVO idPwSearch(AdminVO vo) {
+        System.out.println("===> AdminMapper adminidPwSearch() 호출");
+        return mybatis.selectOne("admin.idPwSearch", vo);
     }
 }

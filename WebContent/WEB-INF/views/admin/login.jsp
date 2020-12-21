@@ -61,16 +61,20 @@
 				  </div>
 			   </div>
 			  </div>
-			<div class="form-row">
-			 <div class="form-group col-6">
-			   <div class="icheck-material-white">
-                <input type="checkbox" id="user-checkbox" checked="" />
-                <label for="user-checkbox">자동 로그인</label>
-			  </div>
-			 </div>
-			 <div class="form-group col-6 text-right">
+
+			 <div>
+                 　　　
+                 <a href="/ShoppingMall/admin/idsearch.do">아이디 찾기</a>
+                 　　　
 			  <a href="/ShoppingMall/admin/reset-password.do">비밀번호 찾기</a>
 			 </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <div class="icheck-material-white">
+                            <input type="checkbox" id="user-checkbox" checked="" />
+                            <label for="user-checkbox">자동 로그인</label>
+                        </div>
+                    </div>
 			</div>
                 <button type="button" id="btn_login" class="btn btn-light btn-block">로그인</button></br>
                 <button type="button" id="btn_kakao_login" class="btn btn-light btn-block">카카오 로그인</button></br>

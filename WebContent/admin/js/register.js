@@ -54,7 +54,7 @@ $(function (){
 
         //이름 유효성
         if (!getName.test($("#a_Name").val())) {
-            alert("이름 똑띠 쓰세용");
+            alert("이름의 형식이 맞지 않습니다");
             $("#a_Name").val("");
             $("#a_Name").focus();
             return;
