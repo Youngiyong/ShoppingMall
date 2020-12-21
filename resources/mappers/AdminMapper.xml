@@ -18,5 +18,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </if>
     </select>
 
+    <select id="idSearch" parameterType="admin" resultType="admin">
+        SELECT * FROM admin WHERE a_email = #{a_Email}
+    </select>
 
 </mapper>

@@ -20,7 +20,8 @@
   <link href="/ShoppingMall/admin/assets/css/icons.css" rel="stylesheet" type="text/css"/>
   <!-- Custom Style-->
   <link href="/ShoppingMall/admin/assets/css/app-style.css" rel="stylesheet"/>
-  
+    <script type="text/javascript" src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/ShoppingMall/admin/js/idsearch.js"></script>
 </head>
 
 <body class="bg-theme bg-theme9">
@@ -34,18 +35,18 @@
 		 <div class="card-content p-2">
 		  <div class="card-title text-uppercase pb-2">아이디 찾기</div>
 		    <p class="pb-2">이메일 주소를 입력해주세요. </br>이메일로 아이디 정보가 발송됩니다. </p>
-		    <form>
+		    <form id="frm" method="post">
 			  <div class="form-group">
-			  <label for="exampleInputEmailAddress" class="">이메일</label>
+			  <label for="a_Email" class="">이메일</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputEmailAddress" class="form-control input-shadow" placeholder="이메일 주소">
+				  <input type="text" id="a_Email" name="a_Email" class="form-control input-shadow" placeholder="이메일 주소">
 				  <div class="form-control-position">
 					  <i class="icon-envelope-open"></i>
 				  </div>
 			   </div>
 			  </div>
 			 
-			  <button type="button" class="btn btn-light btn-block mt-3">아이디 찾기</button>
+			  <button type="button" id=idSearch_btn class="btn btn-light btn-block mt-3">아이디 찾기</button>
 			 </form>
 		   </div>
 		  </div>

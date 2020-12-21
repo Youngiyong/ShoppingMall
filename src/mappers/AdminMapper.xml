@@ -18,8 +18,8 @@
         </if>
     </select>
 
-    <select id="idPwSearch" parameterType="admin" resultType="admin">
-        SELECT * FROM admin WHERE a_email = ${a_Email}
+    <select id="idSearch" parameterType="admin" resultType="admin">
+        SELECT * FROM admin WHERE a_email = #{a_Email}
     </select>
 
 </mapper>

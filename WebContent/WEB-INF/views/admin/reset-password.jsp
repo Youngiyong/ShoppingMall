@@ -36,9 +36,16 @@
 		    <p class="pb-2">이메일 주소를 입력해주세요. </br>이메일 확인 후 비밀번호 설정을 진행해주세요. </p>
 		    <form>
 			  <div class="form-group">
-			  <label for="exampleInputEmailAddress" class="">이메일</label>
+                <label for="a_Id" class="">아이디</label>
+                  <div class="position-relative has-icon-right">
+                      <input type="text" id="a_Id" class="form-control input-shadow" placeholder="아이디">
+                      <div class="form-control-position">
+                          <i class="icon-envelope-open"></i>
+                      </div>
+                  </div>
+			  <label for="a_Email" class="">이메일</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputEmailAddress" class="form-control input-shadow" placeholder="이메일 주소">
+				  <input type="text" id="a_Email" class="form-control input-shadow" placeholder="이메일 주소">
 				  <div class="form-control-position">
 					  <i class="icon-envelope-open"></i>
 				  </div>

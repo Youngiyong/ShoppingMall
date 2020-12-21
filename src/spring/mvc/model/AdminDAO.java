@@ -13,6 +13,6 @@ public interface AdminDAO {
      */
     int adminInsert(AdminVO vo);
 
-    AdminVO idPwSearch(AdminVO vo);
+    AdminVO idSearch(AdminVO vo);
 
 }

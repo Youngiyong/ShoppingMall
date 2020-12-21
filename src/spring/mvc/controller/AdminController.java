@@ -58,9 +58,15 @@ public class AdminController {
         }
     }
 
-    @RequestMapping("/admin/idsearch.do")
+    @RequestMapping("/admin/sendId.do")
     public String idSearch(AdminVO vo){
-        AdminVO result = adminService.idPwSearch(vo);
-        return "/admin/login.do";
+        AdminVO result = adminService.idSearch(vo);
+        System.out.println(result.getA_Id());
+        if(result!=null || result.getA_Id() != null){
+            System.out.println("아이디 서치 성공");
+
+        }
+        return "/admin/idsearch.do";
+
     }
 }
