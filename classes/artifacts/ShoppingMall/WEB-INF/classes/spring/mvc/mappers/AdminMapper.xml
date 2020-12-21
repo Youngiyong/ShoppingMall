@@ -18,5 +18,12 @@
         </if>
     </select>
 
+    <select id="idSearch" parameterType="admin" resultType="admin">
+        SELECT * FROM admin WHERE a_email = #{a_Email}
+    </select>
 
+
+    <update id="updatePass" parameterType="admin">
+        UPDATE admin SET a_pass = #{a_Pass} WHERE a_id = #{a_Id} and a_email = #{a_Email}
+    </update>
 </mapper>

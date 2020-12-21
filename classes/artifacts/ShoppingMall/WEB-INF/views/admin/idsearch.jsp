@@ -20,8 +20,8 @@
   <link href="/ShoppingMall/admin/assets/css/icons.css" rel="stylesheet" type="text/css"/>
   <!-- Custom Style-->
   <link href="/ShoppingMall/admin/assets/css/app-style.css" rel="stylesheet"/>
-    <script src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
-    <script src="/ShoppingMall/admin/js/idsearch.js"></script>
+    <script type="text/javascript" src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/ShoppingMall/admin/js/idsearch.js"></script>
 </head>
 
 <body class="bg-theme bg-theme9">
@@ -33,17 +33,10 @@
 	<div class="card card-authentication1 mb-0">
 		<div class="card-body">
 		 <div class="card-content p-2">
-		  <div class="card-title text-uppercase pb-2">비밀번호 초기화</div>
-		    <p class="pb-2">이메일 주소를 입력해주세요. </br>이메일 확인 후 비밀번호 설정을 진행해주세요. </p>
-		    <form method="post" id="frm">
+		  <div class="card-title text-uppercase pb-2">아이디 찾기</div>
+		    <p class="pb-2">이메일 주소를 입력해주세요. </br>이메일로 아이디 정보가 발송됩니다. </p>
+		    <form id="frm" method="post">
 			  <div class="form-group">
-                <label for="a_Id" class="">아이디</label>
-                  <div class="position-relative has-icon-right">
-                      <input type="text" id="a_Id" name="a_Id" class="form-control input-shadow" placeholder="아이디">
-                      <div class="form-control-position">
-                          <i class="icon-envelope-open"></i>
-                      </div>
-                  </div>
 			  <label for="a_Email" class="">이메일</label>
 			   <div class="position-relative has-icon-right">
 				  <input type="text" id="a_Email" name="a_Email" class="form-control input-shadow" placeholder="이메일 주소">
@@ -53,7 +46,7 @@
 			   </div>
 			  </div>
 			 
-			  <button type="button" id=pwChange_btn class="btn btn-light btn-block mt-3">비밀번호 변경</button>
+			  <button type="button" id=idSearch_btn class="btn btn-light btn-block mt-3">아이디 찾기</button>
 			 </form>
 		   </div>
 		  </div>
