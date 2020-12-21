@@ -138,7 +138,7 @@ public class AdminController {
         } else return "/admin/reset-password_no";
 
         if (adminService.updatePass(vo) != 0) {
-            resultNum = adminService.updatePass(vo);
+            adminService.updatePass(vo);
             System.out.println("update성공");
         } else return "/admin/reset-password_no";
 

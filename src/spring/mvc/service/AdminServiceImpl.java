@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import spring.mvc.domain.AdminVO;
 import spring.mvc.model.AdminDAOImpl;
 
+import java.util.Random;
+
 @Service("adminService")
 public class AdminServiceImpl implements AdminService {
 
@@ -32,5 +34,20 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public int updatePass(AdminVO vo) { return adminDAO.updatePass(vo); }
+    public int updatePass(AdminVO vo) {
+        Random rnd = new Random();
+        StringBuffer buf = new StringBuffer();
+            for (int i = 0; i < 10; i++) {
+                if (rnd.nextBoolean()) {
+                    buf.append((char) ((int) (rnd.nextInt(26)) + 65));
+                } else {
+                    buf.append((rnd.nextInt(10)));
+                }
+
+            }
+
+        vo.setA_Pass(String.valueOf(vo.getA_Pass()));
+        System.out.println(vo.getA_Pass());
+        return adminDAO.updatePass(vo);
+    }
 }
