@@ -19,7 +19,12 @@ META-INF/
 .gitignore
 # External tool builders
 .externalToolBuilders/
+build/
+build/*
+.build
 
+class/
+class/*
 # Locally stored "Eclipse launch configurations"
 *.launch
 
