@@ -161,12 +161,12 @@
 		Quantity change
 	--------------------- */
     var proQty = $('.pro-qty');
-    proQty.prepend('<span class="fa fa-angle-up dec qtybtn"></span>');
+    proQty.prepend('<span class="fa fa-angle-up dec qtybtn"></span>'); //아마도 이미지 파일 이름이 반대로 되어있는듯
     proQty.append('<span class="fa fa-angle-down inc qtybtn"></span>');
     proQty.on('click', '.qtybtn', function () {
         var $button = $(this);
         var oldValue = $button.parent().find('input').val();
-        if ($button.hasClass('inc')) {
+        if ($button.hasClass('dec')) { //명칭상 inc를 넣는게 맞는데 이미지를 못찾겠어서 수정함
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below zero
