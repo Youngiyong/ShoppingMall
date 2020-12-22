@@ -52,15 +52,16 @@ public class AdminController {
     public String loginCheck(AdminVO vo, HttpSession session, Model m){
         AdminVO adminVO = adminService.idCheck_Login(vo);
         if(adminVO==null || adminVO.getA_Id() == null){
-            System.out.println("실패");
+            System.out.println("로그인 실패");
            return "/admin/login.do";
         }
         else{
+            m.addAttribute("a_Id", adminVO.getA_Id());
+            m.addAttribute("a_Email", adminVO.getA_Email());
             m.addAttribute("adminVO", adminVO);
+
             session.setAttribute("login", adminVO.getA_Id());
-            System.out.println(adminVO.getA_Name());
-            System.out.println(adminVO.getA_Pass());
-            System.out.println("성공");
+            System.out.println("로그인 성공");
             return "redirect:/admin/index.do";
         }
     }
