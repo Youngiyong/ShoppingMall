@@ -2,9 +2,11 @@ package spring.mvc.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,16 +34,21 @@ public class AdminController {
 
 
     @RequestMapping("/admin/index.do")
-    public String index(AdminVO adminVO) {
+    public String indexPgMove(AdminVO adminVO, Model model) {
         System.out.println("index() 호출");
-        System.out.println(adminVO.getA_Id());
-        System.out.println(adminVO.getA_Pass());
+        AdminVO vo =adminService.idCheck_Login(adminVO);
+        model.addAttribute("a_Email", vo.getA_Email());
+
         return "/admin/index";
+    }
+    @RequestMapping("/admin/product.do")
+    public String productAdd(Model model, AdminVO adminVO){
+
+        return "/admin/product";
     }
 
     @RequestMapping("/admin/{url}.do")
-    public String test(@PathVariable String url) { return "/admin/"+url; }
-
+    public String test(@PathVariable String url, Model model, AdminVO adminVO) { return "/admin/"+url; }
 
 
     //회원가입 요청
@@ -80,8 +87,7 @@ public class AdminController {
         } else {
 
             session.setAttribute("a_Id", adminVO.getA_Id());
-            session.setAttribute("a_Email", adminVO.getA_Email());
-            session.setAttribute("a_Name", "윤기돌");
+            System.out.println(adminVO.getA_Email());
             System.out.println("로그인 성공");
             return adminVO;
 //      }

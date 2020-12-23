@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="product">
+        <!-- 여기를 완성 -->
+        <insert id="insertProductVO" parameterType="product">
+        INSERT INTO product
+        (p_id, p_cate, p_name, p_content, p_price, p_count, p_size, p_color)VALUES (seq_product_p_Id.NEXTVAL, #{p_Cate}, #{p_Name}
+        , #{p_Content}, #{p_Price}, #{p_Count}, #{p_Size}, #{p_Color})
+</insert>
+
+        <insert id="insertProductIMG" parameterType="product_img">
+        INSERT INTO product_image(p_id, i_ip, i_fname, i_fsize)
+        VALUES(#{p_Id}, #{i_Ip}, #{i_Fname}, #{i_Fsize})
+</insert>
+        <select id="selectSequence" resultType="product">
+          SELECT P_ID FROM product WHERE ROWNUM = 1 ORDER BY P_ID desc
+    </select>
+
+        <update id="updateContent" parameterType="product">
+        UPDATE product SET p_content = #{p_Content} WHERE p_id = #{p_Id}
+    </update>
+
+
+
+</mapper>

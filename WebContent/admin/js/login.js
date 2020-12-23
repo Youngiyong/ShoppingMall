@@ -25,7 +25,7 @@ $(function (){
             success: function (data) {
                 if(typeof(data) == "object"){
                     alert("로그인 성공")
-                    location.href = ("/ShoppingMall/admin/index.do");
+                    $('#frm').attr("action", "/ShoppingMall/admin/index.do").submit();
                 }
                 else {
                     alert("로그인 실패");

@@ -9,6 +9,9 @@
     <typeAliases>
         <typeAlias type="spring.mvc.domain.MemberVO" alias="member"/>
         <typeAlias type="spring.mvc.domain.AdminVO" alias="admin"/>
+        <typeAlias type="spring.mvc.domain.ProductVO" alias="product"/>
+        <typeAlias type="spring.mvc.domain.ProductImageVO" alias="product_img"/>
+
     </typeAliases>
 
 </configuration>
