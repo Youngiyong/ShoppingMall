@@ -1258,11 +1258,22 @@ ol {
 	transition: all, 0.3s;
 }
 
-.shop__sidebar__categories ul li a:hover,
-.shop__sidebar__price ul li a:hover,
-.shop__sidebar__brand ul li a:hover {
-	color: #111111;
+.shop__sidebar__categories ul li label,
+.shop__sidebar__price ul li label,
+.shop__sidebar__brand ul li label {
+	color: #b7b7b7;
+	font-size: 15px;
+	line-height: 32px;
+	-webkit-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
 }
+
+/* .shop__sidebar__categories ul li a:hover, */
+/* .shop__sidebar__price ul li a:hover, */
+/* .shop__sidebar__brand ul li a:hover { */
+/* 	color: #111111; */
+/* } */
 
 .shop__sidebar__brand ul {
 	height: auto;
