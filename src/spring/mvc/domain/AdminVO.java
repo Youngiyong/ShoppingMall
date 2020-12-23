@@ -6,7 +6,6 @@ public class AdminVO {
     private String a_Id;
     private String a_Pass;
     private String a_Tel;
-    private String a_Addr;
     private String a_Email;
 
     public String getA_Code() { return a_Code; }
@@ -19,8 +18,6 @@ public class AdminVO {
     public void setA_Pass(String a_Pass) { this.a_Pass = a_Pass; }
     public String getA_Tel() { return a_Tel; }
     public void setA_Tel(String a_Tel) { this.a_Tel = a_Tel; }
-    public String getA_Addr() { return a_Addr; }
-    public void setA_Addr(String a_Addr) { this.a_Addr = a_Addr; }
     public String getA_Email() { return a_Email; }
     public void setA_Email(String a_Email) { this.a_Email = a_Email; }
 }

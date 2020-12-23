@@ -1,11 +1,15 @@
 package spring.mvc.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
+
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import spring.mvc.domain.AdminVO;
 import spring.mvc.service.AdminService;
 
@@ -15,6 +19,9 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 @Controller
@@ -24,12 +31,22 @@ public class AdminController {
     private AdminService adminService;
 
 
+    @RequestMapping("/admin/index.do")
+    public String index(AdminVO adminVO) {
+        System.out.println("index() 호출");
+        System.out.println(adminVO.getA_Id());
+        System.out.println(adminVO.getA_Pass());
+        return "/admin/index";
+    }
+
     @RequestMapping("/admin/{url}.do")
     public String test(@PathVariable String url) { return "/admin/"+url; }
 
+
+
     //회원가입 요청
     @RequestMapping("/admin/adminInsert.do")
-    public String adminInsert(AdminVO vo, Model m){
+    public String adminInsert(AdminVO vo){
         adminService.adminInsert(vo);
         return "admin/register_ok";
     }
@@ -46,25 +63,51 @@ public class AdminController {
         return message;
 
     }
-
+//
     //로그인
     @RequestMapping("/admin/loginCheck.do")
-    public String loginCheck(AdminVO vo, HttpSession session, Model m){
-        AdminVO adminVO = adminService.idCheck_Login(vo);
-        if(adminVO==null || adminVO.getA_Id() == null){
-            System.out.println("로그인 실패");
-           return "/admin/login.do";
-        }
-        else{
-            m.addAttribute("a_Id", adminVO.getA_Id());
-            m.addAttribute("a_Email", adminVO.getA_Email());
-            m.addAttribute("adminVO", adminVO);
+    @ResponseBody
+    public Object loginCheck(@RequestBody Map<String, Object> map, HttpSession session, ModelAndView modelAndView) {
 
-            session.setAttribute("login", adminVO.getA_Id());
+        AdminVO vo = new AdminVO();
+        vo.setA_Id((String) map.get("a_Id"));
+        vo.setA_Pass((String) map.get("a_Pass"));
+        AdminVO adminVO = adminService.idCheck_Login(vo);
+        if (adminVO == null || adminVO.getA_Id() == null) {
+            System.out.println("로그인 실패");
+            return "";
+
+        } else {
+
+            session.setAttribute("a_Id", adminVO.getA_Id());
+            session.setAttribute("a_Email", adminVO.getA_Email());
+            session.setAttribute("a_Name", "윤기돌");
             System.out.println("로그인 성공");
-            return "redirect:/admin/index.do";
-        }
+            return adminVO;
+//      }
+
+     }
     }
+
+
+
+//        AdminVO vo = new AdminVO();
+//        vo.setA_Id((String) map.get("a_Id"));
+//        vo.setA_Pass((String) map.get("a_Pass"));
+//        AdminVO adminVO = adminService.idCheck_Login(vo);
+//        if (adminVO == null || adminVO.getA_Id() == null) {
+//            System.out.println("로그인 실패");
+//            return "redirect:/admin/reset-password.do";
+//
+//        } else {
+//
+//            session.setAttribute("login", adminVO.getA_Id());
+//            System.out.println("로그인 성공");
+//            return "redirect:/admin/login.do";
+////        }
+//
+//        }
+
 
     //아이디 찾기
     @RequestMapping("/admin/sendId.do")
@@ -82,7 +125,8 @@ public class AdminController {
 
         if (adminService.idSearch(vo) != null) {
             result = adminService.idSearch(vo);
-        } else return "/admin/idsearch_no";
+        } else
+            return "redirect:/admin/idsearch_no";
 
         Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -176,4 +220,5 @@ public class AdminController {
 
         return "/admin/idsearch_ok";
     }
+
 }

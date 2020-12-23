@@ -4,9 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
-
-    <!-- 여기를 완성 -->
-<insert id="adminInsert" parameterType="admin">
+ <insert id="adminInsert" parameterType="admin">
         INSERT INTO admin
         (a_code, a_id, a_pass, a_email)VALUES (seq_admin_a_code.NEXTVAL, #{a_Id}, #{a_Pass}, #{a_Email})
 </insert>
@@ -20,10 +18,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="idSearch" parameterType="admin" resultType="admin">
         SELECT * FROM admin WHERE a_email = #{a_Email}
+        <if test="a_Id != null">
+            and a_id = #{a_Id}
+        </if>
     </select>
 
     <update id="updatePass" parameterType="admin">
         UPDATE admin SET a_pass = #{a_Pass} WHERE a_id = #{a_Id} and a_email = #{a_Email}
     </update>
+
 
 </mapper>

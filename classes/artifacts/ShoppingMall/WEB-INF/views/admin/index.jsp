@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>세션 ID : ${sessionScope.login}</title>
+  <title>세션 ID : ${sessionScope.a_Id}</title>
   <!-- loader-->
   <link href="/ShoppingMall/admin/assets/css/pace.min.css" rel="stylesheet"/>
   <script src="/ShoppingMall/admin/assets/js/pace.min.js"></script>
@@ -55,6 +55,12 @@
           <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
         </a>
       </li>
+
+       <li>
+           <a href="/ShoppingMall/admin/product.do">
+               <i class="fa fa-shopping-cart"></i> <span>상품 등록</span>
+           </a>
+       </li>
 
       <li>
         <a href="/ShoppingMall/admin/forms.do">
@@ -148,8 +154,8 @@
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
             <div class="media-body">
-            <h6 class="mt-2 user-title">${adminVO.a_Id} , ${admin.a_Email} ${vo.a_Id}, ${vo.a_Email} ${a_Id}, ${a_Email} </h6>
-            <p class="user-subtitle">mccoy@example.com</p>
+            <h6 class="mt-2 user-title">${adminVO.a_Id}${vo.a_Id} ${sessionScope.a_Id} </h6>
+            <p class="user-subtitle">${sessionScope.a_Email}</p>
             </div>
            </div>
           </a>
