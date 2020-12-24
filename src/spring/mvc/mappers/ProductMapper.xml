@@ -23,6 +23,8 @@
         UPDATE product SET p_content = #{p_Content} WHERE p_id = #{p_Id}
     </update>
 
-
+    <select id="getProductList" resultType="product">
+        SELECT * FROM product
+    </select>
 
 </mapper>

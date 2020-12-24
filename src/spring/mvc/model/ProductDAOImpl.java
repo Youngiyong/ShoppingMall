@@ -4,7 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import spring.mvc.domain.ProductImageVO;
-import spring.mvc.domain.ProductRegistVO;
+import spring.mvc.domain.ProductStockVO;
 import spring.mvc.domain.ProductVO;
 
 import java.util.List;
@@ -28,15 +28,15 @@ public class ProductDAOImpl implements ProductDAO{
     }
 
     @Override
-    public int registProductVO(ProductRegistVO vo) {
-        System.out.println("===> Mybatis registProductVO() 호출");
-        return mybatis.insert("product.registProductVO", vo);
+    public int insertProductStockVO(ProductStockVO vo) {
+        System.out.println("===> Mybatis insertProductStockVO() 호출");
+        return mybatis.insert("product.insertProductStockVO", vo);
     }
 
     @Override
-    public ProductVO getProduct(ProductVO vo) {
-        System.out.println("===> Mybatis getProduct() 호출");
-        return mybatis.selectOne("product.getProduct", vo);
+    public List<ProductVO> getProductList(ProductVO vo) {
+        System.out.println("===> Mybatis getProductList() 호출");
+        return mybatis.selectList("product.getProductList", vo);
     }
 
     @Override

@@ -55,24 +55,24 @@
           <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
         </a>
       </li>
-
        <li>
            <a href="/ShoppingMall/admin/product.do">
                <i class="fa fa-shopping-cart"></i> <span>상품 등록</span>
            </a>
        </li>
 
-      <li>
-        <a href="/ShoppingMall/admin/forms.do">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
-        </a>
-      </li>
 
-      <li>
-        <a href="/ShoppingMall/admin/tables.do">
-          <i class="zmdi zmdi-grid"></i> <span>Tables</span>
-        </a>
-      </li>
+       <li>
+           <a href="/ShoppingMall/admin/products.do">
+               <i class="zmdi zmdi-grid"></i> <span>상품 정보</span>
+           </a>
+       </li>
+       <li>
+           <a href="/ShoppingMall/admin/product_modify.do">
+               <i class="zmdi zmdi-format-list-bulleted"></i> <span>상품 수정</span>
+           </a>
+       </li>
+       <li>
 
       <li>
         <a href="/admin/calendar.do">

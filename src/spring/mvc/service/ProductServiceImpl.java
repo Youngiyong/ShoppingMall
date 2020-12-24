@@ -2,7 +2,7 @@ package spring.mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spring.mvc.domain.ProductRegistVO;
+import spring.mvc.domain.ProductStockVO;
 import spring.mvc.domain.ProductVO;
 import spring.mvc.model.ProductDAOImpl;
 import spring.mvc.domain.ProductImageVO;
@@ -25,8 +25,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public int registProductVO(ProductRegistVO vo) {
-        int result = productDAO.registProductVO(vo);
+    public int insertProductStockVO(ProductStockVO vo) {
+        int result = productDAO.insertProductStockVO(vo);
         return result;
     }
 
@@ -37,8 +37,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductVO getProduct(ProductVO vo) {
-        return productDAO.getProduct(vo);
+    public List<ProductVO> getProductList(ProductVO vo) {
+        return productDAO.getProductList(vo);
     }
 
     @Override
@@ -55,4 +55,6 @@ public class ProductServiceImpl implements ProductService {
     public ProductVO selectSequence() {
         return productDAO.selectSequence();
     }
+
+
 }

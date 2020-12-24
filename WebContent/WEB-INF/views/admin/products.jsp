@@ -225,159 +225,59 @@
         </nav>
 </header>
 <!--End topbar header-->
+
      <div class="container tm-mt-big tm-mb-big">
          <div class="row">
              <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
                  <br class="tm-bg-primary-dark tm-block tm-block-h-auto">
-                     <div class="row">
-                         <div class="col-12">
-                             <h2 class="tm-block-title d-inline-block">상품 추가</h2>
-                         </div>
-                     </div>
-                     <div class="row tm-edit-product-row">
-                         <div class="col-xl-6 col-lg-6 col-md-12">
-                             <form method="post" action="/ShoppingMall/admin/upload.do" enctype="multipart/form-data" class="tm-edit-product-form">
-                                 <div class="form-group mb-3">
+                 <div class="tm-product-table-container">
+                     <table class="table table-hover tm-table-small tm-product-table">
+                         <thead>
+                         <tr>
+                             <th scope="col">&nbsp;</th>
+                             <th scope="col">카테고리</th>
+                             <th scope="col">상품 아이디</th>
+                             <th scope="col">상품 이름</th>
+                             <th scope="col">상품 가격</th>
+                             <th scope="col">상품 입력 날짜 </th>
 
+                         </tr>
+                         </thead>
+                         <tbody>
+                         <tr>
+                             <th scope="row"><input type="checkbox" /></th>
+                             <td class="tm-product-name">Lorem Ipsum Product 1</td>
+                             <td>1,450</td>
+                             <td>550</td>
+                             <td>28 March 2019</td>
+                             <td>
+                                 <a href="#" class="tm-product-delete-link">
+                                     <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                 </a>
+                             </td>
+                         </tr>
 
-                                     <label
-                                             for="p_Name"
-                                     >상품명
-                                     </label>
-                                     <input
-                                             id="p_Name"
-                                             name="p_Name"
-                                             type="text"
-                                             class="custom-select tm-select-accounts validate"
-                                             required
-                                     />
-                                 </div>
-
-                                 <div class="form-group mb-3">
-                                     <label
-                                             for="p_Cate"
-                                     >카테고리</label
-                                     >
-                                     <select name="p_Cate"
-                                             class="custom-select tm-select-accounts"
-                                             id="p_Cate"
-                                     >
-                                         <option selected>상의</option>
-                                         <option value="아우터">아우터</option>
-                                         <option value="바지">바지</option>
-                                         <option value="빤스">빤스</option>
-                                         <option value="가방">가방</option>
-                                         <option value="시계">시계</option>
-                                         <option value="신발">신발</option>
-                                         <option value="악세서리">악세서리</option>
-                                         <option value="캐주얼의류">캐주얼의류</option>
-                                     </select>
-                                 </div>
-                                 <div class="row">
-                                     <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                         <label
-                                                 for="p_Price"
-                                         >상품 가격
-                                         </label>
-                                         <input
-                                                 id="p_Price"
-                                                 name="p_Price"
-                                                 type="text"
-                                                 class="custom-select tm-select-accounts validate"
-                                                 required
-                                         />
-                                     </div>
-                                     <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                         <label
-                                                 for="p_Count"
-                                         >상품 수량
-                                         </label>
-                                         <input
-                                                 id="p_Count"
-                                                 name="p_Count"
-                                                 type="text"
-                                                 class="custom-select tm-select-accounts validate"
-                                                 required
-                                         />
-                                     </div>
-                                     <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                         <label
-                                                 for="p_Color"
-                                         >Color
-                                         </label>
-                                         <select
-                                                 class="custom-select tm-select-accounts"
-                                                 id="p_Color" name="p_Color"
-                                         >
-                                             <option selected>Black</option>
-                                             <option value="Blue">Blue</option>
-                                             <option value="Red">Red</option>
-                                             <option value="White">White</option>
-                                         </select>
-                                     </div>
-                                     <input type="hidden" name="i_Ip" value="<%=request.getRemoteAddr()%>">
-                                     <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                         <label
-                                                 for="p_Size"
-                                         >Size
-                                         </label>
-                                         <select
-                                                 class="custom-select tm-select-accounts"
-                                                 id="p_Size"
-                                                 name="p_Size"
-                                         >
-                                             <option selected>S</option>
-                                             <option value="M">M</option>
-                                             <option value="L">L</option>
-                                             <option value="XL">XL</option>
-                                         </select>
-                                     </div>
-                                 </div>
-
-                         </div>
-                         <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                             </br>
-                             <div class="form-group mb-3">
-
-                             <div class="tm-product-img-dummy mx-auto">
-                                 <i
-                                         class="fas fa-cloud-upload-alt tm-upload-icon"
-                                         onclick="document.getElementById('fileInput').click();"
-                                 ></i>
-                             </div>
-                             <div class="custom-file mt-3 mb-3">
-                                 <input id="file" name="file" type="file" value="메인 이미지 업로드" multiple="multiple" />
-                             </div>
-                         </div>
-                         </div>
-                            <div class="col-12">
-                         <label
-                                 for="summernote"
-                         >상품설명</label
-                         > <input id="test" type="file" style="display:none;" />
-                                <textarea rows="10" cols="100"
-                                        id="summernote"
-                                        name="p_Content"
-                                        type="text"
-                                        class="custom-select tm-select-accounts validate"
-                                        required
-                                ></textarea>
-
-                     </div>
-                     </div>
-
-                     </div>
-                         <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                             <button type="submit" class="btn btn-primary btn-block text-uppercase">상품 추가</button>
-                         </div>
-                         </form>
-                     </div>
+                         </tbody>
+                     </table>
                  </div>
+
+
+                 <%--<!--end color switcher-->--%>
+                 <%----%>
+                 <%--</div><!--End wrapper-->--%>
+
+
+                 <!-- table container -->
+                 <a
+                         href="add-product.html"
+                         class="btn btn-primary btn-block text-uppercase mb-3">상품 삭제</a>
+                 <button class="btn btn-primary btn-block text-uppercase">
+                     상품 수정 페이지 이동
+                 </button>
              </div>
          </div>
-     </div>
 
-  <%--<!--end color switcher-->--%>
+     <%--<!--end color switcher-->--%>
    <%----%>
   <%--</div><!--End wrapper-->--%>
 
