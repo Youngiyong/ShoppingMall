@@ -16,4 +16,8 @@ public interface ProductDAO {
     public List<ProductVO> getProductList(ProductVO vo);
     public List<ProductImageVO> getProductImg(ProductImageVO vo);
 
+    public int deleteProductList(List<ProductVO> vo);
+    public int deleteProductImageList(List<ProductVO> vo);
+    public int deleteProductStockList(List<ProductVO> vo);
+
 }

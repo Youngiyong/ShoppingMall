@@ -27,4 +27,31 @@
         SELECT * FROM product
     </select>
 
+    <delete id="deleteProductStockList" parameterType="java.util.List">
+        DELETE FROM PRODUCT_STOCK
+        <where>
+            <foreach collection="list" item="item" open="" close="" separator="OR">
+                (p_id = #{item.p_Id})
+            </foreach>
+        </where>
+    </delete>
+
+    <delete id="deleteProductImageList" parameterType="java.util.List">
+        DELETE FROM PRODUCT_IMAGE
+        <where>
+            <foreach collection="list" item="item" open="" close="" separator="OR">
+                (p_id = #{item.p_Id})
+            </foreach>
+        </where>
+    </delete>
+
+    <delete id="deleteProductList" parameterType="java.util.List">
+        DELETE FROM PRODUCT
+        <where>
+            <foreach collection="list" item="item" open="" close="" separator="OR">
+                (p_id = #{item.p_Id})
+            </foreach>
+        </where>
+    </delete>
+
 </mapper>

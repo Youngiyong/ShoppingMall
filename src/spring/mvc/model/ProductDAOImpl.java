@@ -56,4 +56,21 @@ public class ProductDAOImpl implements ProductDAO{
         System.out.println("===> Mybatis selectSequence() 호출");
         return mybatis.selectOne("product.selectSequence");
     }
+
+    @Override
+    public int deleteProductList(List<ProductVO> vo) {
+        System.out.println("===> Mybatis deleteProductList() 호출");
+        return mybatis.delete("product.deleteProductList", vo);
+    }
+    @Override
+    public int deleteProductImageList(List<ProductVO> vo) {
+        System.out.println("===> Mybatis deleteProductImageList() 호출");
+        return mybatis.delete("product.deleteProductImageList", vo);
+    }
+
+    @Override
+    public int deleteProductStockList(List<ProductVO> vo) {
+        System.out.println("===> Mybatis deleteProductStockList() 호출");
+        return mybatis.delete("product.deleteProductStockList", vo);
+    }
 }

@@ -262,7 +262,8 @@
                                              class="custom-select tm-select-accounts"
                                              id="p_Cate"
                                      >
-                                         <option selected>상의</option>
+                                         <option selected>셔츠</option>
+                                         <option selected>반팔</option>
                                          <option value="아우터">아우터</option>
                                          <option value="바지">바지</option>
                                          <option value="빤스">빤스</option>

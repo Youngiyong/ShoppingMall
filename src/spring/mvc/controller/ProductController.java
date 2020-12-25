@@ -1,6 +1,5 @@
 package spring.mvc.controller;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,33 +26,23 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(value="/admin/deleteId.do")
+    @RequestMapping("/admin/deleteId.do")
     @ResponseBody
-    public Object deleteId(@RequestParam String jsonData){
-        System.out.println(jsonData);
-        Map<String, Object> result = new HashMap<String, Object>();
-        Map<String, Object> paramMap = new HashMap<String, Object>();
-
-        //직렬화 시켜 가져온 오브젝트 배열을 JSONArray 형식으로 바꿔준다.
-        JSONArray array = JSONArray.fromObject(jsonData);
-        List<Map<String, Object>> resendList = new ArrayList<Map<String, Object>>();
-        System.out.println(array.size());
-        for(int i=0; i<array.size(); i++){
-            //JSONArray 형태의 값을 가져와 JSONObject 로 풀어준다.
-            JSONObject obj = (JSONObject)array.get(i);
-            Map<String, Object> resendMap = new HashMap<String, Object>();
-            resendMap.put("p_Id", obj.get("p_Id"));
-            resendList.add(resendMap);
-            System.out.println(resendMap.get(i));
+    public String deleteId(@RequestBody ProductVO[] vo){
+        List<ProductVO> list = new ArrayList<>();
+        for(int i=0; i<vo.length; i++){
+            list.add(vo[i]);
+            System.out.println(list.get(i).getP_Id());
         }
-        paramMap.put("resendList", resendList);
 
-//        int cnt = callCenterService.callCenterResend(paramMap);
-
-        result.put("result", "success");
-//        result.put("cnt", cnt);
-
-        return result;
+        productService.deleteProductStockList(list);
+        productService.deleteProductImageList(list);
+        int result = productService.deleteProductList(list);
+        if(result>0){
+            return "성공";
+        }
+        else
+            return "실패";
 
     }
 

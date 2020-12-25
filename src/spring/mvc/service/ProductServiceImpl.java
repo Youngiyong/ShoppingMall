@@ -25,16 +25,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public int insertProductStockVO(ProductStockVO vo) {
-        int result = productDAO.insertProductStockVO(vo);
-        return result;
-    }
+    public int insertProductStockVO(ProductStockVO vo) { return productDAO.insertProductStockVO(vo); }
 
     @Override
-    public int insertProductIMG(ProductImageVO vo) {
-        int result = productDAO.insertProductIMG(vo);
-        return result;
-    }
+    public int insertProductIMG(ProductImageVO vo) { return productDAO.insertProductIMG(vo); }
 
     @Override
     public List<ProductVO> getProductList(ProductVO vo) {
@@ -56,5 +50,12 @@ public class ProductServiceImpl implements ProductService {
         return productDAO.selectSequence();
     }
 
+    @Override
+    public int deleteProductList(List<ProductVO> vo) { return productDAO.deleteProductList(vo); }
 
+    @Override
+    public int deleteProductImageList(List<ProductVO> vo) { return productDAO.deleteProductImageList(vo); }
+
+    @Override
+    public int deleteProductStockList(List<ProductVO> vo) { return productDAO.deleteProductStockList(vo);}
 }

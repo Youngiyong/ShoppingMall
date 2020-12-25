@@ -18,7 +18,7 @@
         SELECT P_Id FROM product WHERE ROWNUM = 1 ORDER BY P_ID desc
     </select>
 
-        <update id="updateContent" parameterType="product">
+    <update id="updateContent" parameterType="product">
         UPDATE product SET p_content = #{p_Content} WHERE p_id = #{p_Id}
     </update>
 
@@ -30,5 +30,33 @@
     <select id="getProductList" resultType="product">
         SELECT * FROM product
     </select>
+
+<delete id="deleteProductStockList" parameterType="java.util.List">
+        DELETE FROM PRODUCT_STOCK
+ <where>
+  <foreach collection="list" item="item" open="" close="" separator="OR">
+        (p_id = #{item.p_Id})
+  </foreach>
+ </where>
+</delete>
+
+<delete id="deleteProductImageList" parameterType="java.util.List">
+       DELETE FROM PRODUCT_IMAGE
+       <where>
+            <foreach collection="list" item="item" open="" close="" separator="OR">
+                (p_id = #{item.p_Id})
+            </foreach>
+        </where>
+ </delete>
+
+<delete id="deleteProductList" parameterType="java.util.List">
+        DELETE FROM PRODUCT
+        <where>
+            <foreach collection="list" item="item" open="" close="" separator="OR">
+                (p_id = #{item.p_Id})
+            </foreach>
+        </where>
+</delete>
+
 
 </mapper>
