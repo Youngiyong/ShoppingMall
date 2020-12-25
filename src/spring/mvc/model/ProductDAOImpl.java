@@ -73,4 +73,22 @@ public class ProductDAOImpl implements ProductDAO{
         System.out.println("===> Mybatis deleteProductStockList() 호출");
         return mybatis.delete("product.deleteProductStockList", vo);
     }
+
+    @Override
+    public ProductVO selectProductIDInfo(ProductVO vo) {
+        System.out.println("===> Mybatis selectProductIDInfo() 호출");
+        return mybatis.selectOne("product.selectProductIDInfo", vo);
+    }
+
+    @Override
+    public ProductImageVO selectProductImageIDInfo(ProductVO vo) {
+        System.out.println("===> Mybatis deleteProductStockList() 호출");
+        return mybatis.selectOne("product.selectProductImageIDInfo", vo);
+    }
+
+    @Override
+    public ProductStockVO selectProductStockIDInfo(ProductVO vo) {
+        System.out.println("===> Mybatis selectProductStockIDInfo() 호출");
+        return mybatis.selectOne("product.selectProductStockIDInfo", vo);
+    }
 }

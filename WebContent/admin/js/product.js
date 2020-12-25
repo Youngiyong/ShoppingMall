@@ -1,7 +1,33 @@
 $(function () {
+    $('#btn_modify').click(function () {
+        var obj = new Object(); //key, value형태로 저장할 Object
+        $('.checkSelect:checked').each(function () {
+            obj.p_Id = $(this).parent().parent().find("td.p_Id").text();
+
+            // create element (form)
+            var newForm = document.createElement('form');
+            // set attribute (form)
+            newForm.id = 'newForm';
+            newForm.method = 'post';
+            // create element (input)
+            var input = document.createElement('input');
+            // set attribute (input)
+            input.setAttribute("type", "hidden");
+            input.setAttribute("name", "p_Id");
+            input.setAttribute("value", obj.p_Id);
+            // append input (to form)
+            newForm.appendChild(input);
+            // append form (to body)
+            document.body.appendChild(newForm);
+
+            $('#newForm').attr("action", "/ShoppingMall/admin/updateId.do").submit();
+        })
+
+
+
+    })
 
     $("#btn_delete").click(function () {
-        var param = [];
         var arrPrmtr = new Array(); //Object를 배열로 저장할 Array
         var objPrmtr = new Object(); //key, value형태로 저장할 Object
 
@@ -10,31 +36,18 @@ $(function () {
             objPrmtr = new Object();
             objPrmtr.p_Id = $(this).parent().parent().find("td.p_Id").text();
             arrPrmtr.push(objPrmtr);
-
-
-            // var data = { 'p_Id' : $(this).parent().parent().find("td.p_Id").text() }
-            // alert($(this).parent().parent().find("td.p_Id").text() );
-            // param.push(data);
         })
-        //param 배열에 data 오브젝트를 담는다.
-
-        // 데이터를 직렬화 시키기 : JSON.stringify("Object 배열 변수명")
-        // var jsonData = JSON.stringify(param);
 
         $.ajax({
             type : 'post',
             url: '/ShoppingMall/admin/deleteId.do',
             contentType:'application/json; charset=UTF-8',
             traditional : true,
-            dataType:'json',
             data : JSON.stringify(arrPrmtr),
-            // data : {
-            //     "jsonData" : jsonData
-            // },
             dataType : 'json',
             success : function (data) {
                 alert('삭제가 완료 되었습니다.');
-                $(".checkSelect").prop('checked', false);
+                location.href = "/ShoppingMall/admin/products.do";
             },
             error: function(err) {
                 //err msg 출력

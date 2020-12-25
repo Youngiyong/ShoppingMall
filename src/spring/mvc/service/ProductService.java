@@ -12,11 +12,18 @@ public interface ProductService {
     public int updateContent(ProductVO vo);
     public ProductVO selectSequence();
 
+    //상품 정보 전체 불러오기
     public List<ProductVO> getProductList(ProductVO vo);
     public List<ProductImageVO> getProductImg(ProductImageVO vo);
 
+    //상품 삭제 메소드 순서 : Stock -> Image -> Product
     public int deleteProductList(List<ProductVO> vo);
     public int deleteProductImageList(List<ProductVO> vo);
     public int deleteProductStockList(List<ProductVO> vo);
+
+    //상품 수정 눌렀을시 정보 불러오는 메소드
+    public ProductVO selectProductIDInfo(ProductVO vo);
+    public ProductImageVO selectProductImageIDInfo(ProductVO vo);
+    public ProductStockVO selectProductStockIDInfo(ProductVO vo);
 
 }

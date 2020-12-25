@@ -26,6 +26,19 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @RequestMapping("/admin/updateId.do")
+    public String updateId(ProductVO vo){
+        System.out.println(vo.getP_Id());
+        ProductVO productVO = new ProductVO();
+        ProductImageVO productImageVO = new ProductImageVO();
+        ProductStockVO productStockVO = new ProductStockVO();
+        productVO = productService.selectProductIDInfo(vo);
+        productImageVO = productService.selectProductImageIDInfo(vo);
+        productStockVO = productService.selectProductStockIDInfo(vo);
+        
+        return "/admin/product_modify";
+    }
+
     @RequestMapping("/admin/deleteId.do")
     @ResponseBody
     public String deleteId(@RequestBody ProductVO[] vo){
@@ -68,10 +81,6 @@ public class ProductController {
         String fileMultiName = "";
         int result = productService.insertProductVO(vo);
         ProductVO productVO = productService.selectSequence();
-        System.out.println(vo.getP_Content());
-        productVO.setP_Content(vo.getP_Content());
-        productService.updateContent(productVO);
-        StringBuffer buffer = new StringBuffer();
         int size = 0;
         if(result>0){
                 for(int i=0; i<file.length; i++){

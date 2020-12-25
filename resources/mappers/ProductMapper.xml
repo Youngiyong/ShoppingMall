@@ -58,5 +58,15 @@
         </where>
 </delete>
 
+    <select id="selectProductIDInfo"  parameterType="product" resultType="product">
+        SELECT * FROM PRODUCT WHERE P_ID = #{p_Id}
+    </select>
 
+    <select id="selectProductImageIDInfo"  parameterType="product" resultType="product_img">
+        SELECT * FROM PRODUCT_IMAGE WHERE P_ID = #{p_Id}
+    </select>
+
+    <select id="selectProductStockIDInfo"  parameterType="product" resultType="product_stock">
+        SELECT * FROM PRODUCT_STOCK WHERE P_ID = #{p_Id}
+    </select>
 </mapper>

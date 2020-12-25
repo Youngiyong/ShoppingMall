@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="product">
     <!-- 여기를 완성 -->
     <insert id="insertProductVO" parameterType="product">
         INSERT INTO product
-        (p_id, p_cate, p_name, p_content, p_price)VALUES (seq_product_p_Id.NEXTVAL, #{p_Cate}, #{p_Name}
-        , #{p_Content}, #{p_Price})
+        (p_id, p_cate, p_name, p_content, p_price, p_date)VALUES
+        (seq_product_p_Id.NEXTVAL, #{p_Cate}, #{p_Name}, #{p_Content}, #{p_Price}, sysdate)
 </insert>
-
     <insert id="insertProductIMG" parameterType="product_img">
         INSERT INTO product_image(p_id, i_ip, i_fname, i_fsize)
         VALUES(#{p_Id}, #{i_Ip}, #{i_Fname}, #{i_Fsize})
-</insert>
-    <select id="selectSequence" resultType="product">
-        SELECT P_ID FROM product WHERE ROWNUM = 1 ORDER BY P_ID desc
+    </insert>
+    <select id="selectSequence"  resultType="product">
+        SELECT P_Id FROM product WHERE ROWNUM = 1 ORDER BY P_ID desc
     </select>
 
     <update id="updateContent" parameterType="product">
@@ -31,6 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="getProductList" resultType="product">
         SELECT * FROM product
     </select>
+
     <delete id="deleteProductStockList" parameterType="java.util.List">
         DELETE FROM PRODUCT_STOCK
         <where>
@@ -58,4 +58,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </delete>
 
+    <select id="selectProductIDInfo"  parameterType="product" resultType="product">
+        SELECT * FROM PRODUCT WHERE P_ID = #{p_Id}
+    </select>
+
+    <select id="selectProductImageIDInfo"  parameterType="product" resultType="product_img">
+        SELECT * FROM PRODUCT_IMAGE WHERE P_ID = #{p_Id}
+    </select>
+
+    <select id="selectProductStockIDInfo"  parameterType="product" resultType="product_stock">
+        SELECT * FROM PRODUCT_STOCK WHERE P_ID = #{p_Id}
+    </select>
 </mapper>
