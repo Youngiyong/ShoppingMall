@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -244,12 +246,9 @@
                                              for="p_Name"
                                      >상품명
                                      </label>
-                                     <input
-                                             id="p_Name"
-                                             name="p_Name"
-                                             type="text"
+                                     <input id="p_Name" name="p_Name" type="text"
                                              class="custom-select tm-select-accounts validate"
-                                             required
+                                             value=${productVO.p_Name}
                                      />
                                  </div>
 
@@ -262,7 +261,8 @@
                                              class="custom-select tm-select-accounts"
                                              id="p_Cate"
                                      >
-                                         <option selected>상의</option>
+                                         <option selected>${productVO.p_Cate}</option>
+                                         <option value="반팔">반팔</option>
                                          <option value="아우터">아우터</option>
                                          <option value="바지">바지</option>
                                          <option value="빤스">빤스</option>
@@ -285,6 +285,7 @@
                                                  type="text"
                                                  class="custom-select tm-select-accounts validate"
                                                  required
+                                                 value=${productVO.p_Price}
                                          />
                                      </div>
                                      <div class="form-group mb-3 col-xs-12 col-sm-6">
@@ -298,6 +299,7 @@
                                                  type="text"
                                                  class="custom-select tm-select-accounts validate"
                                                  required
+                                                 value=${productStockVO.p_Count}
                                          />
                                      </div>
                                      <div class="form-group mb-3 col-xs-12 col-sm-6">
@@ -309,7 +311,8 @@
                                                  class="custom-select tm-select-accounts"
                                                  id="p_Color" name="p_Color"
                                          >
-                                             <option selected>Black</option>
+                                             <option selected>${productStockVO.p_Color}</option>
+                                             <option value="Black">Black</option>
                                              <option value="Blue">Blue</option>
                                              <option value="Red">Red</option>
                                              <option value="White">White</option>
@@ -326,7 +329,9 @@
                                                  id="p_Size"
                                                  name="p_Size"
                                          >
-                                             <option selected>S</option>
+
+                                             <option selected>${productStockVO.p_Size}</option>
+                                             <option value="S">S</option>
                                              <option value="M">M</option>
                                              <option value="L">L</option>
                                              <option value="XL">XL</option>
@@ -347,6 +352,7 @@
                              </div>
                              <div class="custom-file mt-3 mb-3">
                                  <input id="file" name="file" type="file" value="메인 이미지 업로드" multiple="multiple" />
+
                              </div>
                          </div>
                          </div>
@@ -360,7 +366,8 @@
                                         name="p_Content"
                                         type="text"
                                         class="custom-select tm-select-accounts validate"
-                                        required
+                                        value=${productVO.p_Content}
+
                                 ></textarea>
 
                      </div>

@@ -20,7 +20,7 @@ $(function () {
             // append form (to body)
             document.body.appendChild(newForm);
 
-            $('#newForm').attr("action", "/ShoppingMall/admin/updateId.do").submit();
+            $('#newForm').attr("action", "/ShoppingMall/admin/product_modify.do").submit();
         })
 
 

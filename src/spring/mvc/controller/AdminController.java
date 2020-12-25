@@ -97,22 +97,6 @@ public class AdminController {
 
 
 
-//        AdminVO vo = new AdminVO();
-//        vo.setA_Id((String) map.get("a_Id"));
-//        vo.setA_Pass((String) map.get("a_Pass"));
-//        AdminVO adminVO = adminService.idCheck_Login(vo);
-//        if (adminVO == null || adminVO.getA_Id() == null) {
-//            System.out.println("로그인 실패");
-//            return "redirect:/admin/reset-password.do";
-//
-//        } else {
-//
-//            session.setAttribute("login", adminVO.getA_Id());
-//            System.out.println("로그인 성공");
-//            return "redirect:/admin/login.do";
-////        }
-//
-//        }
 
 
     //아이디 찾기

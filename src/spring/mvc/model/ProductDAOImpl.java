@@ -82,7 +82,7 @@ public class ProductDAOImpl implements ProductDAO{
 
     @Override
     public ProductImageVO selectProductImageIDInfo(ProductVO vo) {
-        System.out.println("===> Mybatis deleteProductStockList() 호출");
+        System.out.println("===> Mybatis selectProductImageIDInfo() 호출");
         return mybatis.selectOne("product.selectProductImageIDInfo", vo);
     }
 

@@ -33,6 +33,9 @@
     <script src="/ShoppingMall/resources/dist/summernote.js" type="text/javascript"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
     <style>
+        #product_regist{
+            color : white;
+        }
         #file {
             color: white;
         }
@@ -231,7 +234,7 @@
                  <br class="tm-bg-primary-dark tm-block tm-block-h-auto">
                      <div class="row">
                          <div class="col-12">
-                             <h2 class="tm-block-title d-inline-block">상품 등록</h2>
+                             <h2 id = "product_regist" class="tm-block-title d-inline-block">상품 등록</h2>
                          </div>
                      </div>
                      <div class="row tm-edit-product-row">
@@ -262,7 +265,8 @@
                                              class="custom-select tm-select-accounts"
                                              id="p_Cate"
                                      >
-                                         <option selected>상의</option>
+                                         <option selected>셔츠</option>
+                                         <option selected>반팔</option>
                                          <option value="아우터">아우터</option>
                                          <option value="바지">바지</option>
                                          <option value="빤스">빤스</option>

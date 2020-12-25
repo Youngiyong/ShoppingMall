@@ -26,16 +26,15 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping("/admin/updateId.do")
-    public String updateId(ProductVO vo){
+
+    @RequestMapping("/admin/product_modify.do")
+    public String productModify(ProductVO vo, Model m){
         System.out.println(vo.getP_Id());
-        ProductVO productVO = new ProductVO();
-        ProductImageVO productImageVO = new ProductImageVO();
-        ProductStockVO productStockVO = new ProductStockVO();
-        productVO = productService.selectProductIDInfo(vo);
-        productImageVO = productService.selectProductImageIDInfo(vo);
-        productStockVO = productService.selectProductStockIDInfo(vo);
-        
+
+        m.addAttribute( "productVO", productService.selectProductIDInfo(vo));
+        m.addAttribute( "productImageVO", productService.selectProductImageIDInfo(vo));
+        m.addAttribute( "productStockVO", productService.selectProductStockIDInfo(vo));
+
         return "/admin/product_modify";
     }
 
@@ -72,6 +71,7 @@ public class ProductController {
     }
     
 
+    //상품 등록 이미지 파일 첨부
     @RequestMapping("/admin/upload.do")
     public String upload(ProductVO vo, ProductImageVO ivo, ProductStockVO svo, @RequestParam("file") MultipartFile[] file) throws IOException {
         System.out.println("upload 함수 호출");

@@ -1,32 +1,53 @@
 $(function () {
+    $('#btn_modify').click(function () {
+        var obj = new Object(); //key, value형태로 저장할 Object
+        $('.checkSelect:checked').each(function () {
+            obj.p_Id = $(this).parent().parent().find("td.p_Id").text();
+
+            // create element (form)
+            var newForm = document.createElement('form');
+            // set attribute (form)
+            newForm.id = 'newForm';
+            newForm.method = 'post';
+            // create element (input)
+            var input = document.createElement('input');
+            // set attribute (input)
+            input.setAttribute("type", "hidden");
+            input.setAttribute("name", "p_Id");
+            input.setAttribute("value", obj.p_Id);
+            // append input (to form)
+            newForm.appendChild(input);
+            // append form (to body)
+            document.body.appendChild(newForm);
+
+            $('#newForm').attr("action", "/ShoppingMall/admin/product_modify.do").submit();
+        })
+
+
+
+    })
 
     $("#btn_delete").click(function () {
-        var param = [] ;
+        var arrPrmtr = new Array(); //Object를 배열로 저장할 Array
+        var objPrmtr = new Object(); //key, value형태로 저장할 Object
 
         //checkSelect 클래스 체크박스 중 checked 인 것들만 가져와 for문과 같은 역할의 each 함수 사용
         $(".checkSelect:checked").each(function (e) {
-            var data = { 'p_Id' : $(this).parent().parent().find("td.p_Id").text() }
-            alert($(this).parent().parent().find("td.p_Id").text() );
-            param.push(data);
+            objPrmtr = new Object();
+            objPrmtr.p_Id = $(this).parent().parent().find("td.p_Id").text();
+            arrPrmtr.push(objPrmtr);
         })
-        //param 배열에 data 오브젝트를 담는다.
-
-        // 데이터를 직렬화 시키기 : JSON.stringify("Object 배열 변수명")
-        var jsonData = JSON.stringify(param);
-        jQuery.ajaxSettings.traditional = true;
 
         $.ajax({
-
-            method : 'post',
-            contentType: "application/json; charset=utf-8",  // 보내는 데이터 json 일때 필수 옵션
+            type : 'post',
             url: '/ShoppingMall/admin/deleteId.do',
-            data : {
-                data : {"jsonData" : jsonData }
-            },
-            dataType: 'json',
+            contentType:'application/json; charset=UTF-8',
+            traditional : true,
+            data : JSON.stringify(arrPrmtr),
+            dataType : 'json',
             success : function (data) {
                 alert('삭제가 완료 되었습니다.');
-                $(".checkSelect").prop('checked', false);
+                location.href = "/ShoppingMall/admin/products.do";
             },
             error: function(err) {
                 //err msg 출력
@@ -34,8 +55,4 @@ $(function () {
             }
         })
     })
-
-
-
-
 })
