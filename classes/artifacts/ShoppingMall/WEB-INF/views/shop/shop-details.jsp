@@ -24,14 +24,8 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <style type="text/css">
-    .model{
-    text-align: center;
-    }
-    .model_title{
-    font-weight: 500;
-    }
-    </style>
+    <link rel="stylesheet" href="css/additional.css" type="text/css">
+   
     
 </head>
 
@@ -102,8 +96,8 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="/ShoppingMall/WebContent/index.do">Home</a></li>
-                            <li><a href="/ShoppingMall/shop/shop.do">Shop</a></li>
+                            <li><a href="/ShoppingMall/index.jsp">Home</a></li>
+                            <li class="active"><a href="/ShoppingMall/shop/shop.do">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="/ShoppingMall/shop/about.do">About Us</a></li>
@@ -656,6 +650,7 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/additional.js"></script>
 </body>
 
 </html>

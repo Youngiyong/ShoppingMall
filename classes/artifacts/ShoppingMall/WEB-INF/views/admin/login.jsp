@@ -61,7 +61,6 @@
 				  </div>
 			   </div>
 			  </div>
-
 			 <div>
                  　　　
                  <a href="/ShoppingMall/admin/idsearch.do">아이디 찾기</a>

@@ -231,7 +231,7 @@
                  <br class="tm-bg-primary-dark tm-block tm-block-h-auto">
                      <div class="row">
                          <div class="col-12">
-                             <h2 class="tm-block-title d-inline-block">상품 추가</h2>
+                             <h2 class="tm-block-title d-inline-block">상품 등록</h2>
                          </div>
                      </div>
                      <div class="row tm-edit-product-row">

@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/additional.css" type="text/css">
+    <style type="text/css">
+    </style>
 </head>
 
 <body>
@@ -93,8 +96,8 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="/ShoppingMall/WebContent/index.do">Home</a></li>
-                            <li><a href="/ShoppingMall/shop/shop.do">Shop</a></li>
+                            <li><a href="/ShoppingMall/index.jsp">Home</a></li>
+                            <li class="active"><a href="/ShoppingMall/shop/shop.do">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="/ShoppingMall/shop/about.do">About Us</a></li>
@@ -160,6 +163,7 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
+                                                    <li><a href="#">전체 (140)</a></li>
                                                     <li><a href="#">상의 (20)</a></li>
                                                     <li><a href="#">하의 (20)</a></li>
                                                     <li><a href="#">가방 (20)</a></li>
@@ -180,10 +184,10 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__brand">
                                                 <ul>
-                                                    <li><a href="#">Louis Vuitton</a></li>
-                                                    <li><a href="#">Chanel</a></li>
-                                                    <li><a href="#">Hermes</a></li>
-                                                    <li><a href="#">Gucci</a></li>
+                                                    <li><label for="Louis Vuitton"><input type="checkbox" id="Louis Vuitton" name="Louis Vuitton" value="Louis Vuitton">Louis Vuitton</label></li>
+                                                    <li><label for="Chanel"><input type="checkbox" id="Chanel" name="Chanel" value="Chanel">Chanel</label></li>
+                                                    <li><label for="Hermes"><input type="checkbox" id="Hermes" name="Hermes" value="Hermes">Hermes</label></li>
+                                                    <li><label for="Gucci"><input type="checkbox" id="Gucci" name="Gucci" value="Gucci">Gucci</label></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -829,6 +833,12 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/additional.js"></script>
+    <script type="text/javascript">
+        
+
+    
+    </script>
 </body>
 
 </html>
