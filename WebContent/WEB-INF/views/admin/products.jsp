@@ -30,7 +30,7 @@
 
     <link href="/ShoppingMall/admin/assets/css/templatemo-style.css" rel="stylesheet"/>
     <script src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
-    <script src="/ShoppingMall/admin/js/product.js"></script>
+    <script type="text/javascript" src="/ShoppingMall/admin/js/product.js"></script>
     <style>
         #product_regist{
             color : white;

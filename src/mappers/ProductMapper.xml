@@ -69,4 +69,13 @@
     <select id="selectProductStockIDInfo"  parameterType="product" resultType="product_stock">
         SELECT * FROM PRODUCT_STOCK WHERE P_ID = #{p_Id}
     </select>
+
+    <select id="getProductImg" parameterType="java.util.List" resultType="java.util.List">
+        SELECT * FROM PRODUCT_IMAGE
+        <where>
+            <foreach collection="list" item="item" open="" close="" separator="OR">
+                (p_id = #{item.p_Id})
+            </foreach>
+        </where>
+    </select>
 </mapper>

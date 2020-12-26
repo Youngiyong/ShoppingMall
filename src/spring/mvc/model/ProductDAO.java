@@ -14,7 +14,7 @@ public interface ProductDAO {
     public int updateContent(ProductVO vo);
     public ProductVO selectSequence();
     public List<ProductVO> getProductList(ProductVO vo);
-    public List<ProductImageVO> getProductImg(ProductImageVO vo);
+    public List<ProductImageVO> getProductImg(List<ProductImageVO> vo);
 
     //상품 삭제 3개필요 순서 : Stock -> Image -> Product
     public int deleteProductList(List<ProductVO> vo);
@@ -25,4 +25,10 @@ public interface ProductDAO {
     public ProductVO selectProductIDInfo(ProductVO vo);
     public ProductImageVO selectProductImageIDInfo(ProductVO vo);
     public ProductStockVO selectProductStockIDInfo(ProductVO vo);
+
+    //상품 수정시 업데이트 메소드
+    public int updateProductImageNULL(ProductVO vo);
+    public int updateProductVO(ProductVO vo);
+    public int updateProductImageVO(ProductImageVO vo);
+    public int updateProductStockVO(ProductStockVO vo);
 }

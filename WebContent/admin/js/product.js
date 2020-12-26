@@ -1,4 +1,18 @@
 $(function () {
+    $('#button-add-file').click(addFileForm);
+    $(document).on('click', '.button-delete-file', function(event) {
+        $(this).parent().remove();
+    });
+
+    var count = 0;
+    function addFileForm() {
+        var html;
+        html += " <input name=\"file\" type=\"file\" value=\"메인 이미지 업로드\" multiple=\"multiple\" />";
+        html += "<button class='button-delete-file'>삭제</button></div>";
+        count++;
+        $("#addimage").append(html);
+    }
+
     $('#btn_modify').click(function () {
         var obj = new Object(); //key, value형태로 저장할 Object
         $('.checkSelect:checked').each(function () {

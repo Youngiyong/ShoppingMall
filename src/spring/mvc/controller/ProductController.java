@@ -31,21 +31,43 @@ public class ProductController {
     public String productModify(ProductVO vo, Model m){
         System.out.println(vo.getP_Id());
 
+        ProductImageVO imageVO = productService.selectProductImageIDInfo(vo);
+
         m.addAttribute( "productVO", productService.selectProductIDInfo(vo));
-        m.addAttribute( "productImageVO", productService.selectProductImageIDInfo(vo));
+        m.addAttribute( "productImageVO", imageVO);
         m.addAttribute( "productStockVO", productService.selectProductStockIDInfo(vo));
+
+        String str = imageVO.getI_Fname();
+
+        // "," 구분자 문자열 split로 잘라서 list 배열에 담음
+        String[] list ;
+        list = str.split(",");
+
+        m.addAttribute("imageList", list);
 
         return "/admin/product_modify";
     }
+
 
     @RequestMapping("/admin/deleteId.do")
     @ResponseBody
     public String deleteId(@RequestBody ProductVO[] vo){
         List<ProductVO> list = new ArrayList<>();
+        List<ProductImageVO> imgList = new ArrayList<>();
+        List<ProductImageVO> imgPath = new ArrayList<>();
         for(int i=0; i<vo.length; i++){
+            ProductImageVO ivo = new ProductImageVO();
+            ivo.setP_Id(vo[i].getP_Id());
             list.add(vo[i]);
+            imgList.add(ivo);
+
             System.out.println(list.get(i).getP_Id());
+            System.out.println(imgList.get(i).getP_Id());
         }
+
+
+        imgPath = productService.getProductImg(imgList);
+        System.out.println(imgPath.get(0).getI_Fname());
 
         productService.deleteProductStockList(list);
         productService.deleteProductImageList(list);
@@ -69,12 +91,68 @@ public class ProductController {
 
         return "/admin/products";
     }
-    
+
+    @RequestMapping("/admin/productModify.do")
+    public String updateProduct(ProductVO vo, ProductImageVO ivo, ProductStockVO svo,  @RequestParam("file") MultipartFile[] file) throws IOException {
+        System.out.println("updateProduct 함수 호출");
+
+        ProductImageVO imgVO= new ProductImageVO();
+        ProductStockVO stockVO = new ProductStockVO();
+        String fileOriginName = "";
+        String fileMultiName = "";
+
+        int size = 0;
+
+        if(file.length>0) {
+            for(int i=0; i<file.length; i++){
+                System.out.println("길이 : "   + file.length);
+                fileOriginName = file[i].getOriginalFilename();
+                size += file[i].getSize();
+                File f = new File("C:\\Team7\\ShoppingMall\\WebContent\\resources\\upload\\"+fileOriginName);
+                file[i].transferTo(f);
+                if(i==0) {
+                    fileMultiName += fileOriginName;
+                } else{
+                    fileMultiName += (","+fileOriginName);
+                }
+
+                System.out.println(fileOriginName);
+                System.out.println(ivo.getI_Ip());
+            }
+            System.out.println(fileMultiName);
+            System.out.println(imgVO.getI_Fsize());
+
+        }
+
+
+            imgVO.setP_Id(vo.getP_Id());
+            imgVO.setI_Ip(ivo.getI_Ip());
+
+            if(file.length==0){
+                imgVO.setI_Fname("");
+            } else imgVO.setI_Fname(fileMultiName);
+
+            imgVO.setI_Fsize(size);
+            productService.updateProductImageVO(imgVO);
+
+            stockVO.setP_Id(vo.getP_Id());
+            stockVO.setP_Size(svo.getP_Size());
+            stockVO.setP_Color(svo.getP_Color());
+            stockVO.setP_Count(svo.getP_Count());
+            productService.updateProductStockVO(stockVO);
+            productService.updateProductVO(vo);
+
+
+
+
+        return "/admin/product_modify";
+    }
 
     //상품 등록 이미지 파일 첨부
     @RequestMapping("/admin/upload.do")
     public String upload(ProductVO vo, ProductImageVO ivo, ProductStockVO svo, @RequestParam("file") MultipartFile[] file) throws IOException {
         System.out.println("upload 함수 호출");
+
         ProductImageVO imgVO = new ProductImageVO();
         ProductStockVO stockVO = new ProductStockVO();
         String fileOriginName = "";
@@ -88,7 +166,7 @@ public class ProductController {
                     fileOriginName = file[i].getOriginalFilename();
                     size += file[i].getSize();
                     File f = new File("C:\\Team7\\ShoppingMall\\WebContent\\resources\\upload\\"+fileOriginName); 
-                    file[i].transferTo(f); 
+                    file[i].transferTo(f);
                     if(i==0) {
                         fileMultiName += fileOriginName;
                     } else{

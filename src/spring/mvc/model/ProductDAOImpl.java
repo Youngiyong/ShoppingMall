@@ -40,7 +40,7 @@ public class ProductDAOImpl implements ProductDAO{
     }
 
     @Override
-    public List<ProductImageVO> getProductImg(ProductImageVO vo) {
+    public List<ProductImageVO> getProductImg(List<ProductImageVO> vo) {
         System.out.println("===> Mybatis getProductImg() 호출");
         return mybatis.selectList("product.getProductImg", vo);
     }
@@ -90,5 +90,34 @@ public class ProductDAOImpl implements ProductDAO{
     public ProductStockVO selectProductStockIDInfo(ProductVO vo) {
         System.out.println("===> Mybatis selectProductStockIDInfo() 호출");
         return mybatis.selectOne("product.selectProductStockIDInfo", vo);
+    }
+
+    @Override
+    public int updateProductImageNULL(ProductVO vo) {
+        System.out.println("===> Mybatis updateProductImageNULL() 호출");
+        return mybatis.update("product.updateProductImageNULL", vo);
+
+    }
+
+    @Override
+    public int updateProductVO(ProductVO vo) {
+        System.out.println("===> Mybatis updateProductVO() 호출");
+        System.out.println(vo.getP_Id());
+        return mybatis.update("product.updateProductVO", vo);
+
+    }
+
+    @Override
+    public int updateProductImageVO(ProductImageVO vo) {
+        System.out.println("===> Mybatis updateProductImageVO() 호출");
+        return mybatis.update("product.updateProductImageVO", vo);
+
+    }
+
+    @Override
+    public int updateProductStockVO(ProductStockVO vo) {
+        System.out.println("===> Mybatis updateProductStockVO() 호출");
+        return mybatis.update("product.updateProductStockVO", vo);
+
     }
 }
