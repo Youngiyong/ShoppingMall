@@ -87,7 +87,11 @@
                     <i class="zmdi zmdi-grid"></i> <span> 상품 정보</span>
                 </a>
             </li>
-
+            <li>
+                <a href="/ShoppingMall/admin/orders.do">
+                    <i class="zmdi zmdi-assignment-o"></i> <span> 주문 정보</span>
+                </a>
+            </li>
 
         </ul>
 

@@ -35,7 +35,7 @@
     <update id="updateMemberList" parameterType="java.util.List">
         <foreach collection="list" item="list" separator=";">
             UPDATE MEMBER SET m_name = #{list.m_Name}, m_pass = #{list.m_Pass}, m_tel = #{list.m_Tel}, m_email = #{list.m_Email}, m_addr = #{list.m_Addr}, m_age = #{list.m_Age}, m_country = #{list.m_Country}
-            WHERE M_CODE = '61'
+            WHERE M_CODE = #{list.m_Code}
         </foreach>
     </update>
 </mapper>

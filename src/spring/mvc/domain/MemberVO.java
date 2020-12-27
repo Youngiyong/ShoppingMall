@@ -10,6 +10,7 @@ public class MemberVO {
     private String m_Email;
     private String m_Addr;
     private int m_Age;
+
     private String m_Country;
 
     public String getM_Code() { return m_Code; }

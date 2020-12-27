@@ -64,8 +64,9 @@
                      <i class="zmdi zmdi-view-dashboard"></i> <span>메인 화면</span>
                  </a>
              </li>
+
              <li>
-                 <a href="/ShoppingMall/admin/members.do" target="_blank">
+                 <a href="/ShoppingMall/admin/members.do" >
                      <i class="zmdi zmdi-account-circle"></i> <span>회원 관리</span>
                  </a>
              </li>
@@ -84,7 +85,11 @@
                  </a>
              </li>
 
-
+             <li>
+                 <a href="/ShoppingMall/admin/orders.do">
+                     <i class="zmdi zmdi-assignment-o"></i> <span> 주문 정보</span>
+                 </a>
+             </li>
          </ul>
 
      </div>
@@ -196,8 +201,8 @@
                                  <td contenteditable='true' class="m_Age">${member.m_Age}</td>
                                  <td contenteditable='true' class="m_Tel">${member.m_Tel}</td>
                                  <td contenteditable='true' class="m_Email">${member.m_Email}</td>
-                                 <td contenteditable='true' class="m_Country">${member.m_Country}</td>
                                  <td contenteditable='true' class="m_Addr">${member.m_Addr}</td>
+                                 <td contenteditable='true' class="m_Country">${member.m_Country}</td>
                                  <%--<td contenteditable='true' class="m_Status">${member.m_Status}</td>--%>
                              </c:forEach>
                          </tbody>

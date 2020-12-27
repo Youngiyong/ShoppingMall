@@ -17,12 +17,9 @@ $(function () {
             objPrmtr.m_Country = $(this).parent().parent().find("td.m_Country").text();
             objPrmtr.m_Addr = $(this).parent().parent().find("td.m_Addr").text();
             // objPrmtr.m_Status = $(this).parent().parent().find("td.m_Status").text();
-
             arrPrmtr.push(objPrmtr);
-            alert(objPrmtr.m_Name)
         })
 
-        alert(arrPrmtr.length)
         if(arrPrmtr.length>0){
             $.ajax({
                 type : 'post',
