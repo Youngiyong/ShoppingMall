@@ -1,6 +1,9 @@
 package spring.mvc.model;
 
 import spring.mvc.domain.MemberVO;
+import spring.mvc.domain.ProductVO;
+
+import java.util.List;
 
 public interface MemberDAO {
     /**
@@ -12,5 +15,10 @@ public interface MemberDAO {
      * 회원가입기능 구현
      */
     int memberInsert(MemberVO vo);
+
+    public List<MemberVO> getMemberList();
+    public int updateMemberList(List<MemberVO> vo);
+    public int deleteMemberList(List<MemberVO> vo);
+
 
 }

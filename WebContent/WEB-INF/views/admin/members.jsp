@@ -30,7 +30,7 @@
 
     <link href="/ShoppingMall/admin/assets/css/templatemo-style.css" rel="stylesheet"/>
     <script src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="/ShoppingMall/admin/js/product.js"></script>
+    <script type="text/javascript" src="/ShoppingMall/admin/js/member.js"></script>
     <style>
         #product_regist{
             color : white;
@@ -60,7 +60,6 @@
          </div>
          <ul class="sidebar-menu do-nicescrol">
              <li class="sidebar-header">관리자 페이지</li>
-             <li>
                  <a href="/ShoppingMall/admin/index.do">
                      <i class="zmdi zmdi-view-dashboard"></i> <span>메인 화면</span>
                  </a>
@@ -71,6 +70,7 @@
                  </a>
              </li>
              <li>
+
              <li>
                  <a href="/ShoppingMall/admin/product.do">
                      <i class="fa fa-shopping-cart"></i> <span>상품 등록</span>
@@ -161,35 +161,47 @@
          <div class="row">
              <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
                  <br class="tm-bg-primary-dark tm-block tm-block-h-auto">
-                 <div class="tm-product-table-container">
+
                      <table class="table table-hover tm-table-small tm-product-table">
                          <thead>
                          </br></br></br></br></br>
-                         <h3>상품 리스트</h3>
+                         <h3>회원 정보</h3>
                          </br>
                          <tr>
                              <th scope="col">&nbsp;</th>
-                             <th scope="col">상품 번호</th>
-                             <th scope="col">상품 이름</th>
-                             <th scope="col">카테고리</th>
-                             <th scope="col">상품 가격</th>
-                             <th scope="col">상품 입력 날짜 </th>
+                             <th scope="col">회원코드</th>
+                             <th scope="col">아이디</th>
+                             <th scope="col">패스워드</th>
+                             <th scope="col">이름</th>
+                             <th scope="col">나이</th>
+                             <th scope="col">전화번호</th>
+                             <th scope="col">이메일</th>
+                             <th scope="col">지역</th>
+                             <th scope="col">주소</th>
+                             <%--<th scope="col">상태</th>--%>
+
                          </tr>
+
                          </thead>
+
                          <form id="frm" method="post">
                          <tbody>
-                         <c:forEach items="${productList}" var="product">
+                         <c:forEach items="${memberList}" var="member">
                              <tr>
                                  <th scope="row"><input class="checkSelect" type="checkbox" name="box[]"/></th>
-                                 <td class="p_Id">${product.p_Id}</td>
-                                 <td class="tm-product-name">${product.p_Name}</td>
-                                 <td>${product.p_Cate}</td>
-                                 <td>${product.p_Price}</td>
-                                 <td>${product.p_Date}</td>
-
-                             </tr>
-                         </c:forEach>
+                                 <td class="m_Code">${member.m_Code}</td>
+                                 <td class="m_Id">${member.m_Id}</td>
+                                 <td contenteditable='true' class="m_Pass">${member.m_Pass}</td>
+                                 <td contenteditable='true' class="m_Name">${member.m_Name}</td>
+                                 <td contenteditable='true' class="m_Age">${member.m_Age}</td>
+                                 <td contenteditable='true' class="m_Tel">${member.m_Tel}</td>
+                                 <td contenteditable='true' class="m_Email">${member.m_Email}</td>
+                                 <td contenteditable='true' class="m_Country">${member.m_Country}</td>
+                                 <td contenteditable='true' class="m_Addr">${member.m_Addr}</td>
+                                 <%--<td contenteditable='true' class="m_Status">${member.m_Status}</td>--%>
+                             </c:forEach>
                          </tbody>
+
                          </form>
                      </table>
                  </div>
@@ -203,10 +215,10 @@
                  <!-- table container -->
                  <a
                          id="btn_delete"
-                         class="btn btn-primary btn-block text-uppercase mb-3">상품 삭제</a>
+                         class="btn btn-primary btn-block text-uppercase mb-3">회원 삭제</a>
                  <a
                          id="btn_modify"
-                         class="btn btn-primary btn-block text-uppercase mb-3">상품 수정</a>
+                         class="btn btn-primary btn-block text-uppercase mb-3">회원 정보 수정</a>
              </div>
          </div>
 

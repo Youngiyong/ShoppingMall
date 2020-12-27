@@ -31,4 +31,6 @@ public interface ProductDAO {
     public int updateProductVO(ProductVO vo);
     public int updateProductImageVO(ProductImageVO vo);
     public int updateProductStockVO(ProductStockVO vo);
+
+
 }

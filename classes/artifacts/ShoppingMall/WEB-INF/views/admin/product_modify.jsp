@@ -30,52 +30,20 @@
 
     <link href="/ShoppingMall/admin/assets/css/templatemo-style.css" rel="stylesheet"/>
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
     <link href="/ShoppingMall/resources/dist/summernote.css" rel="stylesheet" type="text/css"/>
     <script src="/ShoppingMall/resources/dist/summernote.js" type="text/javascript"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/ShoppingMall/admin/js/product_modify.js"></script>
+    <script src="/ShoppingMall/admin/js/summernote.js"></script>
     <style>
         #file {
             color: white;
         }
     </style>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                height: 300,
-                minHeight: null,
-                maxHeight: null,
-                codemirror: {
-                    theme: 'default'
-                }
-            });
 
-            $('#file').on("click", function (e){
-                var formData = new FormData();
-                var inputFile = $("input[name='file']");
-                var files = inputFile[0].files;
-                console.log(files);
-
-                for(var i=0; i<files.length;i++){
-                    formData.append("file", files[i]);
-                }
-
-                $.ajax({
-                    url : '/ShoppingMall/admin/uploadAjax.do',
-                    processData : false,
-                    contentType : false,
-                    data : formData,
-                    type : 'POSt',
-                    success : function (result){
-                        alert("upload완료")
-                    }
-
-                })
-
-            })
-        });
-        </script>
 </head>
 
 <body class="bg-theme bg-theme9">
@@ -88,77 +56,43 @@
  <div id="wrapper">
 
  <!--Start sidebar-wrapper-->
-   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-     <div class="brand-logo">
-      <a href="/ShoppingMall/admin/index.do">
-       <img src="/ShoppingMall/admin/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Dashtreme Admin</h5>
-     </a>
-   </div>
-   <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
-      <li>
-        <a href="/ShoppingMall/admin/index.do">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
-        </a>
-      </li>
+     <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+         <div class="brand-logo">
+             <a href="/ShoppingMall/admin/index.do">
+                 <img src="/ShoppingMall/admin/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+                 <h5 class="logo-text">B U A 　 </h5>
+             </a>
+         </div>
+         <ul class="sidebar-menu do-nicescrol">
+             <li class="sidebar-header">관리자 페이지</li>
+             <li>
+                 <a href="/ShoppingMall/admin/index.do">
+                     <i class="zmdi zmdi-view-dashboard"></i> <span>메인 화면</span>
+                 </a>
+             </li>
+             <li>
+                 <a href="/ShoppingMall/admin/members.do" target="_blank">
+                     <i class="zmdi zmdi-account-circle"></i> <span>회원 관리</span>
+                 </a>
+             </li>
+             <li>
+             <li>
+                 <a href="/ShoppingMall/admin/product.do">
+                     <i class="fa fa-shopping-cart"></i> <span>상품 등록</span>
+                 </a>
+             </li>
 
-      <li>
-        <a href="/ShoppingMall/admin/icons.do">
-          <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
-        </a>
-      </li>
 
-       <li>
-           <a href="/ShoppingMall/admin/product.do">
-               <i class="fa fa-shopping-cart"></i> <span>상품 등록</span>
-           </a>
-       </li>
+             <li>
+                 <a href="/ShoppingMall/admin/products.do">
+                     <i class="zmdi zmdi-grid"></i> <span> 상품 정보</span>
+                 </a>
+             </li>
 
 
-       <li>
-           <a href="/ShoppingMall/admin/products.do">
-               <i class="zmdi zmdi-grid"></i> <span>상품 정보</span>
-           </a>
-       </li>
-       <li>
-           <a href="/ShoppingMall/admin/product_modify.do">
-               <i class="zmdi zmdi-format-list-bulleted"></i> <span>상품 수정</span>
-           </a>
-       </li>
-      <li>
-        <a href="/ShoppingMall/admin/calendar.do">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
-        </a>
-      </li>
+         </ul>
 
-      <li>
-        <a href="/ShoppingMall/admin/profile.do">
-          <i class="zmdi zmdi-face"></i> <span>Profile</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="/ShoppingMall/admin/login.do" target="_blank">
-          <i class="zmdi zmdi-lock"></i> <span>Login</span>
-        </a>
-      </li>
-
-       <li>
-        <a href="/ShoppingMall/admin/register.do" target="_blank">
-          <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
-        </a>
-      </li>
-	  
-      <li class="sidebar-header">LABELS</li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
-
-    </ul>
-   
-   </div>
+     </div>
    <!--End sidebar-wrapper-->
   
 
@@ -238,7 +172,7 @@
                      </div>
                      <div class="row tm-edit-product-row">
                          <div class="col-xl-6 col-lg-6 col-md-12">
-                             <form method="post" action="/ShoppingMall/admin/upload.do" enctype="multipart/form-data" class="tm-edit-product-form">
+                             <form id="frm" method="post" action="/ShoppingMall/admin/upload.do" enctype="multipart/form-data" class="tm-edit-product-form">
                                  <div class="form-group mb-3">
 
 
@@ -319,6 +253,7 @@
                                          </select>
                                      </div>
                                      <input type="hidden" name="i_Ip" value="<%=request.getRemoteAddr()%>">
+                                     <input type="hidden" name="p_Id" value=${productVO.p_Id}>
                                      <div class="form-group mb-3 col-xs-12 col-sm-6">
                                          <label
                                                  for="p_Size"
@@ -350,11 +285,18 @@
                                          onclick="document.getElementById('fileInput').click();"
                                  ></i>
                              </div>
+
                              <div class="custom-file mt-3 mb-3">
-                                 <input id="file" name="file" type="file" value="메인 이미지 업로드" multiple="multiple" />
+                                 <label class="btn btn-primary">
+                                     파일 추가 <input id="file" name="file" type="file" style="display: none;"  value="메인 이미지 업로드" multiple="multiple" />
+                                 </label>
+                             </div>
+                                 <a>파일명 :dd</a>
+                                 <a>dd</a>
+                                 <a>dd</a>
+
 
                              </div>
-                         </div>
                          </div>
                             <div class="col-12">
                          <label
@@ -375,7 +317,7 @@
 
                      </div>
                          <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                             <button type="submit" class="btn btn-primary btn-block text-uppercase">상품 수정</button>
+                             <button type="button" id = "btn_modify" class="btn btn-primary btn-block text-uppercase">상품 수정</button>
                          </div>
                          </form>
                      </div>

@@ -58,5 +58,41 @@
         </where>
     </delete>
 
+    <select id="selectProductIDInfo"  parameterType="product" resultType="product">
+        SELECT * FROM PRODUCT WHERE P_ID = #{p_Id}
+    </select>
+
+    <select id="selectProductImageIDInfo"  parameterType="product" resultType="product_img">
+        SELECT * FROM PRODUCT_IMAGE WHERE P_ID = #{p_Id}
+    </select>
+
+    <select id="selectProductStockIDInfo"  parameterType="product" resultType="product_stock">
+        SELECT * FROM PRODUCT_STOCK WHERE P_ID = #{p_Id}
+    </select>
+
+    <update id="updateProductImageNULL" parameterType="product_img">
+        UPDATE PRODUCT_IMAGE SET I_FNAME = '' WHERE P_ID = #{p_Id}
+    </update>
+
+    <update id="updateProductVO" parameterType="product">
+    UPDATE PRODUCT SET P_NAME = #{p_Name}, P_PRICE = #{p_Price}, P_CATE = #{p_Cate}, P_CONTENT =#{p_Content}, P_DATE=sysdate WHERE P_ID = #{p_Id}
+    </update>
+
+    <update id="updateProductImageVO" parameterType="product_img">
+    UPDATE PRODUCT_IMAGE SET I_IP = #{i_Ip}, I_FNAME = #{i_Fname}, I_FSIZE = #{i_Fsize} WHERE P_ID = #{p_Id}
+    </update>
+
+    <update id="updateProductStockVO" parameterType="product_stock">
+    UPDATE PRODUCT_STOCK SET P_SIZE = #{p_Size}, P_COLOR = #{p_Color}, P_COUNT = #{p_Count} WHERE P_ID = #{p_Id}
+    </update>
+
+    <select id="getProductImg" parameterType="java.util.List" resultType="product_img">
+        SELECT * FROM PRODUCT_IMAGE
+        <where>
+            <foreach collection="list" item="list"  open="" close="" separator="OR">
+                (p_id = #{list.p_Id})
+            </foreach>
+        </where>
+    </select>
 
 </mapper>

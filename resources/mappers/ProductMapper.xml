@@ -86,11 +86,11 @@
     UPDATE PRODUCT_STOCK SET P_SIZE = #{p_Size}, P_COLOR = #{p_Color}, P_COUNT = #{p_Count} WHERE P_ID = #{p_Id}
     </update>
 
-    <select id="getProductImg" parameterType="java.util.List" resultType="java.util.List">
+    <select id="getProductImg" parameterType="java.util.List" resultType="product_img">
         SELECT * FROM PRODUCT_IMAGE
         <where>
-            <foreach collection="list" item="item" open="" close="" separator="OR">
-                (p_id = #{item.p_Id})
+            <foreach collection="list" item="list"  open="" close="" separator="OR">
+                (p_id = #{list.p_Id})
             </foreach>
         </where>
     </select>

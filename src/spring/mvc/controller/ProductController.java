@@ -55,19 +55,45 @@ public class ProductController {
         List<ProductVO> list = new ArrayList<>();
         List<ProductImageVO> imgList = new ArrayList<>();
         List<ProductImageVO> imgPath = new ArrayList<>();
+
         for(int i=0; i<vo.length; i++){
             ProductImageVO ivo = new ProductImageVO();
             ivo.setP_Id(vo[i].getP_Id());
             list.add(vo[i]);
             imgList.add(ivo);
 
-            System.out.println(list.get(i).getP_Id());
             System.out.println(imgList.get(i).getP_Id());
         }
 
-
         imgPath = productService.getProductImg(imgList);
-        System.out.println(imgPath.get(0).getI_Fname());
+
+
+         ArrayList<String> aList = new ArrayList<>();
+
+         for(int i=0; i<imgPath.size(); i++){
+             String str = imgPath.get(i).getI_Fname();
+             String[] vlist ;
+             vlist = str.split(",");
+
+             for(int j=0; j<vlist.length; j++){
+                 aList.add(vlist[j]);
+                 System.out.println(vlist[j]);
+             }
+         }
+
+         for(int i=0; i<aList.size(); i++){
+             System.out.println(aList.size());
+             File file = new File("C:\\Team7\\ShoppingMall\\WebContent\\resources\\upload\\"+aList.get(i));
+             if(file.exists()){
+                 if(file.delete()){
+                     System.out.println(aList.get(i) +": 파일 삭제 성공");
+                 }
+                 else
+                     System.out.println("파일 삭제 실패");
+             } else
+                 System.out.println("파일이 존재하지 않습니다.");
+         }
+
 
         productService.deleteProductStockList(list);
         productService.deleteProductImageList(list);
@@ -98,6 +124,28 @@ public class ProductController {
 
         ProductImageVO imgVO= new ProductImageVO();
         ProductStockVO stockVO = new ProductStockVO();
+
+        ProductImageVO imageSample = productService.selectProductImageIDInfo(vo);
+
+        String str = imageSample.getI_Fname();
+        String[] list;
+
+        list = str.split(",");
+
+        for(int i=0; i<list.length; i++){
+            System.out.println(list.length);
+            File f = new File("C:\\Team7\\ShoppingMall\\WebContent\\resources\\upload\\"+list[i]);
+            if(f.exists()){
+                if(f.delete()){
+                    System.out.println(list[i] +": 파일 삭제 성공");
+                }
+                else
+                    System.out.println("파일 삭제 실패");
+            } else
+                System.out.println("파일이 존재하지 않습니다.");
+        }
+
+
         String fileOriginName = "";
         String fileMultiName = "";
 
@@ -122,16 +170,10 @@ public class ProductController {
             System.out.println(fileMultiName);
             System.out.println(imgVO.getI_Fsize());
 
-        }
 
-
+            imgVO.setI_Fname(fileMultiName);
             imgVO.setP_Id(vo.getP_Id());
             imgVO.setI_Ip(ivo.getI_Ip());
-
-            if(file.length==0){
-                imgVO.setI_Fname("");
-            } else imgVO.setI_Fname(fileMultiName);
-
             imgVO.setI_Fsize(size);
             productService.updateProductImageVO(imgVO);
 
@@ -141,8 +183,22 @@ public class ProductController {
             stockVO.setP_Count(svo.getP_Count());
             productService.updateProductStockVO(stockVO);
             productService.updateProductVO(vo);
+        }
+        else{
+            imgVO.setP_Id(vo.getP_Id());
+            imgVO.setI_Ip(ivo.getI_Ip());
+            imgVO.setI_Fsize(size);
+            imgVO.setI_Fname(imageSample.getI_Fname());
+            productService.updateProductImageVO(imgVO);
 
+            stockVO.setP_Id(vo.getP_Id());
+            stockVO.setP_Size(svo.getP_Size());
+            stockVO.setP_Color(svo.getP_Color());
+            stockVO.setP_Count(svo.getP_Count());
+            productService.updateProductStockVO(stockVO);
+            productService.updateProductVO(vo);
 
+        }
 
 
         return "/admin/product_modify";

@@ -50,23 +50,30 @@ $(function () {
             objPrmtr = new Object();
             objPrmtr.p_Id = $(this).parent().parent().find("td.p_Id").text();
             arrPrmtr.push(objPrmtr);
+
         })
 
-        $.ajax({
-            type : 'post',
-            url: '/ShoppingMall/admin/deleteId.do',
-            contentType:'application/json; charset=UTF-8',
-            traditional : true,
-            data : JSON.stringify(arrPrmtr),
-            dataType : 'json',
-            success : function (data) {
-                alert('삭제가 완료 되었습니다.');
-                location.href = "/ShoppingMall/admin/products.do";
-            },
-            error: function(err) {
-                //err msg 출력
-              console.log(err)
-            }
-        })
+        if(arrPrmtr.length>0){
+            $.ajax({
+                type : 'post',
+                url: '/ShoppingMall/admin/deleteId.do',
+                contentType:'application/json; charset=UTF-8',
+                traditional : true,
+                data : JSON.stringify(arrPrmtr),
+                dataType : 'json',
+                success : function (data) {
+                    alert('삭제가 완료 되었습니다.');
+                    location.href = "/ShoppingMall/admin/products.do";
+                },
+                error: function(err) {
+                    //err msg 출력
+                    console.log(err)
+                }
+            })
+        }
+        else
+            alert("삭제된 사용자가 없습니다.");
+
+
     })
 })

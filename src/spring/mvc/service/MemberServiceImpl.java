@@ -6,6 +6,8 @@ import spring.mvc.domain.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
@@ -29,4 +31,15 @@ public class MemberServiceImpl implements MemberService {
 	   {
 		  return memberDAO.memberInsert(vo);
 	   }
+
+	@Override
+	public List<MemberVO> getMemberList() { return memberDAO.getMemberList(); }
+
+	@Override
+	public int updateMemberList(List<MemberVO> vo) { return memberDAO.updateMemberList(vo); }
+
+	@Override
+	public int deleteMemberList(List<MemberVO> vo) { return memberDAO.deleteMemberList(vo); }
+
+
 }

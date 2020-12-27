@@ -1,4 +1,18 @@
 $(function () {
+    $('#button-add-file').click(addFileForm);
+    $(document).on('click', '.button-delete-file', function(event) {
+        $(this).parent().remove();
+    });
+
+    var count = 0;
+    function addFileForm() {
+        var html;
+        html += " <input name=\"file\" type=\"file\" value=\"메인 이미지 업로드\" multiple=\"multiple\" />";
+        html += "<button class='button-delete-file'>삭제</button></div>";
+        count++;
+        $("#addimage").append(html);
+    }
+
     $('#btn_modify').click(function () {
         var obj = new Object(); //key, value형태로 저장할 Object
         $('.checkSelect:checked').each(function () {
@@ -36,23 +50,30 @@ $(function () {
             objPrmtr = new Object();
             objPrmtr.p_Id = $(this).parent().parent().find("td.p_Id").text();
             arrPrmtr.push(objPrmtr);
+
         })
 
-        $.ajax({
-            type : 'post',
-            url: '/ShoppingMall/admin/deleteId.do',
-            contentType:'application/json; charset=UTF-8',
-            traditional : true,
-            data : JSON.stringify(arrPrmtr),
-            dataType : 'json',
-            success : function (data) {
-                alert('삭제가 완료 되었습니다.');
-                location.href = "/ShoppingMall/admin/products.do";
-            },
-            error: function(err) {
-                //err msg 출력
-              console.log(err)
-            }
-        })
+        if(arrPrmtr.length>0){
+            $.ajax({
+                type : 'post',
+                url: '/ShoppingMall/admin/deleteId.do',
+                contentType:'application/json; charset=UTF-8',
+                traditional : true,
+                data : JSON.stringify(arrPrmtr),
+                dataType : 'json',
+                success : function (data) {
+                    alert('삭제가 완료 되었습니다.');
+                    location.href = "/ShoppingMall/admin/products.do";
+                },
+                error: function(err) {
+                    //err msg 출력
+                    console.log(err)
+                }
+            })
+        }
+        else
+            alert("삭제된 사용자가 없습니다.");
+
+
     })
 })
