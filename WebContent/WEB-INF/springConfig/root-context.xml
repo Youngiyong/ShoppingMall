@@ -15,7 +15,6 @@
     </bean>
 
 
-
     <bean id="dataSource2" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
         <constructor-arg ref="dataSource" /> <property name="logFormatter">
         <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
@@ -29,6 +28,8 @@
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
         <property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml"></property>
+
+        
     </bean>
 
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
