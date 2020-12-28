@@ -1,5 +1,6 @@
 package spring.mvc.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import spring.mvc.domain.DashBoardVO;
@@ -13,4 +14,9 @@ public interface DashBoardService {
 	public DashBoardVO newProduct();
 	public DashBoardVO salesProduct();
 	public double lastMonthsalesProduct();
+	public HashMap salesRoot();
+	public HashMap monthlySales(); 
+	public List<DashBoardVO> countrySales();
+	public HashMap dailySales();
+	public List<DashBoardVO> topItems();
 }

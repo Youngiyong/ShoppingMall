@@ -8,6 +8,58 @@ public class DashBoardVO {
 	String m_Code;
 	String p_Reg;
 	String o_Date;
+	double ratio;
+	String m_country;
+	String p_root;
+	int period;
+	String i_fname;
+	String p_name;
+	String p_cate;
+	
+	
+	
+	public String getP_cate() {
+		return p_cate;
+	}
+	public void setP_cate(String p_cate) {
+		this.p_cate = p_cate;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public int getPeriod() {
+		return period;
+	}
+	public void setPeriod(int period) {
+		this.period = period;
+	}
+	public String getI_fname() {
+		return i_fname;
+	}
+	public void setI_fname(String i_fname) {
+		this.i_fname = i_fname;
+	}
+	public String getP_root() {
+		return p_root;
+	}
+	public void setP_root(String p_root) {
+		this.p_root = p_root;
+	}
+	public double getRatio() {
+		return ratio;
+	}
+	public void setRatio(double ratio) {
+		this.ratio = ratio;
+	}
+	public String getM_country() {
+		return m_country;
+	}
+	public void setM_country(String m_country) {
+		this.m_country = m_country;
+	}
 	public int getCount() {
 		return count;
 	}

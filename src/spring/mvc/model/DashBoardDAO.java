@@ -13,6 +13,10 @@ public interface DashBoardDAO {
 	public DashBoardVO salesProduct();
 	public DashBoardVO lastMonthsalesProduct();
 	public DashBoardVO lastMonthNewMember();
-
+	public List<DashBoardVO> countrySales();
+	public List<DashBoardVO> dailySales();
+	public List<DashBoardVO> monthlySales();
+	public List<DashBoardVO> salesRoot() ;
+	public List<DashBoardVO> topItems();
 
 }

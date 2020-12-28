@@ -14,6 +14,37 @@ public class DashBoardDAOImpl implements DashBoardDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
+	//가장많이 팔린 상품 4종
+	public List<DashBoardVO> topItems() {
+		return mybatis.selectList("dashBoard.topItems");
+	}
+	
+	//국가별 매출
+	@Override
+	public List<DashBoardVO> countrySales(){
+		return mybatis.selectList("dashBoard.countrySales");
+	}
+	
+	
+	//일별 매출
+	@Override
+	public List<DashBoardVO> dailySales(){
+		return mybatis.selectList("dashBoard.dailySales");
+	}
+	
+	//월별 매출
+	@Override
+	public List<DashBoardVO> monthlySales(){
+		return mybatis.selectList("dashBoard.monthlySales");
+	}
+	
+	//구매 루트
+	@Override
+	public List<DashBoardVO> salesRoot() {
+		return mybatis.selectList("dashBoard.SalesRoot");
+	}
+	
+	
 	//이번달 매출
 	@Override
 	public DashBoardVO MonthSale() {
@@ -38,8 +69,7 @@ public class DashBoardDAOImpl implements DashBoardDAO {
 	public DashBoardVO lastMonthNewMember() {
 		return mybatis.selectOne("dashBoard.lastMonthNewMember");
 	}
-	
-	
+		
 	
 	//이번달 신규 상품
 	@Override

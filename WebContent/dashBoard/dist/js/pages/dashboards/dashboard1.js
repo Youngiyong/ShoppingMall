@@ -8,10 +8,9 @@ $(function () {
         bindto: '#campaign-v2',
         data: {
             columns: [
-                ['Direct Sales', 25],
-                ['Referral Sales', 15],
-                ['Afilliate Sales', 10],
-                ['Indirect Sales', 15]
+                ['Direct Sales', di],
+                ['Popular Sales', po],
+                ['Recommend Sales', re]
             ],
 
             type: 'donut',
@@ -45,12 +44,26 @@ $(function () {
     // ============================================================== 
     // income
     // ============================================================== 
+    var nowDate = new Date();
+    var month= nowDate.getMonth()+1;
+    var months=[];
+    
+    for(var i=0; i<6; i++){
+    	if(month-i<0){
+    	month=month+12;
+    	}
+    	months[i]=month-i;
+    
+    }
+    
     var data = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        labels: [months[5],months[4],months[3],months[2],months[1], months[0]],
         series: [
-            [5, 4, 3, 7, 5, 10]
+            [mm5, mm4, mm3, mm2, mm1, mm0]
         ]
     };
+    
+    
 
     var options = {
         axisX: {
@@ -116,10 +129,23 @@ $(function () {
     // ==============================================================
     // Earning Stastics Chart
     // ==============================================================
+    
+    var dateList =[];
+    
+    for(var i =0; i<7; i++){
+    var nowDate2 = new Date();
+    nowDate2.setDate(nowDate2.getDate()-i);
+    dateList[i]=nowDate2.getDate();
+    }
+    
+    
+    
+    
+    
     var chart = new Chartist.Line('.stats', {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        labels: [dateList[6],dateList[5], dateList[4], dateList[3], dateList[2], dateList[1], dateList[0]],
         series: [
-            [11, 10, 15, 21, 14, 23, 12]
+            [dd6, dd5, dd4, dd3, dd2, dd1, dd0]
         ]
     }, {
         low: 0,

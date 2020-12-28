@@ -25,7 +25,71 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+//최상단 매출
 
+$(function(){
+	
+	var tSales = ${VO[1].sales};
+	tSales=tSales.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	var i=$("#DashSales").text(tSales);
+	
+	
+	$('.percent').each(function(){
+			var val = $(this).text();
+			val=val.split('.');
+			if(val[0]>0){
+				$(this).removeClass("bg-danger");
+				$(this).addClass("bg-primary");
+			}else{
+				$(this).removeClass("bg-primary");
+				$(this).addClass("bg-danger");
+			}
+				
+			});
+			
+		
+		
+		
+	
+	
+	
+});	
+
+
+
+
+
+
+
+//구매 루트 값
+var di=${di};
+var po=${po};
+var re=${re};
+
+//월별 매출
+var mm0=${m0};
+var mm1=${m1};
+var mm2=${m2};
+var mm3=${m3};
+var mm4=${m4};
+var mm5=${m5};
+
+//일별 매출
+var dd0=${d0};
+var dd1=${d1};
+var dd2=${d2};
+var dd3=${d3};
+var dd4=${d4};
+var dd5=${d5};
+var dd6=${d6};
+
+
+
+
+
+</script>
 
 
 </head>
@@ -358,8 +422,8 @@
                                 <div>
                                     <div class="d-inline-flex align-items-center">
                                         <h2 class="text-dark mb-1 font-weight-medium">${VO[0].count}</h2>
-                                        <span
-                                            class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">${member}%</span>
+                                        <span 
+                                            class="percent badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">${member}%</span>
                                     </div>
                                     <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Clients</h6>
                                 </div>
@@ -373,10 +437,11 @@
                         <div class="card-body">
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
-                                    <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
-                                            class="set-doller">&#8361;</sup>${VO[1].sales}</h2>
-                                             <span
-                                            class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">${product}%</span>
+                                	<div class="d-inline-flex align-items-center">
+                                    <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium" id="DashSales">여기</h2>
+                                             <span 
+                                            class="percent badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">${product}%</span>
+                                    </div>
                                     <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Earnings of Month
                                     </h6>
                                 </div>
@@ -392,8 +457,8 @@
                                 <div>
                                     <div class="d-inline-flex align-items-center">
                                         <h2 class="text-dark mb-1 font-weight-medium">${VO[2].count}</h2>
-                                        <span
-                                            class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">${product}%</span>
+                                        <span 
+                                            class="percent badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">${product}%</span>
                                     </div>
                                     <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Sales Products</h6>
                                 </div>
@@ -427,23 +492,23 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Total Sales</h4>
+                                <h4 class="card-title">Sales Ratio</h4>
                                 <div id="campaign-v2" class="mt-2" style="height:283px; width:100%;"></div>
                                 <ul class="list-style-none mb-0">
                                     <li>
-                                        <i class="fas fa-circle text-primary font-10 mr-2"></i>
+                                        <i class="fas fa-circle text-secondary font-10 mr-2"></i>
                                         <span class="text-muted">일반 상품 판매</span>
-                                        <span class="text-dark float-right font-weight-medium">$2346</span>
+                                        <span class="text-dark float-right font-weight-medium">&#8361;${di}</span>
+                                    </li>
+                                    <li class="mt-3">
+                                        <i class="fas fa-circle text-primary font-10 mr-2"></i>
+                                        <span class="text-muted">인기 상품 판매</span>
+                                        <span class="text-dark float-right font-weight-medium">&#8361;${po}</span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
                                         <span class="text-muted">추천 상품 판매</span>
-                                        <span class="text-dark float-right font-weight-medium">$2108</span>
-                                    </li>
-                                    <li class="mt-3">
-                                        <i class="fas fa-circle text-cyan font-10 mr-2"></i>
-                                        <span class="text-muted">인기 상품 판매</span>
-                                        <span class="text-dark float-right font-weight-medium">$1204</span>
+                                        <span class="text-dark float-right font-weight-medium">&#8361;${re}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -469,58 +534,58 @@
                                 </div>
                                 <div class="row mb-3 align-items-center mt-1 mt-5">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">Korea</span>
+                                        <span class="text-muted font-14">${listCountrySales[0].m_country}</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: ${listCountrySales[0].ratio}%"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">28%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium">${listCountrySales[0].ratio}%</span>
                                     </div>
                                 </div>
                                 <div class="row mb-3 align-items-center">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">UK</span>
+                                        <span class="text-muted font-14">${listCountrySales[1].m_country}</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 74%"
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: ${listCountrySales[1].ratio}%"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">21%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium">${listCountrySales[1].ratio}%</span>
                                     </div>
                                 </div>
                                 <div class="row mb-3 align-items-center">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">USA</span>
+                                        <span class="text-muted font-14">${listCountrySales[2].m_country}</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-cyan" role="progressbar" style="width: 60%"
+                                            <div class="progress-bar bg-cyan" role="progressbar" style="width: ${listCountrySales[2].ratio}%"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">18%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium">${listCountrySales[2].ratio}%</span>
                                     </div>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">China</span>
+                                        <span class="text-muted font-14">${listCountrySales[2].m_country}</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%"
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: ${listCountrySales[2].ratio}%"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">12%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium">${listCountrySales[2].ratio}%</span>
                                     </div>
                                 </div>
                             </div>
@@ -651,11 +716,12 @@
                                                 </th>
                                                 <th class="border-0 font-14 font-weight-medium text-muted px-2">Category
                                                 </th>
+                                                
                                              
                                                 <th class="border-0 font-14 font-weight-medium text-muted text-center">
                                                     Weeks
                                                 </th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted">Budget</th>
+                                                <th class="border-0 font-14 font-weight-medium text-muted">Profit</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -663,84 +729,84 @@
                                                 <td class="border-top-0 px-2 py-4">
                                                     <div class="d-flex no-block align-items-center">
                                                         <div class="mr-3"><img
-                                                                src="assets/images/users/widget-table-pic1.jpg"
+                                                                src="/ShoppingMall/resources/upload/${topItems[0].i_fname}"
                                                                 alt="user" class="rounded-circle" width="45"
                                                                 height="45" /></div>
                                                         <div class="">
-                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Hanna
-                                                                Gover</h5>
-                                                            <span class="text-muted font-14">hgover@gmail.com</span>
+                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">${topItems[0].p_name}
+                                                                </h5>
+                                                            <span class="text-muted font-14">&#8361; ${topItems[0].p_price}</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="border-top-0 text-muted px-2 py-4 font-14">Elite Admin</td>
+                                                <td class="border-top-0 text-muted px-2 py-4 font-14">${topItems[0].p_cate}</td>
                                               
                                                 <td
                                                     class="border-top-0 text-center font-weight-medium text-muted px-2 py-4">
-                                                    35
+                                                    ${topItems[0].period}
                                                 </td>
-                                                <td class="font-weight-medium text-dark border-top-0 px-2 py-4">$96K
+                                                <td class="font-weight-medium text-dark border-top-0 px-2 py-4">&#8361; ${topItems[0].sales}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="px-2 py-4">
                                                     <div class="d-flex no-block align-items-center">
                                                         <div class="mr-3"><img
-                                                                src="assets/images/users/widget-table-pic2.jpg"
+                                                               src="/ShoppingMall/resources/upload/${topItems[1].i_fname}"
                                                                 alt="user" class="rounded-circle" width="45"
                                                                 height="45" /></div>
                                                         <div class="">
-                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Daniel
-                                                                Kristeen
+                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">${topItems[1].p_name}
+                                                             
                                                             </h5>
-                                                            <span class="text-muted font-14">Kristeen@gmail.com</span>
+                                                            <span class="text-muted font-14">&#8361; ${topItems[1].p_price}</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="text-muted px-2 py-4 font-14">Real Homes WP Theme</td>
+                                                <td class="text-muted px-2 py-4 font-14">${topItems[1].p_cate}</td>
                                                
-                                                <td class="text-center text-muted font-weight-medium px-2 py-4">32</td>
-                                                <td class="font-weight-medium text-dark px-2 py-4">$85K</td>
+                                                <td class="text-center text-muted font-weight-medium px-2 py-4">${topItems[1].period}</td>
+                                                <td class="font-weight-medium text-dark px-2 py-4">&#8361; ${topItems[1].sales}</td>
                                             </tr>
                                             <tr>
                                                 <td class="px-2 py-4">
                                                     <div class="d-flex no-block align-items-center">
                                                         <div class="mr-3"><img
-                                                                src="assets/images/users/widget-table-pic3.jpg"
+                                                              src="/ShoppingMall/resources/upload/${topItems[2].i_fname}"
                                                                 alt="user" class="rounded-circle" width="45"
                                                                 height="45" /></div>
                                                         <div class="">
-                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Julian
-                                                                Josephs
+                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">${topItems[2].p_name}
+                                                      
                                                             </h5>
-                                                            <span class="text-muted font-14">Josephs@gmail.com</span>
+                                                            <span class="text-muted font-14">&#8361; ${topItems[2].p_price}</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="text-muted px-2 py-4 font-14">MedicalPro WP Theme</td>
+                                                <td class="text-muted px-2 py-4 font-14">${topItems[2].p_cate}</td>
                                               
-                                                <td class="text-center text-muted font-weight-medium px-2 py-4">29</td>
-                                                <td class="font-weight-medium text-dark px-2 py-4">$81K</td>
+                                                <td class="text-center text-muted font-weight-medium px-2 py-4">${topItems[2].period}</td>
+                                                <td class="font-weight-medium text-dark px-2 py-4">&#8361; ${topItems[2].sales}</td>
                                             </tr>
                                             <tr>
                                                 <td class="px-2 py-4">
                                                     <div class="d-flex no-block align-items-center">
                                                         <div class="mr-3"><img
-                                                                src="assets/images/users/widget-table-pic4.jpg"
+                                                             src="/ShoppingMall/resources/upload/${topItems[3].i_fname}"
                                                                 alt="user" class="rounded-circle" width="45"
                                                                 height="45" /></div>
                                                         <div class="">
-                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Jan
-                                                                Petrovic
+                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">${topItems[3].p_name}
+                                                             
                                                             </h5>
-                                                            <span class="text-muted font-14">hgover@gmail.com</span>
+                                                            <span class="text-muted font-14">&#8361; ${topItems[3].p_price}</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="text-muted px-2 py-4 font-14">Hosting Press HTML</td>
+                                                <td class="text-muted px-2 py-4 font-14">${topItems[3].p_cate}</td>
                                               
-                                                <td class="text-center text-muted font-weight-medium px-2 py-4">23</td>
-                                                <td class="font-weight-medium text-dark px-2 py-4">$80K</td>
+                                                <td class="text-center text-muted font-weight-medium px-2 py-4">${topItems[3].period}</td>
+                                                <td class="font-weight-medium text-dark px-2 py-4">&#8361; ${topItems[3].sales}</td>
                                             </tr>
                                         </tbody>
                                     </table>
