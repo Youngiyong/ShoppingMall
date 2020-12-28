@@ -20,5 +20,13 @@ public interface MemberDAO {
     public int updateMemberList(List<MemberVO> vo);
     public int deleteMemberList(List<MemberVO> vo);
 
+    /*
+    아이디 찾기
+     */
+    MemberVO idSearch(MemberVO vo);
 
+    /*
+        패스워드 찾기
+     */
+    int updatePass(MemberVO vo);
 }

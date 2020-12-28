@@ -23,6 +23,7 @@
   <link href="/ShoppingMall/admin/css/app-style.css" rel="stylesheet"/>
     <script src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
     <script src="/ShoppingMall/admin/js/login.js"></script>
+
 </head>
 
 <body class="bg-theme bg-theme9">

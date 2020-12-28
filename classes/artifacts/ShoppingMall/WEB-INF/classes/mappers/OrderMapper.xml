@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order">
+
+    <select id="getOrderList" resultType="java.util.HashMap">
+        select PI.O_ID, PI.PA_CODE, PI.M_CODE, PI.OD_ID, PI.O_DATE,
+             PI.O_STATUS, PA.O_ADDR , PA.O_NAME , PA.O_Tel
+                , P.P_ID , P.P_NAME , PA.O_POST
+            FROM PORDER_INFO PI, PORDER_ADDR PA, PRODUCT P
+        WHERE PI.PA_CODE = PA.PA_CODE AND P.P_ID = PI.P_ID
+    </select>
+
+    <update id="updateOrderListStatus" parameterType="java.util.List">
+        <foreach collection="list" item="item"  separator=";">
+        UPDATE PORDER_INFO
+            SET O_STATUS = #{item.o_Status}
+            WHERE O_ID = #{item.o_Id}
+        </foreach>
+    </update>
+
+</mapper>

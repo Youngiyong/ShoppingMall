@@ -8,9 +8,9 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Male-Fashion_Test</title>
+    <title>BUA-FashionMall</title>
 
-    <!-- Google Font -->
+    <!-- Google Font --> 
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
 
@@ -84,7 +84,7 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="/ShoppingMall/WebContent/index.do">Home</a></li>
+                            <li class="active"><a href="/ShoppingMall/index.jsp">Home</a></li>
                             <li><a href="/ShoppingMall/shop/shop.do">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
@@ -92,6 +92,8 @@
                                     <li><a href="/ShoppingMall/shop/shop-details.do">세부사항</a></li>
                                     <li><a href="/ShoppingMall/shop/shopping-cart.do">장바구니</a></li>
                                     <li><a href="/ShoppingMall/shop/checkout.do">결제하기</a></li>
+                                    <li><a href="/ShoppingMall/board/getBoardList.do">게시판</a></li>
+                                
                                 </ul>
                             </li>
                         </ul>
@@ -123,7 +125,7 @@
                                 <h2>Fall - Winter Collections 2020</h2>
                                 <p>럭셔리 필수품을 만드는 전문 라벨입니다. 흔들리지 않고 윤리적으로 제작되어
                                 탁월한 품질에 대해 약속합니다</p>
-                                <a href="#" class="primary-btn">쇼핑하러가기 <span class="arrow_right"></span></a>
+                                <a href="/ShoppingMall/shop/shop.do" class="primary-btn">쇼핑하러가기 <span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -144,7 +146,7 @@
                                 <h2>Fall - Winter Collections 2020</h2>
                                 <p>명품 필수품을 만드는 전문 라벨. 흔들리지 않고 윤리적으로 제작되어
                                 탁월한 품질에 대해 약속합니다</p>
-                                <a href="#" class="primary-btn">쇼핑하러가기 <span class="arrow_right"></span></a>
+                                <a href="/ShoppingMall/shop/shop.do" class="primary-btn">쇼핑하러가기 <span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -171,7 +173,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>Clothing Collections 2020</h2>
-                            <a href="#">쇼핑하러가기</a>
+                            <a href="/ShoppingMall/shop/shop.do">쇼핑하러가기</a>
                         </div>
                     </div>
                 </div>
@@ -182,7 +184,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>Accessories</h2>
-                            <a href="#">쇼핑하러가기</a>
+                            <a href="/ShoppingMall/shop/shop.do">쇼핑하러가기</a>
                         </div>
                     </div>
                 </div>
@@ -193,7 +195,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>Shoes Spring 2020</h2>
-                            <a href="#">쇼핑하러가기</a>
+                            <a href="/ShoppingMall/shop/shop.do">쇼핑하러가기</a>
                         </div>
                     </div>
                 </div>

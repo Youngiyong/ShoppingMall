@@ -43,4 +43,17 @@ public class MemberDAOImpl implements MemberDAO{
 		return mybatis.update("user.deleteMemberList", vo);
 
 	}
+
+	@Override
+	public MemberVO idSearch(MemberVO vo) {
+		System.out.println("===> MemberMapper nidSearch() 호출");
+		return mybatis.selectOne("user.idSearch", vo);
+	}
+
+	@Override
+	public int updatePass(MemberVO vo) {
+		System.out.println("===> MemberMapper updatePass() 호출");
+		return mybatis.update("user.updatePass", vo);
+	}
+
 }

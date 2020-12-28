@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>비밀번호 찾기</title>
+  <title>아이디 찾기</title>
   <!-- loader-->
   <link href="/ShoppingMall/admin/assets/css/pace.min.css" rel="stylesheet"/>
   <script src="/ShoppingMall/admin/assets/js/pace.min.js"></script>

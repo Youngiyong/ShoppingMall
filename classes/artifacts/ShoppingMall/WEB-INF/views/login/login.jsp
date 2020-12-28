@@ -25,6 +25,7 @@
     <!-- 씀 -->
     <link rel="stylesheet" href="/ShoppingMall/app/css/member.css">
     <script src="/ShoppingMall/app/js/jquery-3.5.1.js"></script>
+
 </head>
 <body class="MEMBER_BODY" data-dico="noTrans">
 <div class="bottom-column column clearfix n-member-area">

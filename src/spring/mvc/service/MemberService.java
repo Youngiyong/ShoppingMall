@@ -12,4 +12,6 @@ public interface MemberService {
 	public int deleteMemberList(List<MemberVO> vo);
 	public int updateMemberList(List<MemberVO> vo);
 
+	public MemberVO idSearch(MemberVO vo);
+	public int updatePass(MemberVO vo);
 }

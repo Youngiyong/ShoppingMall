@@ -181,8 +181,8 @@
                              <th scope="col">나이</th>
                              <th scope="col">전화번호</th>
                              <th scope="col">이메일</th>
-                             <th scope="col">지역</th>
                              <th scope="col">주소</th>
+                             <th scope="col">국가</th>
                              <%--<th scope="col">상태</th>--%>
 
                          </tr>
