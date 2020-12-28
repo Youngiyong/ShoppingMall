@@ -18,6 +18,7 @@ public class Member2Controller {
     @Autowired
     private MemberService memberService;
 
+
     @RequestMapping("/admin/updateMemberList.do")
     @ResponseBody
     public String updateMemberList(@RequestBody MemberVO[] vo){

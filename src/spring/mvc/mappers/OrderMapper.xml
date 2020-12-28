@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order">
+
+<resultMap id="orderListResultMap" type="java.util.List">
+    <id property="o_Id" column="o_id"/>
+    <result property="pa_Code" column="pa_code"/>
+    <result property="m_Code" column="m_code"/>
+    <result property="od_Id" column="od_id"/>
+    <result property="o_Date" column="o_date"/>
+    <result property="o_Status" column="o_status"/>
+    <result property="o_Addr" column="o_addr"/>
+    <result property="o_Name" column="o_name"/>
+    <result property="o_Tel" column="o_tel"/>
+    <result property="p_Id" column="p_id"/>
+    <result property="p_Name" column="p_Name"/>
+</resultMap>
+
+    <select id="getOrderList" resultType="map">
+    select PI.O_ID as o_Id, PI.PA_CODE as pa_Code, PI.M_CODE AS m_Code, PI.OD_ID AS od_Id, PI.O_DATE
+     AS o_Date, PI.O_STATUS AS o_Status, PA.O_ADDR AS o_Addr, PA.O_NAME AS o_Name, PA.O_Tel AS o_Tel
+        , P.P_ID AS p_Id, P.P_NAME AS p_Name, PA.O_POST AS o_Post
+    FROM PORDER_INFO PI, PORDER_ADDR PA, PRODUCT P
+    WHERE PI.PA_CODE = PA.PA_CODE AND P.P_ID = PI.P_ID;
+    </select>
+</mapper>

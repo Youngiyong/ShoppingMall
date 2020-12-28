@@ -8,6 +8,7 @@ import spring.mvc.domain.OrderListVO;
 import spring.mvc.model.OrderDAOImpl;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
@@ -16,11 +17,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderDAOImpl orderDAO;
 
     @Override
-    public List<OrderListVO> getOrderList(OrderListVO vo) { return orderDAO.getOrderList(vo); }
+    public List<Map<String, Object>> getOrderList() { return orderDAO.getOrderList(); }
 
     @Override
-    public List<OrderAddrVO> getOrderAddrList(OrderAddrVO vo) { return orderDAO.getOrderAddrList(vo); }
-
-    @Override
-    public List<OrderInfoVO> getOrderInfoList(OrderInfoVO vo) { return orderDAO.getOrderInfoList(vo); }
+    public int updateOrderListStatus(List<OrderInfoVO> vo) { return orderDAO.updateOrderListStatus(vo); }
 }

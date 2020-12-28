@@ -8,7 +8,8 @@
     <!-- 여기를 완성 -->
     <insert id="userInsert" parameterType="member">
         INSERT INTO member
-        (m_code, m_id, m_pass, m_email)VALUES (seq_member_m_code.NEXTVAL, #{m_Id}, #{m_Pass}, #{m_Email})
+        (m_code, m_id, m_pass, m_email, m_name, m_tel, m_email, m_addr, m_post, m_age, m_country, m_date, m_status)
+        VALUES (seq_member_m_code.NEXTVAL, #{m_Id}, #{m_Pass}, #{m_Email}, #{m_Name}, #{m_Tel}, #{m_Email}, #{m_Addr}, #{m_Post}, #{m_Age}, #{m_Country},sysdate, 'Y')
 </insert>
 
     <select id="idCheck"  parameterType="member" resultType="member">

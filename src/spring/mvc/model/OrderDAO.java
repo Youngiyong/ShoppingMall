@@ -6,8 +6,7 @@ import java.util.*;
 
 public interface OrderDAO {
     //주문 정보 전체 불러오기
-    public List<OrderListVO> getOrderList(OrderListVO vo);
-    public List<OrderAddrVO> getOrderAddrList(OrderAddrVO vo);
-    public List<OrderInfoVO> getOrderInfoList(OrderInfoVO vo);
-
+    public List<Map<String, Object>> getOrderList();
+    //주문 상태 업데이트
+    public int updateOrderListStatus(List<OrderInfoVO> vo);
 }

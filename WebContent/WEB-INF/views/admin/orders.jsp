@@ -38,6 +38,10 @@
         #file {
             color: white;
         }
+        .o_Status {
+            color : black;
+
+        }
     </style>
 </head>
 
@@ -84,7 +88,11 @@
                  </a>
              </li>
 
-
+             <li>
+                 <a href="/ShoppingMall/admin/orders.do">
+                     <i class="zmdi zmdi-assignment-o"></i> <span> 주문 정보</span>
+                 </a>
+             </li>
          </ul>
 
      </div>
@@ -171,6 +179,7 @@
                              <th scope="col">&nbsp;</th>
                              <th scope="col">주문 번호</th>
                              <th scope="col">상품 코드</th>
+                             <th scope="col">상품 이름</th>
                              <th scope="col">회원 코드</th>
                              <th scope="col">이름</th>
                              <th scope="col">연락처</th>
@@ -183,14 +192,31 @@
                          </thead>
                          <form id="frm" method="post">
                          <tbody>
-                         <c:forEach items="${productList}" var="product">
+                         <c:forEach items="${list}" var="order">
                              <tr>
                                  <th scope="row"><input class="checkSelect" type="checkbox" name="box[]"/></th>
-                                 <td class="p_Id">${product.p_Id}</td>
-                                 <td class="tm-product-name">${product.p_Name}</td>
-                                 <td>${product.p_Cate}</td>
-                                 <td>${product.p_Price}</td>
-                                 <td>${product.p_Date}</td>
+                                 <td class="o_Id">${order.O_ID}</td>
+                                 <td class="p_Id">${order.P_ID}</td>
+                                 <td class="p_Name">${order.P_NAME}</td>
+                                 <td class="m_Code">${order.M_CODE}</td>
+                                 <td class="m_Name">${order.O_NAME}</td>
+                                 <td class="o_Tel">${order.O_TEL}</td>
+                                 <td class="o_Addr">${order.O_ADDR}</td>
+                                 <td class="od_Id">${order.OD_ID}</td>
+                                 <td class="o_Post">${order.O_POST}</td>
+                                 <td class="o_Date">${order.O_DATE}</td>
+                                 <td>
+                                     <select name="o_Status" id="o_Status" >
+                                     <option selected class="o_Status">${order.O_STATUS}</option>
+                                     <option class="opt" value="배송중">배송중</option>
+                                     <option class="opt" value="배송완료">배송완료</option>
+                                     <option class="opt" value="구매확정">구매확정</option>
+                                     <option class="opt" value="환불신청">환불신청</option>
+                                     <option class="opt" value="환불완료">환불완료</option>
+                                     <option class="opt" value="교화신청">교화신청</option>
+                                     <option class="opt" value="교환완료">교환완료</option>
+                                        </select>
+                                 </td>
 
                              </tr>
                          </c:forEach>
@@ -207,11 +233,9 @@
 
                  <!-- table container -->
 
-
-
-
-                 <button type="button" id = "btn_delete" class="btn btn-primary btn-block text-uppercase">상품 수정</button>
-                 <button type="button" id = "btn_modify" class="btn btn-primary btn-block text-uppercase">상품 수정</button>
+             <a
+                     id="btn_modify"
+                     class="btn btn-primary btn-block text-uppercase mb-3">주문 수정</a>
              </div>
 
          </div>

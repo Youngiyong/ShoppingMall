@@ -9,8 +9,10 @@ public class MemberVO {
     private String m_Tel;
     private String m_Email;
     private String m_Addr;
+    private String m_Post;
+    private String m_Addr2;
+    private String m_Addr3;
     private int m_Age;
-
     private String m_Country;
 
     public String getM_Code() { return m_Code; }
@@ -31,4 +33,10 @@ public class MemberVO {
     public void setM_Age(int m_Age) { this.m_Age = m_Age; }
     public String getM_Country() { return m_Country; }
     public void setM_Country(String m_Country) { this.m_Country = m_Country; }
+    public String getM_Post() { return m_Post; }
+    public void setM_Post(String m_Post) { this.m_Post = m_Post; }
+    public String getM_Addr2() { return m_Addr2; }
+    public void setM_Addr2(String m_Addr2) { this.m_Addr2 = m_Addr2; }
+    public String getM_Addr3() { return m_Addr3; }
+    public void setM_Addr3(String m_Addr3) { this.m_Addr3 = m_Addr3; }
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dashBoard">
+
+    <!-- 여기를 완성 --> 
+	<!-- 이번달 매출 -->
+    <select id="MonthSale" resultType="dash">
+      	SELECT SUM(count*p_price) sales
+		FROM order_list
+		WHERE TO_CHAR(o_date,'YYYYMM')=TO_CHAR(sysdate,'YYYYMM')
+                        
+    </select>
+    
+    <!-- 지난달 오늘 날짜 까지 매출 -->
+     <select id="lastMonthSale" resultType="dash">
+      	SELECT SUM(count*p_price) sales
+		FROM order_list
+		WHERE TO_CHAR(o_date,'YYYYMMDD')=TO_CHAR(ADD_MONTHS(SYSDATE,-1),'YYYYMMDD')
+                        
+    </select>
+    
+    	<!-- 이번달 신규 가입 유저 -->
+    <select id="newMember" resultType="dash">
+ 		SELECT count(m_code) count
+		FROM member
+		WHERE TO_CHAR(m_date,'YYYYMM')=TO_CHAR(sysdate,'YYYYMM')
+                        
+    </select>
+    
+     	<!-- 지난달 신규 가입 유저 -->
+    <select id="lastMonthNewMember" resultType="dash">
+ 		SELECT count(m_code) count
+		FROM member
+		WHERE TO_CHAR(m_date,'YYYYMMDD')=TO_CHAR(ADD_MONTHS(SYSDATE,-1),'YYYYMMDD')
+                        
+                        
+    </select>
+    
+    
+    	<!-- 이번달 신규 상품 -->
+    <select id="newProduct" resultType="dash">
+      SELECT count(*) count
+		FROM product_regist
+		WHERE TO_CHAR(p_date,'YYYYMM')=TO_CHAR(sysdate,'YYYYMM')
+                        
+    </select>
+    
+    	<!-- 이번달 상품 판매 갯수 -->
+    <select id="salesProduct" resultType="dash">
+      	SELECT SUM(count) count
+		FROM order_list
+		WHERE TO_CHAR(o_date,'YYYYMM')=TO_CHAR(sysdate,'YYYYMM')
+                        
+    </select>
+    
+    	<!-- 지난달 상품 판매 갯수 -->
+    	
+    	  <select id="lastMonthsalesProduct" resultType="dash">
+      	SELECT SUM(count) count
+		FROM order_list
+		WHERE TO_CHAR(o_date,'YYYYMM')=TO_CHAR(ADD_MONTHS(SYSDATE,-1),'YYYYMMDD')
+                        
+    </select>
+    	
+
+</mapper>
