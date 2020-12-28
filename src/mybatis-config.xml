@@ -11,6 +11,8 @@
         <typeAlias type="spring.mvc.domain.ProductVO" alias="product"/>
         <typeAlias type="spring.mvc.domain.ProductImageVO" alias="product_img"/>
         <typeAlias type="spring.mvc.domain.ProductStockVO" alias="product_stock"/>
+    	<!-- BoardAlias 설정 -->
+		<typeAlias type="spring.mvc.domain.BoardVO" alias="board" />	
     </typeAliases>
 
     <!-- 오라클에서 Long타입 가져오기 위한 핸들러 -->
