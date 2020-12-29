@@ -34,18 +34,21 @@ public class LoginController {
     //카카오 로그 요청
     @RequestMapping("/member/userInsertKaKao.do")
     @ResponseBody
-    public String userInsertKaKao(@RequestBody MemberVO vo){
+    public String userInsertKaKao(@RequestBody MemberVO vo, HttpSession session){
         System.out.println(vo.getM_Id());
         System.out.println(vo.getM_Email());
 
         MemberVO memberVO = memberService.idCheck_Login(vo);
         if(memberVO==null){
             memberService.userInsertKaKao(vo);
+            session.setAttribute("m_Id", vo.getM_Id());
+            return "아이디등록";
         } else{
+            session.setAttribute("m_Id", memberVO.getM_Id());
             return "아이디확인";
         }
 
-        return "아이디등록";
+
     }
     //회원가입 요청
     @RequestMapping("/member/adminInsert.do")
@@ -86,7 +89,7 @@ public class LoginController {
 
         } else {
 
-            session.setAttribute("a_Id", memberVO.getM_Id());
+            session.setAttribute("m_Id", memberVO.getM_Id());
             System.out.println(memberVO.getM_Email());
             System.out.println("로그인 성공");
             return memberVO;
