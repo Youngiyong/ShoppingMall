@@ -8,4 +8,6 @@ public interface ShopService {
 	
 	// 상품 목록 조회
 	List<ShopVO> getProductList(ShopVO vo);
+	
+	ShopVO getProduct(ShopVO vo);
 }

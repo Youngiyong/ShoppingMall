@@ -18,4 +18,8 @@ public class ShopServiceImpl implements ShopService{
 	public List<ShopVO> getProductList(ShopVO vo){
 		return shopDAO.getProductList(vo);
 	}
+	
+	public ShopVO getProduct(ShopVO vo) {
+		return shopDAO.getProduct(vo);
+	}
 }

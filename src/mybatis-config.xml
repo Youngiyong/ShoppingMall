@@ -14,6 +14,7 @@
         <typeAlias type="spring.mvc.domain.DashBoardVO" alias="dash"/>
         <typeAlias type="spring.mvc.domain.PorderAddrVO" alias="porder_addr"/>
         <typeAlias type="spring.mvc.domain.OrderInfoVO" alias="order_info"/>
+        <typeAlias type="spring.mvc.domain.ShopVO" alias="shop"/>
     	<!-- BoardAlias 설정 -->
 		<typeAlias type="spring.mvc.domain.BoardVO" alias="board" />	
     </typeAliases>

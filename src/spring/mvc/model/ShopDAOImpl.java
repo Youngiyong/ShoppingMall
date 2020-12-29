@@ -19,5 +19,10 @@ public class ShopDAOImpl implements ShopDAO{
 		System.out.println("ShopMapper getProductList() 호출");
 		return mybatis.selectList("shop.getProductList", vo);
 	}
+	
+	public ShopVO getProduct(ShopVO vo) {
+		System.out.println("ShopMapper getProduct() 호출");
+		return (ShopVO) mybatis.selectOne("shop.getProduct", vo);
+	}
 
 }

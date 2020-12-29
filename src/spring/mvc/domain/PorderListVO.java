@@ -3,6 +3,8 @@ package spring.mvc.domain;
 public class PorderListVO {
 	
 	private String o_id;
+	
+	
 	private String p_id;
 	private int p_count;
 	private int p_price;
@@ -10,6 +12,13 @@ public class PorderListVO {
 	private int p_size;
 	private String p_root;
 	private String m_code;
+	
+	
+	private String p_name;
+	private String p_cate;
+	private String p_content;
+	
+	private String i_fname;
 	
 	
 	public String getO_id() {
@@ -59,6 +68,33 @@ public class PorderListVO {
 	}
 	public void setM_code(String m_code) {
 		this.m_code = m_code;
+	}
+	
+	
+	
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public String getP_cate() {
+		return p_cate;
+	}
+	public void setP_cate(String p_cate) {
+		this.p_cate = p_cate;
+	}
+	public String getP_content() {
+		return p_content;
+	}
+	public void setP_content(String p_content) {
+		this.p_content = p_content;
+	}
+	public String getI_fname() {
+		return i_fname;
+	}
+	public void setI_fname(String i_fname) {
+		this.i_fname = i_fname;
 	}
 	
 	
