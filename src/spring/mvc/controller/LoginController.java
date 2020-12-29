@@ -37,18 +37,20 @@ public class LoginController {
     public String userInsertKaKao(@RequestBody MemberVO vo, HttpSession session){
         System.out.println(vo.getM_Id());
         System.out.println(vo.getM_Email());
-
+        System.out.println("40" + vo.getM_Name());
         MemberVO memberVO = memberService.idCheck_Login(vo);
+        System.out.println("42"+memberVO.getM_Name());
         if(memberVO==null){
+            System.out.println("43" + vo.getM_Name());
             memberService.userInsertKaKao(vo);
             session.setAttribute("m_Id", vo.getM_Id());
             session.setAttribute("m_Name", vo.getM_Name());
-            System.out.println(vo.getM_Name());
+            System.out.println("1" + vo.getM_Name());
             return "아이디등록";
         } else{
             session.setAttribute("m_Id", memberVO.getM_Id());
             session.setAttribute("m_Name", memberVO.getM_Name());
-            System.out.println(memberVO.getM_Name());
+            System.out.println("2" + memberVO.getM_Name());
             return "아이디확인";
         }
 
