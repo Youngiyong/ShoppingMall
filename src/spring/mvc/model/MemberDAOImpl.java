@@ -26,6 +26,12 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
+	public int userInsertKaKao(MemberVO vo) {
+		System.out.println("===>  MemberMapper userInsertKaKao() 호출");
+		return mybatis.insert("user.userInsertKaKao", vo);
+	}
+
+	@Override
 	public List<MemberVO> getMemberList() {
 		System.out.println("===>  MemberMapper getMemberList() 호출");
 		return mybatis.selectList("user.getMemberList");

@@ -102,18 +102,40 @@
                                         var m_Id = res.id;      //유저의 카카오톡 고유 id
                                         var m_Email = res.kakao_account.email;   //유저의 이메일
                                         var m_Name = res.properties.nickname; //유저가 등록한 별명
-                                        var m_Age = res.age_range;
-                                        var brith = res.birthday;
+
                                         console.log(m_Id);
                                         console.log(m_Email);
                                         console.log(m_Name);
-                                        console.log(m_Age);
-                                        console.log(brith);
 
-                                        alert("로그인 성공");
+                                        var objPrmtr = new Object(); //key, value형태로 저장할 Object
+
+                                        objPrmtr.m_Id = m_Id;
+                                        objPrmtr.m_Email = m_Email;
+                                        objPrmtr.m_Name = m_Name;
+
+
+                                            $.ajax({
+                                                type : 'post',
+                                                url: '/ShoppingMall/member/userInsertKaKao.do',
+                                                contentType:'application/json; charset=UTF-8',
+                                                traditional : true,
+                                                data : JSON.stringify(objPrmtr),
+                                                dataType : 'json',
+                                                success : function (data) {
+                                                    alert('로그인이 완료 되었습니다.');
+                                                    location.href = "/ShoppingMall/index.jsp";
+                                                },
+                                                error: function(err) {
+                                                    //err msg 출력
+                                                    alert("로그인 실패하였습니다.");
+
+                                                    console.log(err)
+                                                }
+                                            })
                                     },
                                     fail: function(error) {
-                                        alert(JSON.stringify(error));
+                                        alert("로그인 실패하였습니다.");
+                                     //   alert(JSON.stringify(error));
                                     }
                                 });
                             },

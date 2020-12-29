@@ -31,6 +31,22 @@ public class LoginController {
         System.out.println(url);
         return "/member/"+url;
     }
+    //카카오 로그 요청
+    @RequestMapping("/member/userInsertKaKao.do")
+    @ResponseBody
+    public String userInsertKaKao(@RequestBody MemberVO vo){
+        System.out.println(vo.getM_Id());
+        System.out.println(vo.getM_Email());
+
+        MemberVO memberVO = memberService.idCheck_Login(vo);
+        if(memberVO==null){
+            memberService.userInsertKaKao(vo);
+        } else{
+            return "아이디확인";
+        }
+
+        return "아이디등록";
+    }
     //회원가입 요청
     @RequestMapping("/member/adminInsert.do")
     public String userInsert(MemberVO vo){

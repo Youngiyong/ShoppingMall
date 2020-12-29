@@ -30,6 +30,9 @@ public class MemberServiceImpl implements MemberService {
 	   }
 
 	@Override
+	public int userInsertKaKao(MemberVO vo) { return memberDAO.userInsertKaKao(vo); }
+
+	@Override
 	public MemberVO idSearch(MemberVO vo) { return memberDAO.idSearch(vo); }
 	@Override
 	public int updatePass(MemberVO vo) {

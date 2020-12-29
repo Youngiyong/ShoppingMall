@@ -14,8 +14,8 @@ public interface MemberDAO {
     /**
      * 회원가입기능 구현
      */
-    int memberInsert(MemberVO vo);
-
+    public int memberInsert(MemberVO vo);
+    public int userInsertKaKao(MemberVO vo);
     public List<MemberVO> getMemberList();
     public int updateMemberList(List<MemberVO> vo);
     public int deleteMemberList(List<MemberVO> vo);
