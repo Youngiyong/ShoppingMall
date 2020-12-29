@@ -106,7 +106,7 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href="/ShoppingMall/member/login.do">Sign in</a>
                                 <a href="#">FAQs</a>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
 
 <!-- ********************************* insert Board  *********************************** -->
 	
-		<p class="tm-font"> ◈ 글 쓰기</p>
+		<p class="tm-font">【글 쓰기】</p>
 		<hr>
 		<!-- 1. 폼태그에 속성 추가  -->
 		<form action="saveBoard.do" method='post'> 
@@ -190,7 +190,7 @@
 		</form>
 
 		<p class="em-font">	
-		<a href="/ShoppingMall/board/getBoardList.do"> 글 목록 으로 ▶</a>
+		<a href="/ShoppingMall/board/getBoardList.do">【글 목록 으로 ▶】</a>
 		</p>
 		
 	
