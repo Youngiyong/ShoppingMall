@@ -42,9 +42,13 @@ public class LoginController {
         if(memberVO==null){
             memberService.userInsertKaKao(vo);
             session.setAttribute("m_Id", vo.getM_Id());
+            session.setAttribute("m_Name", vo.getM_Name());
+            System.out.println(vo.getM_Name());
             return "아이디등록";
         } else{
             session.setAttribute("m_Id", memberVO.getM_Id());
+            session.setAttribute("m_Name", memberVO.getM_Name());
+            System.out.println(memberVO.getM_Name());
             return "아이디확인";
         }
 
@@ -88,7 +92,8 @@ public class LoginController {
             return "";
 
         } else {
-
+            session.setAttribute("m_Name", memberVO.getM_Name());
+            System.out.println(memberVO.getM_Name());
             session.setAttribute("m_Id", memberVO.getM_Id());
             System.out.println(memberVO.getM_Email());
             System.out.println("로그인 성공");
