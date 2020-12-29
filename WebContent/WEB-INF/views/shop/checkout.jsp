@@ -8,7 +8,7 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Male-Fashion | Template</title>
+    <title>BUA-FashionMall</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/additional.css" type="text/css">
+    
 </head>
 
 <body>
@@ -39,14 +41,6 @@
                 <a href="#">Sign in</a>
                 <a href="#">FAQs</a>
             </div>
-            <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </div>
         </div>
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
@@ -55,9 +49,6 @@
             <div class="price">$0.00</div>
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__text">
-            <p>Free shipping, 30-day return or refund guarantee.</p>
-        </div>
     </div>
     <!-- Offcanvas Menu End -->
 
@@ -68,7 +59,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-7">
                         <div class="header__top__left">
-                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                            <p>Men's Wear</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">
@@ -76,14 +67,6 @@
                             <div class="header__top__links">
                                 <a href="#">Sign in</a>
                                 <a href="#">FAQs</a>
-                            </div>
-                            <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -94,34 +77,33 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="/ShoppingMall/index.jsp"><img src="/ShoppingMall/shop/img/bua.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li class="active"><a href="./shop.html">Shop</a></li>
+                            <li><a href="/ShoppingMall/index.jsp">Home</a></li>
+                            <li class="active"><a href="/ShoppingMall/shop/shop.do">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="/ShoppingMall/shop/about.do">About Us</a></li>
+                                    <li><a href="/ShoppingMall/shop/shop-details.do">세부사항</a></li>
+                                    <li><a href="/ShoppingMall/shop/shopping-cart.do">장바구니</a></li>
+                                    <li><a href="/ShoppingMall/shop/checkout.do">결제하기</a></li>
+                                    <li><a href="/ShoppingMall/board/getBoardList.do">게시판</a></li>
+                                    
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
+                        <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
+                        <a href="#"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <div class="price">0원</div>
                     </div>
                 </div>
             </div>
@@ -138,8 +120,8 @@
                     <div class="breadcrumb__text">
                         <h4>Check Out</h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <a href="./shop.html">Shop</a>
+                            <a href="/ShoppingMall/index.jsp">Home</a>
+                            <a href="/ShoppingMall/shop/shop.do">Shop</a>
                             <span>Check Out</span>
                         </div>
                     </div>
@@ -153,52 +135,130 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form action="#">
+                <form action="/ShoppingMall/checkout/checkout.do">
+                    	<div class="country_radio">
+                    		<label for="korean"><input type="radio" name="country" id="korean" value="9" checked> 내국인/Korean </label>
+                    		<label for="foreigner"><input type="radio" name="country" id="foreigner" value="8"> 외국인/Foreigner </label>
+                        </div><!-- 라디오 div -->
+                    	
                     <div class="row">
+                    	
+                    	<!-- 내국인용 start -->
                         <div class="col-lg-8 col-md-6">
-                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
+                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> 쿠폰이 있으신가요? <a href="#" class="here">여기
+                            </a> 를 눌러 쿠폰을 입력해주세요</h6>
+                            <h6 class="checkout__title">주문/결제</h6>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>수령인<span>*</span></p>
+                                        <input type="text" name ="o_name1">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="checkout__input">
+                                <p>우편번호<span>*</span></p>
+                            </div>
+	                            <input type="text" id="sample4_postcode" name="o_post" placeholder="우편번호" readonly="readonly">
+								<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+                            <div class="checkout__input">
+                                <p>배송지 주소<span>*</span></p>
+                            </div>
+								<input type="text" id="sample4_roadAddress" name="o_addr1" placeholder="도로명주소" class="checkout__input__add" readonly="readonly">
+								<input type="text" id="sample4_jibunAddress" name="o_addr2" placeholder="지번주소" class="checkout__input__add" readonly="readonly">
+								<span id="guide" style="color:#999;display:none"></span><br/>
+								<input type="text" id="sample4_detailAddress" name="o_addr3" placeholder="상세주소">
+                            
+                            
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>연락처<span>*</span></p>
+                                        <input type="text" name="o_tel">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Email<span>*</span></p>
+  <!-- 이메일 컬럼이 따로 없음 -->
+                                        <input type="text"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="acc">
+                                    Create an account?
+                                    <input type="checkbox" id="acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <p>Create an account by entering the information below. If you are a returning customer
+                                please login at the top of the page</p>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Account Password<span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="diff-acc">
+                                    Note about your order, e.g, special noe for delivery
+                                    <input type="checkbox" id="diff-acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input">
+                                <p>배송메모<span>*</span></p>
+                                <input type="text"
+                                placeholder="주문에 대한 참고 사항 (예 : 문 앞에 놓아주세요 등)">
+                            </div>
+                        </div>
+                        <!-- 내국인용 END -->
+                        
+                        <!-- 외국인용 start -->
+                        <div class="col-lg-8 col-md-6">
+                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#" class="here">Click
                             here</a> to enter your code</h6>
                             <h6 class="checkout__title">Billing Details</h6>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Fist Name<span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" name="o_name1">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Last Name<span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" name="o_name2">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
                                 <p>Country<span>*</span></p>
-                                <input type="text">
+                                <input type="text" name="o_addr1">
                             </div>
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
+                                <input type="text" name="o_addr2" placeholder="Street Address" class="checkout__input__add">
+                                <input type="text" name="o_addr3" placeholder="Apartment, suite, unite ect (optinal)">
                             </div>
                             <div class="checkout__input">
                                 <p>Town/City<span>*</span></p>
-                                <input type="text">
+                                <input type="text" name="o_addr4">
                             </div>
                             <div class="checkout__input">
                                 <p>Country/State<span>*</span></p>
-                                <input type="text">
+                                <input type="text" name="o_addr5">
                             </div>
                             <div class="checkout__input">
                                 <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
+                                <input type="text" name="o_post">
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Phone<span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" name="o_tel">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -234,10 +294,12 @@
                                 placeholder="Notes about your order, e.g. special notes for delivery.">
                             </div>
                         </div>
+                        <!-- 외국인용 END -->
+                        
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <h4 class="order__title">Your order</h4>
-                                <div class="checkout__order__products">Product <span>Total</span></div>
+                                <h4 class="order__title">주문 내역/Your order</h4>
+                                <div class="checkout__order__products">상품/Product <span>가격/Total</span></div>
                                 <ul class="checkout__total__products">
                                     <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
                                     <li>02. German chocolate <span>$ 170.0</span></li>
@@ -245,8 +307,8 @@
                                     <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
                                 </ul>
                                 <ul class="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
-                                    <li>Total <span>$750.99</span></li>
+                                    <li>소계/Subtotal <span>$750.99</span></li>
+                                    <li>총합/Total <span>$750.99</span></li>
                                 </ul>
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
@@ -271,9 +333,11 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                                <button type="submit" class="site-btn">주문하기/PLACE ORDER</button>
                             </div>
                         </div>
+                        
+                        
                     </div>
                 </form>
             </div>
@@ -370,6 +434,12 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/additional.js"></script>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+
+</script>
+    
 </body>
 
 </html>

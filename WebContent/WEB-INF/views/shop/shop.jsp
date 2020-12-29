@@ -9,7 +9,7 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Male-Fashion | Template</title>
+    <title>BUA-FashionMall</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
@@ -43,25 +43,15 @@
                 <a href="#">Sign in</a>
                 <a href="#">FAQs</a>
             </div>
-            <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </div>
+            
         </div>
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
             <a href="#"><img src="img/icon/heart.png" alt=""></a>
             <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="price">$0.00</div>
+            <div class="price">0원</div>
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__text">
-            <p>Free shipping, 30-day return or refund guarantee.</p>
-        </div>
     </div>
     <!-- Offcanvas Menu End -->
 
@@ -104,6 +94,8 @@
                                     <li><a href="/ShoppingMall/shop/shop-details.do">세부사항</a></li>
                                     <li><a href="/ShoppingMall/shop/shopping-cart.do">장바구니</a></li>
                                     <li><a href="/ShoppingMall/shop/checkout.do">결제하기</a></li>
+                                    <li><a href="/ShoppingMall/board/getBoardList.do">게시판</a></li>
+                                    
                                 </ul>
                             </li>
                         </ul>
@@ -131,7 +123,7 @@
                     <div class="breadcrumb__text">
                         <h4>Shop</h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
+                            <a href="/ShoppingMall/index.jsp">Home</a>
                             <span>Shop</span>
                         </div>
                     </div>
@@ -176,23 +168,25 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseTwo">브랜드</a>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__brand">
-                                                <ul>
-                                                    <li><label for="Louis Vuitton"><input type="checkbox" id="Louis Vuitton" name="Louis Vuitton" value="Louis Vuitton">Louis Vuitton</label></li>
-                                                    <li><label for="Chanel"><input type="checkbox" id="Chanel" name="Chanel" value="Chanel">Chanel</label></li>
-                                                    <li><label for="Hermes"><input type="checkbox" id="Hermes" name="Hermes" value="Hermes">Hermes</label></li>
-                                                    <li><label for="Gucci"><input type="checkbox" id="Gucci" name="Gucci" value="Gucci">Gucci</label></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
+<!--                                 <div class="card"> -->
+<!--                                     <div class="card-heading"> -->
+<!--                                         <a data-toggle="collapse" data-target="#collapseTwo">브랜드</a> -->
+<!--                                     </div> -->
+<!--                                     <div id="collapseTwo" class="collapse show" data-parent="#accordionExample"> -->
+<!--                                         <div class="card-body"> -->
+<!--                                             <div class="shop__sidebar__brand"> -->
+<!--                                                 <ul> -->
+<!--                                                     <li><label for="Louis Vuitton"><input type="checkbox" id="Louis Vuitton" name="Louis Vuitton" value="Louis Vuitton">Louis Vuitton</label></li> -->
+<!--                                                     <li><label for="Chanel"><input type="checkbox" id="Chanel" name="Chanel" value="Chanel">Chanel</label></li> -->
+<!--                                                     <li><label for="Hermes"><input type="checkbox" id="Hermes" name="Hermes" value="Hermes">Hermes</label></li> -->
+<!--                                                     <li><label for="Gucci"><input type="checkbox" id="Gucci" name="Gucci" value="Gucci">Gucci</label></li> -->
+<!--                                                 </ul> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+                                
                                 <div class="card">
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseThree">가격</a>
@@ -325,6 +319,7 @@
                         </div>
                     </div>
                     <div class="row">
+                    
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
@@ -358,6 +353,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
