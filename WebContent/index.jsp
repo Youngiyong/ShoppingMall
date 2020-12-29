@@ -61,6 +61,7 @@
                     <div class="col-lg-6 col-md-7">
                         <div class="header__top__left">
                             <p>Men's Wear</p>
+                            <a href="/ShoppingMall/admin/login.do">Admin Log In</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">
