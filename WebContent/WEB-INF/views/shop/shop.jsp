@@ -380,7 +380,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6>${shop.p_name}</h6>
-                                    <a href="#" class="add-cart">+ 장바구니에 담기</a>
+                                    <a href="/ShoppingMall/shop/cart.do?p_id=${shop.p_id }&m_id=${sessionScope.m_Id}" class="add-cart">+ 장바구니에 담기</a>
                                     <div class="rating">
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>
