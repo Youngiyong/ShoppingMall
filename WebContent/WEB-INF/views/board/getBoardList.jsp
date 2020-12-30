@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 
@@ -67,7 +69,7 @@
         <div class="offcanvas__option">
             <div class="offcanvas__links">
                 <a href="#">SIGN IN</a>
-                <a href="#">FAQs</a>
+                <a href="/ShoppingMall/shop/faq.do">FAQs</a>
             </div>
         </div>
      
@@ -96,8 +98,19 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="/ShoppingMall/member/login.do">Sign in</a>
-                                <a href="#">FAQs</a>
+                             <c:set var="data" value="null" />
+                        
+                              <c:choose>
+                             	 <c:when test="${empty sessionScope.m_Id }"> 
+                              	  <a href="/ShoppingMall/member/login.do">Sign in</a>
+                             	 </c:when>
+                             	 
+                             	 <c:otherwise>  
+                                <a href="#">${sessionScope.m_Name} 님</a>
+                                <a href="/ShoppingMall/member/logout.do">log out</a>
+                              	</c:otherwise>
+                              </c:choose>
+                                <a href="/ShoppingMall/shop/faq.do">FAQs</a>
                             </div>
                         </div>
                     </div>
@@ -133,7 +146,7 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="/ShoppingMall/shop/shopping-cart.do"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
                         <div class="price">0원</div>
                     </div>
                 </div>
