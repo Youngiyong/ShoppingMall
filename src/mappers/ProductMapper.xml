@@ -4,17 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="product">
-    <!-- 여기를 완성 -->
-    <insert id="insertProductVO" parameterType="product">
+        <!-- 여기를 완성 -->
+        <insert id="insertProductVO" parameterType="product">
         INSERT INTO product
         (p_id, p_cate, p_name, p_content, p_price, p_date)VALUES
         (seq_product_p_Id.NEXTVAL, #{p_Cate}, #{p_Name}, #{p_Content}, #{p_Price}, sysdate)
 </insert>
-    <insert id="insertProductIMG" parameterType="product_img">
+        <insert id="insertProductIMG" parameterType="product_img">
         INSERT INTO product_image(p_id, i_ip, i_fname, i_fsize)
         VALUES(#{p_Id}, #{i_Ip}, #{i_Fname}, #{i_Fsize})
     </insert>
-    <select id="selectSequence"  resultType="product">
+        <select id="selectSequence"  resultType="product">
         SELECT P_Id FROM product WHERE ROWNUM = 1 ORDER BY P_ID desc
     </select>
 
@@ -28,46 +28,46 @@
     </insert>
 
     <select id="getProductList" resultType="product">
-        SELECT * FROM product
+        SELECT * FROM product   ORDER BY P_ID
     </select>
 
-    <delete id="deleteProductStockList" parameterType="java.util.List">
+<delete id="deleteProductStockList" parameterType="java.util.List">
         DELETE FROM PRODUCT_STOCK
-        <where>
+ <where>
+  <foreach collection="list" item="item" open="" close="" separator="OR">
+        (p_id = #{item.p_Id})
+  </foreach>
+ </where>
+</delete>
+
+<delete id="deleteProductImageList" parameterType="java.util.List">
+       DELETE FROM PRODUCT_IMAGE
+       <where>
             <foreach collection="list" item="item" open="" close="" separator="OR">
                 (p_id = #{item.p_Id})
             </foreach>
         </where>
-    </delete>
+ </delete>
 
-    <delete id="deleteProductImageList" parameterType="java.util.List">
-        DELETE FROM PRODUCT_IMAGE
-        <where>
-            <foreach collection="list" item="item" open="" close="" separator="OR">
-                (p_id = #{item.p_Id})
-            </foreach>
-        </where>
-    </delete>
-
-    <delete id="deleteProductList" parameterType="java.util.List">
+<delete id="deleteProductList" parameterType="java.util.List">
         DELETE FROM PRODUCT
         <where>
             <foreach collection="list" item="item" open="" close="" separator="OR">
                 (p_id = #{item.p_Id})
             </foreach>
         </where>
-    </delete>
+</delete>
 
     <select id="selectProductIDInfo"  parameterType="product" resultType="product">
-        SELECT * FROM PRODUCT WHERE P_ID = #{p_Id}
+        SELECT * FROM PRODUCT WHERE P_ID = #{p_Id}  ORDER BY P_ID
     </select>
 
     <select id="selectProductImageIDInfo"  parameterType="product" resultType="product_img">
-        SELECT * FROM PRODUCT_IMAGE WHERE P_ID = #{p_Id}
+        SELECT * FROM PRODUCT_IMAGE WHERE P_ID = #{p_Id}   ORDER BY P_ID
     </select>
 
     <select id="selectProductStockIDInfo"  parameterType="product" resultType="product_stock">
-        SELECT * FROM PRODUCT_STOCK WHERE P_ID = #{p_Id}
+        SELECT * FROM PRODUCT_STOCK WHERE P_ID = #{p_Id}  ORDER BY P_ID
     </select>
 
     <update id="updateProductImageNULL" parameterType="product_img">
@@ -95,4 +95,13 @@
         </where>
     </select>
 
+    <select id="getCartProductList" parameterType="java.util.List" resultType="product">
+        SELECT * FROM PRODUCT
+        <where>
+            <foreach collection="list" item="list"  open="" close="" separator="OR">
+                (p_id = #{list.p_Id})
+            </foreach>
+        </where>
+        ORDER BY P_ID
+    </select>
 </mapper>
