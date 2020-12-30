@@ -106,7 +106,7 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href="/ShoppingMall/member/login.do">Sign in</a>
                                 <a href="#">FAQs</a>
                             </div>
                         </div>
@@ -159,7 +159,7 @@
 <!-- ******************************* get Board ************************************ -->
 	
 	
-		<p class="tm-font"> ◈ 게시글 상세 </p>		
+		<p class="tm-font"> 【게시글 상세】 </p>		
 		<hr>
 		<form action="updateBoard.do" method="post">
 			<input name="b_code" type="hidden" value="${board.b_code}" />
@@ -199,9 +199,9 @@
 		</form>
 
 		<p class="em-font">		
-		<a href="insertBoard.do">글등록 ▶</a>&nbsp;&nbsp;&nbsp; 
-		<a href="deleteBoard.do?m_id=${board.m_id }">글삭제 ▶</a>&nbsp;&nbsp;&nbsp;
-		<a href="getBoardList.do">글목록 ▶</a>
+		<a href="insertBoard.do">【글등록 ▶】</a>&nbsp;&nbsp;&nbsp; 
+		<a href="deleteBoard.do?m_id=${board.m_id }">【글삭제 ▶】</a>&nbsp;&nbsp;&nbsp;
+		<a href="getBoardList.do">【글목록 ▶】</a>
 		</p>
 	
 		

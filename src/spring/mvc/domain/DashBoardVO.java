@@ -15,9 +15,29 @@ public class DashBoardVO {
 	String i_fname;
 	String p_name;
 	String p_cate;
+	String startDate;
+	String endDate;
+	String time;
 	
 	
-	
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public String getP_cate() {
 		return p_cate;
 	}

@@ -1,14 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
+
 
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="description" content="Male_Fashion Template">
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Male-Fashion | Template</title>
+    <title>BUA About Us</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
@@ -23,9 +26,13 @@
     <link rel="stylesheet" href="/ShoppingMall/shop/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ShoppingMall/shop/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ShoppingMall/shop/css/style.css" type="text/css">
+
+<title>About us</title>
 </head>
 
+
 <body>
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -36,29 +43,21 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Sign in</a>
+                <a href="#">SIGN IN</a>
                 <a href="#">FAQs</a>
             </div>
-            <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </div>
         </div>
+     
         <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-            <a href="#"><img src="img/icon/heart.png" alt=""></a>
-            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="price">$0.00</div>
+            <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
+            <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
+            <a href="#"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
+            <div class="price">0원</div>
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__text">
-            <p>Free shipping, 30-day return or refund guarantee.</p>
-        </div>
+       
     </div>
+    
     <!-- Offcanvas Menu End -->
 
     <!-- Header Section Begin -->
@@ -68,22 +67,14 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-7">
                         <div class="header__top__left">
-                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                            <p>Men's Wear</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href="/ShoppingMall/member/login.do">Sign in</a>
                                 <a href="#">FAQs</a>
-                            </div>
-                            <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -94,34 +85,33 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="/ShoppingMall/index.jsp"><img src="/ShoppingMall/shop/img/bua.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
+                            <li class="active"><a href="/ShoppingMall/index.jsp">Home</a></li>
+                            <li><a href="/ShoppingMall/shop/shop.do">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="/ShoppingMall/shop/about.do">About Us</a></li>
+                                    <li><a href="/ShoppingMall/shop/shop-details.do">세부사항</a></li>
+                                    <li><a href="/ShoppingMall/shop/shopping-cart.do">장바구니</a></li>
+                                    <li><a href="/ShoppingMall/shop/checkout.do">결제하기</a></li>
+                                    <li><a href="/ShoppingMall/board/getBoardList.do">게시판</a></li>
+                                
                                 </ul>
                             </li>
-                            <li class="active"><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
+                        <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
+                        <a href="#"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <div class="price">0원</div>
                     </div>
                 </div>
             </div>
@@ -129,6 +119,8 @@
         </div>
     </header>
     <!-- Header Section End -->
+
+
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
@@ -138,7 +130,7 @@
                     <div class="breadcrumb__text">
                         <h4>About Us</h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
+                            <a href="/ShoppingMall/index.jsp">Home</a>
                             <span>About Us</span>
                         </div>
                     </div>
@@ -147,6 +139,139 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
+
+
+    <!-- Counter Section Begin -->
+    <section class="counter spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__number">
+                            <h2 class="cn_num">9726</h2>
+                        </div>
+                        <span>일일<br />동시 접속 수</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__number">
+                            <h2 class="cn_num">392</h2>
+                        </div>
+                        <span>전국<br />가맹지점 수</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__number">
+                            <h2 class="cn_num">1980</h2>
+                        </div>
+                        <span>Since <br />Year</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__number">
+                            <h2 class="cn_num">100</h2>
+                            <strong>%</strong>
+                        </div>
+                        <span>고객<br />만족도</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter Section End -->
+
+
+
+    <!-- Client Section Begin -->
+    <section class="clients spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>PartnerShip Brand</span>
+                        <h2>with BUA</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                     <a href="#" class="client__item"><img src="img/clients/logos.jpg" alt=""></a>
+                 </div>
+                 <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                     <a href="#" class="client__item"><img src="img/clients/logos2.jpg" alt=""></a>
+                 </div>       
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                     <a href="#" class="client__item"><img src="img/clients/logos3.jpg" alt=""></a>
+                 </div>
+				 <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                     <a href="#" class="client__item"><img src="img/clients/logos4.jpg" alt=""></a>
+                 </div>              
+            </div>
+        </div>
+    </section>
+    <!-- Client Section End -->
+
+
+
+  <!-- Team Section Begin -->
+    <section class="team spad" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>BUA</span>
+                        <h2>Creaters</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/about/team-1.jpg" alt="">
+                        <h4>Lee Jang Woo</h4>
+                        <span>C.E.O(대표이사)</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/about/team-2.jpg" alt="">
+                        <h4>Min Jae Ho</h4>
+                        <span>Fashion Designer(패션 디자이너)</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/about/pinkbin.jpg" alt="">
+                        <h4>Youn Ki Yong</h4>
+                        <span>Programmer(프로그래머)</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/about/team-4.jpg" alt="">
+                        <h4>Kim Ji Won</h4>
+                        <span>Supervisor(슈퍼바이저)</span>
+                    </div>
+                </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/about/team-3.jpg" alt="">
+                        <h4>Na Young Joong</h4>
+                        <span>Staff(스태프)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Section End -->
+
+  
+
+
+
 
     <!-- About Section Begin -->
     <section class="about spad">
@@ -161,23 +286,20 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="about__item">
-                        <h4>Who We Are ?</h4>
-                        <p>Contextual advertising programs sometimes have strict policies that need to be adhered too.
-                        Letâs take Google as an example.</p>
+                        <h4>BUA (Since 1980)</h4>
+                        <p>버려진 아이들(BUA) 이라는 이름으로 처음 작은 옷가게 에서부터 시작된 지금의 세계적인 쇼핑 브랜드. </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="about__item">
                         <h4>Who We Do ?</h4>
-                        <p>In this digital generation where information can be easily obtained within seconds, business
-                        cards still have retained their importance.</p>
+					<p>자체적인 브랜드 BUA 에서 명품,악세서리,패션 등의 쇼핑을 위한 여러가지 서비스를 연구하고 있습니다.</p> 
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="about__item">
                         <h4>Why Choose Us</h4>
-                        <p>A two or three storey house is the ideal way to maximise the piece of earth on which our home
-                        sits, but for older or infirm people.</p>
+						<p>BUA는 세계최대 규모의 쇼핑몰이며, 고객서비스에 대한 최선의 노력으로 인정받아 지금 현재까지도 엄청난 사랑을 받고 있습니다. </p>
                     </div>
                 </div>
             </div>
@@ -185,162 +307,6 @@
     </section>
     <!-- About Section End -->
 
-    <!-- Testimonial Section Begin -->
-    <section class="testimonial">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 p-0">
-                    <div class="testimonial__text">
-                        <span class="icon_quotations"></span>
-                        <p>âGoing out after work? Take your butane curling iron with you to the office, heat it up,
-                            style your hair before you leave the office and you wonât have to make a trip back home.â
-                        </p>
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="img/about/testimonial-author.jpg" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Augusta Schultz</h5>
-                                <p>Fashion Design</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 p-0">
-                    <div class="testimonial__pic set-bg" data-setbg="img/about/testimonial-pic.jpg"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Testimonial Section End -->
-
-    <!-- Counter Section Begin -->
-    <section class="counter spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <div class="counter__item__number">
-                            <h2 class="cn_num">102</h2>
-                        </div>
-                        <span>Our <br />Clients</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <div class="counter__item__number">
-                            <h2 class="cn_num">30</h2>
-                        </div>
-                        <span>Total <br />Categories</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <div class="counter__item__number">
-                            <h2 class="cn_num">102</h2>
-                        </div>
-                        <span>In <br />Country</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <div class="counter__item__number">
-                            <h2 class="cn_num">98</h2>
-                            <strong>%</strong>
-                        </div>
-                        <span>Happy <br />Customer</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Counter Section End -->
-
-    <!-- Team Section Begin -->
-    <section class="team spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Our Team</span>
-                        <h2>Meet Our Team</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="img/about/team-1.jpg" alt="">
-                        <h4>John Smith</h4>
-                        <span>Fashion Design</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="img/about/team-2.jpg" alt="">
-                        <h4>Christine Wise</h4>
-                        <span>C.E.O</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="img/about/team-3.jpg" alt="">
-                        <h4>Sean Robbins</h4>
-                        <span>Manager</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="img/about/team-4.jpg" alt="">
-                        <h4>Lucy Myers</h4>
-                        <span>Delivery</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Team Section End -->
-
-    <!-- Client Section Begin -->
-    <section class="clients spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Partner</span>
-                        <h2>Happy Clients</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-1.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-2.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-3.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-4.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-5.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-6.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-7.png" alt=""></a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                    <a href="#" class="client__item"><img src="img/clients/client-8.png" alt=""></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Client Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer">
@@ -349,10 +315,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                            <a href="#"><img src="/ShoppingMall/shop/img/footer_bua.png" alt=""></a>
                         </div>
-                        <p>The customer is at the heart of our unique business model, which includes design.</p>
-                        <a href="#"><img src="img/payment.png" alt=""></a>
+							 <p>BUA 스토어에서 판매되는 모든 브랜드 제품은 정식 제조 , 수입원을 통해 유통되는 100% 정품임을 보증하지 않습니다.</p>
+                        <a href="#"><img src="/ShoppingMall/shop/img/payment.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
@@ -371,17 +337,20 @@
                         <h6>Shopping</h6>
                         <ul>
                             <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Delivary</a></li>
-                            <li><a href="#">Return & Exchanges</a></li>
+                            <li><a href="#">결제수단</a></li>
+                            <li><a href="#">배송</a></li>
+                            <li><a href="#">교환 & 환불</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
                     <div class="footer__widget">
-                        <h6>NewLetter</h6>
+                        <h6>ABOUT</h6>
                         <div class="footer__newslatter">
-                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                          	<p>주식회사 버아(BUA Co.Ltd)</p>
+								<p>서울특별시 강남구 신사동 640-2 로빈명품관 지하 1층 
+								사업자등록번호 : 123-45-67890 | 통신판매업:2020-서울가산-181818
+								대표 :이장우 | 전체관리책임자 :윤기용(youn9354@naver.com) <p/>  
                             <form action="#">
                                 <input type="text" placeholder="Your email">
                                 <button type="submit"><span class="icon_mail_alt"></span></button>
@@ -393,15 +362,13 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="footer__copyright__text">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p>Copyright Â©
+                        <p>Copyright ©
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script>2020
-                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                            </script>
+                            FASHION WEB MAGJANG | LIFE STYLE SHIT SHOP WWW.BUA.COM <i class="fa fa-heart-o"
                             aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         </p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                 </div>
             </div>

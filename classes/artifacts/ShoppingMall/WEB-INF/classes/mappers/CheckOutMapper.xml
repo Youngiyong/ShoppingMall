@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="porder">	
+	
+	<insert id="porderAddr" parameterType="porder_addr">
+	INSERT INTO porder_addr
+	(pa_code, m_code , o_name, o_tel, o_addr, o_post)
+	VALUES
+	(SEQ_PORDER_ADDR_PA_CODE.nextval, 104 , #{o_name}, #{o_tel}, #{o_addr}, #{o_post})
+	</insert>
+	
+</mapper>

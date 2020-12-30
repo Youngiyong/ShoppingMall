@@ -17,6 +17,37 @@ public class DashBoardServiceImpl implements DashBoardService {
 	
 	@Autowired
 	DashBoardDAO dao;
+	//---------------------------morris service--------------------------------------
+	
+	public HashMap hourlySales(DashBoardVO vo) {
+		HashMap map = new HashMap();
+		for(int i=0; i<24;i++) {
+			map.put("0"+i, 0);
+		}
+		List<DashBoardVO> list =dao.hourlySales(vo);
+		for(int i=0; i<list.size();i++) {
+			map.put(list.get(i).getTime(),list.get(i).getSales());
+		}
+		
+		return map;
+		
+	}
+	
+	public List<DashBoardVO> dailySalesScale(DashBoardVO vo){
+		return dao.dailySalesScale(vo);
+		
+	}
+	
+	//카테고리별 매출
+	public List<DashBoardVO> cateSales(DashBoardVO vo){
+		return dao.cateSales(vo);
+	}
+	
+	
+	
+	
+	
+	//---------------------------index service---------------------------------------
 	
 	
 	//topItems
@@ -28,14 +59,36 @@ public class DashBoardServiceImpl implements DashBoardService {
 	//일별 매출
 	@Override
 	public HashMap dailySales() {
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMMdd");
 		HashMap map = new HashMap();
+		for(int i=0; i<7; i++) {
+			Calendar cal3 = Calendar.getInstance();
+			cal3.add(Calendar.DATE, -i);
+			sdf2.format(cal3.getTime());
+			map.put(sdf2.format(cal3.getTime()), 0);
+			
+		}
 		List<DashBoardVO> list = dao.dailySales();
 		
 		for(int i=0; i<list.size();i++) {
-			map.put(list.get(i).getO_Date(), list.get(i).getSales());
+			String date=list.get(i).getO_Date();
+			map.put(date, list.get(i).getSales());
 		}
 		
+
+//		for(Object key : map.keySet()){
+//		    String value = map.get(key).toString();
+//		    System.out.println(key+" : "+value);
+//		}
+
+
+		
+ 
+		
+		
 		return map;
+		
+		
 		
 		
 	}
@@ -77,7 +130,6 @@ public class DashBoardServiceImpl implements DashBoardService {
 			cal.add(Calendar.MONTH, -i);
 			sdf.format(cal.getTime());
 			
-			System.out.println(sdf.format(cal.getTime()));
 			map.put(sdf.format(cal.getTime()), 0);
 		
 		

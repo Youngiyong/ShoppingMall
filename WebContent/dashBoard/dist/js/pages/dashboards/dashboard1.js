@@ -65,7 +65,7 @@ $(function () {
     
     
 
-    var options = {
+    var options = {  		
         axisX: {
             showGrid: false
         },
@@ -90,7 +90,9 @@ $(function () {
                     return value[0];
                 }
             }
-        }]
+        }
+        
+        ]
     ];
     new Chartist.Bar('.net-income', data, options, responsiveOptions);
 
@@ -160,7 +162,7 @@ $(function () {
             scaleMinSpace: 40,
             offset: 20,
             labelInterpolationFnc: function (value) {
-                return (value / 1) + 'k';
+                return (value / 10) + 'M';
             }
         },
     });

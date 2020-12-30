@@ -27,7 +27,10 @@
   <link href="/ShoppingMall/admin/assets/css/sidebar-menu.css" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="/ShoppingMall/admin/assets/css/app-style.css" rel="stylesheet"/>
-  
+    <script src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
+
+    <script type="text/javascript" src="/ShoppingMall/admin/js/logout.js"></script>
+
 </head>
 
 <body class="bg-theme bg-theme9">
@@ -50,7 +53,7 @@
                  </a>
              </li>
              <li>
-                 <a href="/ShoppingMall/admin/members.do" target="_blank">
+                 <a href="/ShoppingMall/admin/members.do" >
                      <i class="zmdi zmdi-account-circle"></i> <span>회원 관리</span>
                  </a>
              </li>
@@ -72,6 +75,12 @@
                      <i class="zmdi zmdi-assignment-o"></i> <span> 주문 정보</span>
                  </a>
              </li>
+             
+               <li>
+                 <a href="/ShoppingMall/dashBoard/index.do">
+                     <i class="zmdi zmdi-chart"></i> <span> 콘솔</span>
+                 </a>
+             </li>
 
          </ul>
 
@@ -89,7 +98,7 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
+        <input type="text" class="form-control" placeholder="키워드 입력">
          <a href="javascript:void();"><i class="icon-magnifier"></i></a>
       </form>
     </li>
@@ -123,8 +132,8 @@
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
             <div class="media-body">
-            <h6 class="mt-2 user-title">${adminVO.a_Id}</h6>
-            <p class="user-subtitle">${a_Email}</p>
+            <h6 class="mt-2 user-title">${sessionScope.a_Id}</h6>
+            <p class="user-subtitle">${sessionScope.a_Email}</p>
             </div>
            </div>
           </a>

@@ -1,4 +1,7 @@
 $(function () {
+
+
+
     $('#button-add-file').click(addFileForm);
     $(document).on('click', '.button-delete-file', function(event) {
         $(this).parent().remove();
@@ -35,6 +38,8 @@ $(function () {
             document.body.appendChild(newForm);
 
             $('#newForm').attr("action", "/ShoppingMall/admin/product_modify.do").submit();
+            alert("수정성공");
+            location.href = "/ShoppingMall/admin/"
         })
 
 

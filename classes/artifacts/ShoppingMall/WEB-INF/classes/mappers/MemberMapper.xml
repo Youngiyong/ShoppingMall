@@ -12,13 +12,18 @@
         VALUES (seq_member_m_code.NEXTVAL, #{m_Id}, #{m_Pass}, #{m_Email}, #{m_Name}, #{m_Tel}, #{m_Addr}, #{m_Post}, #{m_Age}, #{m_Country},sysdate, 'Y')
   </insert>
 
-
+    <insert id="userInsertKaKao" parameterType="member">
+        INSERT INTO member
+        (m_code, m_id, m_email, m_name, m_tel, m_addr, m_post, m_age, m_country, m_date, m_status)
+        VALUES (seq_member_m_code.NEXTVAL, #{m_Id}, #{m_Email}, #{m_Name}, 'kakao', 'kakao', 'kakao', 0, 'kakao', sysdate , 'Y')
+    </insert>
 
     <select id="idCheck"  parameterType="member" resultType="member">
         SELECT * FROM member WHERE m_id = #{m_Id}
         <if test="m_Pass != null">
             and m_pass = #{m_Pass}
         </if>
+        ORDER BY M_CODE
     </select>
 
     <select id="getMemberList" resultType="member">
@@ -40,6 +45,8 @@
         <if test="m_Id != null">
             and m_id = #{m_Id}
         </if>
+        ORDER BY M_CODE
+
     </select>
 
     <update id="updatePass" parameterType="member">

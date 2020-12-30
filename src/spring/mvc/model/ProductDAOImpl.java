@@ -120,4 +120,16 @@ public class ProductDAOImpl implements ProductDAO{
         return mybatis.update("product.updateProductStockVO", vo);
 
     }
+
+    @Override
+    public List<ProductImageVO> selectCartImgList(List<ProductVO> vo) {
+        System.out.println("===> Mybatis selectCartImgList() 호출");
+        return mybatis.selectList("product.selectCartImgList", vo);
+    }
+
+    @Override
+    public List<ProductVO> getCartProductList(List<ProductVO> vo) {
+        System.out.println("===> Mybatis getCartProductList() 호출");
+        return mybatis.selectList("product.getCartProductList", vo);
+    }
 }

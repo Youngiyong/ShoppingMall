@@ -14,6 +14,28 @@ public class DashBoardDAOImpl implements DashBoardDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
+	//-----------------------------morris dao-----------------------------
+	public List<DashBoardVO> hourlySales(DashBoardVO vo){
+		
+		return mybatis.selectList("dashBoard.hourlySales", vo);
+	}
+	
+	//일별 매출 기간 조절 가능
+	public List<DashBoardVO> dailySalesScale(DashBoardVO vo){
+		
+		return mybatis.selectList("dashBoard.dailySalesScale", vo);
+	}
+	
+	
+	//카테고리별 매출
+	public List<DashBoardVO> cateSales(DashBoardVO vo){
+		return mybatis.selectList("dashBoard.cateSales");
+	}
+	
+	
+	
+	//-----------------------------index dao------------------------------
+	
 	//가장많이 팔린 상품 4종
 	public List<DashBoardVO> topItems() {
 		return mybatis.selectList("dashBoard.topItems");

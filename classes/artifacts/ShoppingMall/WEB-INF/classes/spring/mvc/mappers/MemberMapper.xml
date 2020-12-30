@@ -8,9 +8,15 @@
     <!-- 여기를 완성 -->
     <insert id="userInsert" parameterType="member">
         INSERT INTO member
-        (m_code, m_id, m_pass, m_email, m_name, m_tel, m_email, m_addr, m_post, m_age, m_country, m_date, m_status)
-        VALUES (seq_member_m_code.NEXTVAL, #{m_Id}, #{m_Pass}, #{m_Email}, #{m_Name}, #{m_Tel}, #{m_Email}, #{m_Addr}, #{m_Post}, #{m_Age}, #{m_Country},sysdate, 'Y')
-</insert>
+        (m_code, m_id, m_pass, m_email, m_name, m_tel, m_addr, m_post, m_age, m_country, m_date, m_status)
+        VALUES (seq_member_m_code.NEXTVAL, #{m_Id}, #{m_Pass}, #{m_Email}, #{m_Name}, #{m_Tel}, #{m_Addr}, #{m_Post}, #{m_Age}, #{m_Country},sysdate, 'Y')
+  </insert>
+
+    <insert id="userInsertKaKao" parameterType="member">
+        INSERT INTO member
+        (m_code, m_id, m_email, m_name, m_tel, m_addr, m_post, m_age, m_country, m_date, m_status)
+        VALUES (seq_member_m_code.NEXTVAL, #{m_Id}, #{m_Email}, #{m_Name}, 'kakao', 'kakao', 'kakao', 0, 'kakao', sysdate , 'Y')
+    </insert>
 
     <select id="idCheck"  parameterType="member" resultType="member">
         SELECT * FROM member WHERE m_id = #{m_Id}
@@ -32,6 +38,17 @@
         </where>
     </update>
 
+
+    <select id="idSearch" parameterType="member" resultType="member">
+        SELECT * FROM member WHERE m_email = #{m_Email}
+        <if test="m_Id != null">
+            and m_id = #{m_Id}
+        </if>
+    </select>
+
+    <update id="updatePass" parameterType="member">
+        UPDATE member SET m_pass = #{m_Pass} WHERE m_id = #{m_Id} and m_email = #{m_Email}
+    </update>
 
     <update id="updateMemberList" parameterType="java.util.List">
         <foreach collection="list" item="list" separator=";">

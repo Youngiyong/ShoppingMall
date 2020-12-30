@@ -2,6 +2,7 @@ package spring.mvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import spring.mvc.domain.MemberVO;
 import spring.mvc.domain.OrderAddrVO;
 import spring.mvc.domain.OrderInfoVO;
 import spring.mvc.domain.OrderListVO;
@@ -20,5 +21,10 @@ public class OrderServiceImpl implements OrderService {
     public List<Map<String, Object>> getOrderList() { return orderDAO.getOrderList(); }
 
     @Override
+    public List<Map<String, Object>> getCartList(MemberVO vo) { return orderDAO.getCartList(vo); }
+
+    @Override
     public int updateOrderListStatus(List<OrderInfoVO> vo) { return orderDAO.updateOrderListStatus(vo); }
+
+
 }
