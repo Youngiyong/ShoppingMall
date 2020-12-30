@@ -67,7 +67,7 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <!-- 로그인 start-->
+                             <!-- 로그인 start -->
                             <c:set var="data" value="null" />
                         
                               <c:choose>
@@ -81,7 +81,8 @@
                               	</c:otherwise>
                               </c:choose>
                                 <a href="/ShoppingMall/shop/faq.do">FAQs</a>
-                            <!-- 로그인 end -->                            </div>
+                            <!-- 로그인 end -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,8 +134,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__details__breadcrumb">
-                            <a href="/ShoppingMall/shop/shop.do">Home</a>
-                            <a href="./shop.html">Shop</a>
+                            <a href="/ShoppingMall/index.jsp">Home</a>
+                            <a href="/ShoppingMall/shop/shop.do">Shop</a>
                             <span>Product Details</span>
                         </div>
                     </div>
@@ -144,54 +145,54 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="/ShoppingMall/resources/upload/${product.i_fname }">
+                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-1.png">
                                     </div>
                                 </a>
                             </li>
-<!--                             <li class="nav-item"> -->
-<!--                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"> -->
-<!--                                     <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-2.png"> -->
-<!--                                     </div> -->
-<!--                                 </a> -->
-<!--                             </li> -->
-<!--                             <li class="nav-item"> -->
-<!--                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"> -->
-<!--                                     <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-3.png"> -->
-<!--                                     </div> -->
-<!--                                 </a> -->
-<!--                             </li> -->
-<!--                             <li class="nav-item"> -->
-<!--                                 <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab"> -->
-<!--                                     <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-4.png"> -->
-<!--                                         <i class="fa fa-play"></i> -->
-<!--                                     </div> -->
-<!--                                 </a> -->
-<!--                             </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
+                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-2.png">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
+                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-3.png">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
+                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-4.png">
+                                        <i class="fa fa-play"></i>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-lg-6 col-md-9">
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="/ShoppingMall/resources/upload/${product.i_fname }" alt="">
+                                    <img src="img/shop-details/product-big-2.png" alt="">
                                 </div>
                             </div>
-<!--                             <div class="tab-pane" id="tabs-2" role="tabpanel"> -->
-<!--                                 <div class="product__details__pic__item"> -->
-<!--                                     <img src="img/shop-details/product-big-3.png" alt=""> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="tab-pane" id="tabs-3" role="tabpanel"> -->
-<!--                                 <div class="product__details__pic__item"> -->
-<!--                                     <img src="img/shop-details/product-big.png" alt=""> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="tab-pane" id="tabs-4" role="tabpanel"> -->
-<!--                                 <div class="product__details__pic__item"> -->
-<!--                                     <img src="img/shop-details/product-big-4.png" alt=""> -->
-<!--                                     <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1" class="video-popup"><i class="fa fa-play"></i></a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img src="img/shop-details/product-big-3.png" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img src="img/shop-details/product-big.png" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-4" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img src="img/shop-details/product-big-4.png" alt="">
+                                    <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1" class="video-popup"><i class="fa fa-play"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -202,7 +203,8 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
-                            <h4>${product.p_name }</h4>
+                            <h4> 대표 상품 </h4>
+                            <h4> 아우터 긴팔 </h4>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -211,8 +213,8 @@
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
                             </div>
-                            <h3>${product.p_price } <span>${product.p_price }</span></h3>
-<!--                             <p>퀼팅 안감과 조절 가능한 후드가있는 코트. 조정 가능한 커프 탭이있는 긴 소매, 신축성있는 측면 탭이있는 조정 가능한 비대칭 밑단, 플래 킷이있는 앞면 지퍼 여밈.</p> -->
+                            <h3>67000원 <span>70000</span></h3>
+                            <p>퀼팅 안감과 조절 가능한 후드가있는 코트. 조정 가능한 커프 탭이있는 긴 소매, 신축성있는 측면 탭이있는 조정 가능한 비대칭 밑단, 플래 킷이있는 앞면 지퍼 여밈.</p>
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>사이즈:</span>
@@ -240,9 +242,9 @@
                                     <label class="c-3" for="sp-3">
                                         <input type="radio" id="sp-3">
                                     </label>
-                                    <label class="c-4" for="sp-4">
-                                        <input type="radio" id="sp-4">
-                                    </label>
+<!--                                     <label class="c-4" for="sp-4"> -->
+<!--                                         <input type="radio" id="sp-4"> -->
+<!--                                     </label> -->
 <!--                                     <label class="c-9" for="sp-9"> -->
 <!--                                         <input type="radio" id="sp-9"> -->
 <!--                                     </label> -->
@@ -254,8 +256,7 @@
                                         <input type="text" value="1">
                                     </div>
                                 </div>
-                                <a href="/ShoppingMall/shop/cart.do?p_id=${product.p_id }&m_id=${sessionScope.m_Id}" class="primary-btn">+ 장바구니에 담기</a>
-<!--                                 <a href="/ShoppingMall/shop/cart.do" class="primary-btn">+ 장바구니에 담기</a> -->
+                                <a href="#" class="primary-btn">+ 장바구니에 담기</a>
                             </div>
 <!--                             <div class="product__details__btns__option"> -->
 <!--                                 <a href="#"><i class="fa fa-heart"></i> 찜</a> -->
@@ -265,8 +266,8 @@
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt="">
                                 <ul>
-                                    <li><span>SKU(재고 관리코드):</span> ${product.p_id }</li>
-                                    <li><span>카테고리:</span> ${product.p_cate }</li>
+                                    <li><span>SKU(재고 관리코드):</span> 224</li>
+                                    <li><span>카테고리:</span> 상의/아우터</li>
 <!--                                     <li><span>태그:</span> Clothes, Skin, Body</li> -->
                                 </ul>
                             </div>
@@ -391,14 +392,14 @@
     	<div class="model">
     		<h3 class="model_title">모델</h3>
     		<div class="model_img">
-    			<img src="/ShoppingMall/shop/img/shop-details/noimg.gif">
+    			<img src="/ShoppingMall/shop/img/shop-details/product-big-3.png">
     		</div>
     		<div class="model_profile">
-    			<p><a>이름 : </a></p>
-    			<p><a>키 : </a></p>
-    			<p><a>몸무게 : </a></p>
-    			<p><a>착용 사이즈 : </a></p>
-    			<p><a>모델 조언 : </a></p>
+    			<p><a>이름 : </a>Na Youngjoong</p>
+    			<p><a>키 : </a>185 cm</p>
+    			<p><a>몸무게 : </a>76kg</p>
+    			<p><a>착용 사이즈 : </a>L</p>
+    			<p><a>모델 조언 : </a>더운 날 제외한 사계절 입기 편한 옷</p>
     		</div>
     	</div>
     </section>

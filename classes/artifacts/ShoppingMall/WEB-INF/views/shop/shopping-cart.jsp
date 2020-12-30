@@ -214,7 +214,7 @@
                         <h6>　장바구니 총합 금액</h6>
                         <ul>
                             <c:forEach items="${list1}" var="list1" varStatus="status">
-                            <li>　${list4[status.index].p_Name} <span>${list4[status.index].p_Price}원</span></li>
+                            <li>　${list4[status.index].p_Name} <span class="p_total"></span></li>
                             </c:forEach>
                             <hr>
                             <li>+　총합 <span id="total_price">50000원</span></li>

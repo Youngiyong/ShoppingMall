@@ -45,11 +45,13 @@ public class LoginController {
             memberService.userInsertKaKao(vo);
             session.setAttribute("m_Id", vo.getM_Id());
             session.setAttribute("m_Name", vo.getM_Name());
+            session.setAttribute("m_Code", memberVO.getM_Code());
             System.out.println("1" + vo.getM_Name());
             return "아이디등록";
         } else{
             session.setAttribute("m_Id", memberVO.getM_Id());
             session.setAttribute("m_Name", memberVO.getM_Name());
+            session.setAttribute("m_Code", memberVO.getM_Code());
             System.out.println("2" + memberVO.getM_Name());
             return "아이디확인";
         }
@@ -80,6 +82,26 @@ public class LoginController {
         return message;
 
     }
+    @RequestMapping("/member/logout.do")
+    public String logout(HttpSession session){
+        System.out.println();
+        System.out.println(session.getAttribute("m_Id"));
+        System.out.println(session.getAttribute("m_Code"));
+
+        if(session.getAttribute("m_Id")==null){
+            return "redirect:/index.jsp";
+
+        }
+        else{
+            session.removeAttribute("m_Name");
+            session.removeAttribute("m_Code");
+            session.removeAttribute("m_Id");
+        }
+
+
+
+        return "redirect:/index.jsp";
+    }
 
     @RequestMapping("/member/loginCheck.do")
     @ResponseBody
@@ -97,6 +119,7 @@ public class LoginController {
             session.setAttribute("m_Name", memberVO.getM_Name());
             System.out.println(memberVO.getM_Name());
             session.setAttribute("m_Id", memberVO.getM_Id());
+            session.setAttribute("m_Code", memberVO.getM_Code());
             System.out.println(memberVO.getM_Email());
             System.out.println("로그인 성공");
             return memberVO;

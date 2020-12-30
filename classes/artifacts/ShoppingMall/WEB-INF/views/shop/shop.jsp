@@ -70,8 +70,23 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
-                                <a href="#">FAQs</a>
+                            
+                            <!-- 로그인 -->
+                            <c:set var="data" value="null" />
+                        
+                              <c:choose>
+                             	 <c:when test="${empty sessionScope.m_Id }"> 
+                              	  <a href="/ShoppingMall/member/login.do">Sign in</a>
+                             	 </c:when>
+                             	 
+                             	 <c:otherwise>  
+                                <a href="#">${sessionScope.m_Name} 님</a>
+                                <a href="/ShoppingMall/index.jsp">log out</a>
+                              	</c:otherwise>
+                              </c:choose>
+                                <a href="/ShoppingMall/shop/faq.do">FAQs</a>
+                            <!-- 로그인 end -->
+                            
                             </div>
                         </div>
                     </div>
@@ -322,6 +337,39 @@
                     </div>
                     <div class="row">
                     	
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/resources/upload/thumb-3.png ">
+                                    <ul class="product__hover">
+                                        <li><a href="/ShoppingMall/shop/shop-details224.do"><img src="img/icon/search.png" alt=""></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6> 대표 상품 </h6>
+                                    <a href="#" class="add-cart">+ 장바구니에 담기</a>
+                                    <div class="rating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <h5>67000원</h5>
+                                    <div class="product__color__select">
+                                        <label for="pc-4">
+                                            <input type="radio" id="pc-4">
+                                        </label>
+                                        <label class="active black" for="pc-5">
+                                            <input type="radio" id="pc-5">
+                                        </label>
+                                        <label class="grey" for="pc-6">
+                                            <input type="radio" id="pc-6">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     	<c:forEach items="${productList }" var="shop">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
@@ -332,7 +380,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6>${shop.p_name}</h6>
-                                    <a href="#" class="add-cart">+ 장바구니에 담기</a>
+                                    <a href="/ShoppingMall/shop/cart.do?p_id=${shop.p_id }&m_id=${sessionScope.m_Id}" class="add-cart">+ 장바구니에 담기</a>
                                     <div class="rating">
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>
