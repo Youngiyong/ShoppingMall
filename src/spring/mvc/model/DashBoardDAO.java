@@ -18,5 +18,7 @@ public interface DashBoardDAO {
 	public List<DashBoardVO> monthlySales();
 	public List<DashBoardVO> salesRoot() ;
 	public List<DashBoardVO> topItems();
-
+	public List<DashBoardVO> hourlySales(DashBoardVO vo);
+	public List<DashBoardVO> dailySalesScale(DashBoardVO vo);
+	public List<DashBoardVO> cateSales(DashBoardVO vo);
 }

@@ -21,8 +21,46 @@ public class DashBoardController {
 	
 	@Autowired
 	DashBoardService service;
+	
+	//
+	@RequestMapping("dashBoard/chart-morris.do")
+	public void morris(DashBoardVO vo,Model m) {
+		
+		//시간대별 매출
+		HashMap mapHourlySales = service.hourlySales(vo);
+		
+		for(int i=0; i<mapHourlySales.size(); i++) {
+			m.addAttribute("hh"+i,mapHourlySales.get("0"+i) );
+		
+		}
+		
+		//일별 매출 기간 조정
+		m.addAttribute("dailySalesScale", service.dailySalesScale(vo));
+	
+	
+		
+		//카테고리별 매출
+		m.addAttribute("cateSales", service.cateSales(vo));
+	}
+	
+	
+	@RequestMapping("dashBoard/chart-chart-js.do")
+	public void chart() {
+		
+		
+	}
+	
+	
+	@RequestMapping("dashBoard/chart-knob.do")
+	public void knob() {
+		
+		
+	}
+	
+	
+	
 
-
+	//dashBoard 첫페이지
 	@RequestMapping("dashBoard/index.do")
 	public void dashBoardIndex(Model m) {
 		System.out.println("dashBoard/index 호출");
@@ -84,13 +122,10 @@ public class DashBoardController {
 			Calendar cal3 = Calendar.getInstance();
 			cal3.add(Calendar.DATE, -i);
 			sdf2.format(cal3.getTime());
-			
-			if(mapDailySales.get(sdf2.format(cal3.getTime()))!=null) {
+			System.out.println(sdf2.format(cal3.getTime()));
+			System.out.println(mapDailySales.get(sdf2.format(cal3.getTime())));
 			m.addAttribute("d"+i,mapDailySales.get(sdf2.format(cal3.getTime())));
-			}else {
-				m.addAttribute("d"+i,0);	
-			}
-			
+		
 		}
 
 		
