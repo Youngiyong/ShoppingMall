@@ -96,7 +96,7 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href="/ShoppingMall/member/login.do">Sign in</a>
                                 <a href="#">FAQs</a>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
 
 
 
-<p class="tm-font" align="center">◈ 게시판 ◈</p>
+<p class="tm-font" align="center"></p>
 	
 
 	<table border="1"  class="jm-font" align="center" >
@@ -178,7 +178,7 @@
 			</c:forEach>
 		</table>
 <p class="em-font" align="center">
-		<br> <a href="insertBoard.do" >새 글 등록하기 ▶</a>
+		<br> <a href="insertBoard.do" >【새 글 등록하기 ▶】</a>
 <p/>
 
 

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -26,6 +28,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <script type="text/javascript" src="/ShoppingMall/app/js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/ShoppingMall/shop/js/cart2.js"></script>
 
 </head>
 
@@ -132,11 +135,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__text">
-                        <h4>Shopping Cart</h4>
+                        <h4>장바구니</h4>
                         <div class="breadcrumb__links">
                             <a href="./index.html">Home</a>
                             <a href="./shop.html">Shop</a>
-                            <span>Shopping Cart</span>
+                            <span>Cart</span>
                         </div>
                     </div>
                 </div>
@@ -161,27 +164,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                            <c:forEach items="${list1}" var="list1" varStatus="status">
+                            <tr>
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
-                                            <img style="width: 100px; height: 100px;" src="/ShoppingMall/resources/upload/남방1.jpg" alt="">
+                                            <img style="width: 100px; height: 100px;" src="${list3[status.index]}" alt="">
                                         </div>
                                         <div class="product__cart__item__text">
-                                            <h6>T-shirt Contrast Pocket</h6>
-                                            <h5>$98.49</h5>
+                                            <h6 class="p_name">${list4[status.index].p_Name}</h6>
+                                            <h5 class="p_count">${list1.P_COUNT}</h5>
+
                                         </div>
                                     </td>
                                     <td class="quantity__item">
                                         <div class="quantity">
                                             <div class="pro-qty-2">
-                                                <input type="text" value="1">
+                                                <input type="text" value="${list1.P_COUNT}">
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price">$ 30.00</td>
+                                    <td class="cart__price">${list4[status.index].p_Price}</td>
                                     <td class="cart__close"><i class="fa fa-close"></i></td>
                                 </tr>
                                 </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -203,15 +209,20 @@
                     </br>
                     </br>
                     </br>
+
                     <div class="cart__total">
                         <h6>　장바구니 총합 금액</h6>
                         <ul>
-                            <li>　상품1 <span>10000원</span></li>
+                            <c:forEach items="${list1}" var="list1" varStatus="status">
+                            <li>　${list4[status.index].p_Name} <span>${list4[status.index].p_Price}원</span></li>
+                            </c:forEach>
                             <hr>
-                            <li>+　총합 <span>50000원</span></li>
+                            <li>+　총합 <span id="total_price">50000원</span></li>
                         </ul>
                         <a href="#" class="primary-btn">결제 진행</a>
                     </div>
+
+
                 </div>
             </div>
         </div>

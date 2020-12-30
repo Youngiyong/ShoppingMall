@@ -14,7 +14,9 @@ $(function () {
             objPrmtr.m_Tel = $(this).parent().parent().find("td.m_Tel").text();
             objPrmtr.m_Age = $(this).parent().parent().find("td.m_Age").text();
             objPrmtr.m_Email = $(this).parent().parent().find("td.m_Email").text();
-            objPrmtr.m_Country = $(this).parent().parent().find("td.m_Country").text();
+            objPrmtr.m_Country = $(this).parent().parent().find
+
+            ("td.m_Country").text();
             objPrmtr.m_Addr = $(this).parent().parent().find("td.m_Addr").text();
             // objPrmtr.m_Status = $(this).parent().parent().find("td.m_Status").text();
             arrPrmtr.push(objPrmtr);

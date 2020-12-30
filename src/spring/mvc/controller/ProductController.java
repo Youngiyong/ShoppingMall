@@ -44,7 +44,8 @@ public class ProductController {
         list = str.split(",");
 
         m.addAttribute("imageList", list);
-
+        System.out.println(list[0]);
+        m.addAttribute("imgPath", "/ShoppingMall/resources/upload/" + list[0]);
         return "/admin/product_modify";
     }
 
@@ -119,7 +120,7 @@ public class ProductController {
     }
 
     @RequestMapping("/admin/productModify.do")
-    public String updateProduct(ProductVO vo, ProductImageVO ivo, ProductStockVO svo,  @RequestParam("file") MultipartFile[] file) throws IOException {
+    public String updateProduct(ProductVO vo, ProductImageVO ivo, ProductStockVO svo,  @RequestParam("file") MultipartFile[] file, Model m) throws IOException {
         System.out.println("updateProduct 함수 호출");
 
         ProductImageVO imgVO= new ProductImageVO();
@@ -197,8 +198,9 @@ public class ProductController {
             stockVO.setP_Count(svo.getP_Count());
             productService.updateProductStockVO(stockVO);
             productService.updateProductVO(vo);
-
         }
+        System.out.println(imgVO.getI_Fname());
+        m.addAttribute("imgPath", "/ShoppingMall/resources/upload/" + imgVO.getI_Fname());
 
 
         return "/admin/product_modify";
@@ -206,7 +208,7 @@ public class ProductController {
 
     //상품 등록 이미지 파일 첨부
     @RequestMapping("/admin/upload.do")
-    public String upload(ProductVO vo, ProductImageVO ivo, ProductStockVO svo, @RequestParam("file") MultipartFile[] file) throws IOException {
+    public String upload(ProductVO vo, ProductImageVO ivo, Model m, ProductStockVO svo, @RequestParam("file") MultipartFile[] file) throws IOException {
         System.out.println("upload 함수 호출");
 
         ProductImageVO imgVO = new ProductImageVO();

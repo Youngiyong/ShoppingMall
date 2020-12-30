@@ -24,9 +24,6 @@
     <script src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
     <script src="/ShoppingMall/member/js/login.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <a id="kakao-login-btn"></a>
-    <a href="http://developers.kakao.com/logout"></a>
-
 
 
 </head>
@@ -85,52 +82,68 @@
                     </div>
 			</div>
                 <button type="button" id="btn_login" class="btn btn-light btn-block">로그인</button></br>
-                <script type='text/javascript'>
-                    //<![CDATA[
-                    // 사용할 앱의 JavaScript 키를 설정해 주세요.
-                    Kakao.init('614be520fd0601d34596bc8743820bae');  //여기서 아까 발급받은 키 중 javascript키를 사용해준다.
-                    // 카카오 로그인 버튼을 생성합니다.
-                    Kakao.Auth.createLoginButton({
+                <button type="button" id="kakao-login-btn" class="btn btn-light btn-block"></button>
 
-                        container: '#kakao-login-btn',
 
-                        success: function(authObj) {
+                    <script type='text/javascript'>
 
-                            Kakao.API.request({
+                        //<![CDATA[
+                        // 사용할 앱의 JavaScript 키를 설정해 주세요.
+                    Kakao.init('614be520fd0601d34596bc8743820bae');
 
-                                url: '/v1/user/me',
+                        Kakao.Auth.createLoginButton({
+                            container: '#kakao-login-btn',
+                            success: function (authObj) {
+                                Kakao.API.request({
+                                    url: '/v2/user/me',
+                                    success: function(res) {
+                                        console.log(res);
 
-                                success: function(res) {
+                                        var m_Id = res.id;      //유저의 카카오톡 고유 id
+                                        var m_Email = res.kakao_account.email;   //유저의 이메일
+                                        var m_Name = res.properties.nickname; //유저가 등록한 별명
 
-                                    alert(JSON.stringify(res)); //<---- kakao.api.request 에서 불러온 결과값 json형태로 출력
+                                        console.log(m_Id);
+                                        console.log(m_Email);
+                                        console.log(m_Name);
 
-                                    alert(JSON.stringify(authObj)); //<----Kakao.Auth.createLoginButton에서 불러온 결과값 json형태로 출력
+                                        var objPrmtr = new Object(); //key, value형태로 저장할 Object
 
-                                    console.log(res.id);//<---- 콘솔 로그에 id 정보 출력(id는 res안에 있기 때문에  res.id 로 불러온다)
+                                        objPrmtr.m_Id = m_Id;
+                                        objPrmtr.m_Email = m_Email;
+                                        objPrmtr.m_Name = m_Name;
 
-                                    console.log(res.kaccount_email);//<---- 콘솔 로그에 email 정보 출력 (어딨는지 알겠죠?)
 
-                                    console.log(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근
+                                            $.ajax({
+                                                type : 'post',
+                                                url: '/ShoppingMall/member/userInsertKaKao.do',
+                                                contentType:'application/json; charset=UTF-8',
+                                                traditional : true,
+                                                data : JSON.stringify(objPrmtr),
+                                                dataType : 'json',
+                                                success : function (data) {
+                                                    alert('로그인이 완료 되었습니다.');
+                                                    location.href = "/ShoppingMall/index.jsp";
+                                                },
+                                                error: function(err) {
+                                                    //err msg 출력
+                                                    alert("로그인 실패하였습니다.");
 
-                                    // res.properties.nickname으로도 접근 가능 )
-
-                                    console.log(authObj.access_token);//<---- 콘솔 로그에 토큰값 출력
-
-                                }
-
-                            })
-
-                        },
-
-                        fail: function(error) {
-
-                            alert(JSON.stringify(error));
-
-                        }
-
-                    });
-
-                    //]]>
+                                                    console.log(err)
+                                                }
+                                            })
+                                    },
+                                    fail: function(error) {
+                                        alert("로그인 실패하였습니다.");
+                                     //   alert(JSON.stringify(error));
+                                    }
+                                });
+                            },
+                            fail: function(err) {
+                                alert(JSON.stringify(err));
+                            }
+                        });
+                        //]]>
 
                 </script>
 

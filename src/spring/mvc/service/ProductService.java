@@ -31,4 +31,8 @@ public interface ProductService {
     public int updateProductVO(ProductVO vo);
     public int updateProductImageVO(ProductImageVO vo);
     public int updateProductStockVO(ProductStockVO vo);
+
+    public List<ProductImageVO> selectCartImgList(List<ProductVO> vo);
+    public List<ProductVO> getCartProductList(List<ProductVO> vo);
+
 }

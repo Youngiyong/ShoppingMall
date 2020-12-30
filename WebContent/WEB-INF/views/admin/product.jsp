@@ -29,6 +29,8 @@
     <link href="/ShoppingMall/admin/assets/css/templatemo-style.css" rel="stylesheet"/>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/ShoppingMall/admin/js/logout.js"></script>
+
     <link href="/ShoppingMall/resources/dist/summernote.css" rel="stylesheet" type="text/css"/>
     <script src="/ShoppingMall/resources/dist/summernote.js" type="text/javascript"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
@@ -43,6 +45,34 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
     <script type="text/javascript" src="/ShoppingMall/admin/js/product.js"></script>
     <script src="/ShoppingMall/admin/js/summernote.js"></script>
+    <script type="text/javascript">
+        var sel_file;
+
+        $(document).ready(function () {
+            $('#input_img').on("change", a);
+        })
+
+        function a(value) {
+            var files = value.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+
+            filesArr.forEach(function(f){
+                if(!f.type.match("image.*")){
+                    alert("확장자는 이미지 확장자만 가능합니다.");
+                    return
+                }
+
+                sel_file = f;
+
+                var reader = new FileReader();
+
+                reader.onload = function (e){
+                    $('#LoadImg').attr("src", e.target.result);
+                }
+                reader.readAsDataURL(f);
+            });
+        }
+    </script>
 </head>
 
 <body class="bg-theme bg-theme9">
@@ -70,7 +100,7 @@
                 </a>
             </li>
             <li>
-                <a href="/ShoppingMall/admin/members.do" target="_blank">
+                <a href="/ShoppingMall/admin/members.do" >
                     <i class="zmdi zmdi-account-circle"></i> <span>회원 관리</span>
                 </a>
             </li>
@@ -110,7 +140,7 @@
                 </li>
                 <li class="nav-item">
                     <form class="search-bar">
-                        <input type="text" class="form-control" placeholder="Enter keywords">
+                        <input type="text" class="form-control" placeholder="키워드 입력">
                         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
                     </form>
                 </li>
@@ -144,8 +174,8 @@
                                 <div class="media">
                                     <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
                                     <div class="media-body">
-                                        <h6 class="mt-2 user-title">${adminVO.a_Id}</h6>
-                                        <p class="user-subtitle">${a_Email}</p>
+                                        <h6 class="mt-2 user-title">${sessionScope.a_Id}</h6>
+                                        <p class="user-subtitle">${sessionScope.a_Email}</p>
                                     </div>
                                 </div>
                             </a>
@@ -280,14 +310,12 @@
                         <div class="form-group mb-3">
 
                             <div class="tm-product-img-dummy mx-auto">
-                                <i
-                                        class="fas fa-cloud-upload-alt tm-upload-icon"
-                                        onclick="document.getElementById('fileInput').click();"
-                                ></i>
+                                <img id="LoadImg" width="400px" height="240px">
                             </div>
                             <div class="custom-file mt-3 mb-3">
-                                <input name="file" type="file" value="메인 이미지 업로드" multiple="multiple" />
+                                <input name="file" id="input_img" type="file" value="메인 이미지 업로드" multiple="multiple">
                             </div>
+
                         </div>
                     </div>
                     <div class="col-12">
@@ -302,14 +330,13 @@
                                   class="custom-select tm-select-accounts validate"
                                   required
                         ></textarea>
-
+                        <button type="submit" class="btn btn-primary btn-block text-uppercase">상품 추가</button>
                     </div>
+
                 </div>
 
             </div>
-            <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">상품 추가</button>
-            </div>
+
             </form>
         </div>
     </div>

@@ -61,12 +61,13 @@
                     <div class="col-lg-6 col-md-7">
                         <div class="header__top__left">
                             <p>Men's Wear</p>
+                            <a href="/ShoppingMall/admin/login.do">Admin Log In</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href="/ShoppingMall/member/login.do">Sign in</a>
                                 <a href="#">FAQs</a>
                             </div>
                         </div>
@@ -116,7 +117,7 @@
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
-            <div class="hero__items set-bg" data-setbg="/ShoppingMall/shop/img/hero/hero-1.jpg">
+            <div class="hero__items set-bg" data-setbg="/ShoppingMall/shop/img/hero/hero-2.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
@@ -137,7 +138,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hero__items set-bg" data-setbg="/ShoppingMall/shop/img/hero/hero-2.jpg">
+            <div class="hero__items set-bg" data-setbg="/ShoppingMall/shop/img/hero/hero-1.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">

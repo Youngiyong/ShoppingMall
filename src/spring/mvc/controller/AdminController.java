@@ -33,18 +33,20 @@ public class AdminController {
     private AdminService adminService;
 
 
-    @RequestMapping("/admin/index.do")
-    public String indexPgMove(AdminVO adminVO, Model model) {
-        System.out.println("index() 호출");
-        AdminVO vo =adminService.idCheck_Login(adminVO);
-        model.addAttribute("a_Email", vo.getA_Email());
 
-        return "/admin/index";
-    }
     @RequestMapping("/admin/product.do")
     public String productAdd(Model model, AdminVO adminVO){
 
         return "/admin/product";
+    }
+
+    @RequestMapping("/admin/logout.do")
+    public String logout(HttpSession session){
+        System.out.println(session.getAttribute("a_Id"));
+        System.out.println(session.getAttribute("a_Email"));
+        session.removeAttribute("a_Id");
+        session.removeAttribute("a_Email");
+        return "/admin/login";
     }
 
     @RequestMapping("/admin/{url}.do")
@@ -87,6 +89,7 @@ public class AdminController {
         } else {
 
             session.setAttribute("a_Id", adminVO.getA_Id());
+            session.setAttribute("a_Email", adminVO.getA_Email());
             System.out.println(adminVO.getA_Email());
             System.out.println("로그인 성공");
             return adminVO;

@@ -31,6 +31,7 @@
     <link href="/ShoppingMall/admin/assets/css/templatemo-style.css" rel="stylesheet"/>
     <script src="/ShoppingMall/admin/js/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="/ShoppingMall/admin/js/product.js"></script>
+    <script type="text/javascript" src="/ShoppingMall/admin/js/logout.js"></script>
     <style>
         #product_regist{
             color : white;
@@ -66,7 +67,7 @@
                  </a>
              </li>
              <li>
-                 <a href="/ShoppingMall/admin/members.do" target="_blank">
+                 <a href="/ShoppingMall/admin/members.do" >
                      <i class="zmdi zmdi-account-circle"></i> <span>회원 관리</span>
                  </a>
              </li>
@@ -106,7 +107,7 @@
                 </li>
                 <li class="nav-item">
                     <form class="search-bar">
-                        <input type="text" class="form-control" placeholder="Enter keywords">
+                        <input type="text" class="form-control" placeholder="키워드 입력">
                         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
                     </form>
                 </li>
@@ -140,8 +141,8 @@
                                 <div class="media">
                                     <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
                                     <div class="media-body">
-                                        <h6 class="mt-2 user-title">${adminVO.a_Id}</h6>
-                                        <p class="user-subtitle">${a_Email}</p>
+                                        <h6 class="mt-2 user-title">${sessionScope.a_Id}</h6>
+                                        <p class="user-subtitle">${sessionScope.a_Email}</p>
                                     </div>
                                 </div>
                             </a>
@@ -190,7 +191,6 @@
                                  <td>${product.p_Cate}</td>
                                  <td>${product.p_Price}</td>
                                  <td>${product.p_Date}</td>
-
                              </tr>
                          </c:forEach>
                          </tbody>

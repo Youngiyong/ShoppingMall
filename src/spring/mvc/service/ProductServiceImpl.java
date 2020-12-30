@@ -24,6 +24,8 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
+
+
     @Override
     public int insertProductStockVO(ProductStockVO vo) { return productDAO.insertProductStockVO(vo); }
 
@@ -79,4 +81,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public int updateProductStockVO(ProductStockVO vo) { return productDAO.updateProductStockVO(vo); }
+
+    @Override
+    public List<ProductImageVO> selectCartImgList(List<ProductVO> vo) {return productDAO.selectCartImgList(vo); }
+
+    @Override
+    public List<ProductVO> getCartProductList(List<ProductVO> vo) { return productDAO.getCartProductList(vo);}
 }
