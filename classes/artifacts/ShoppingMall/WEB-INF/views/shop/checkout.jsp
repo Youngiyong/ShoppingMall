@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -25,6 +27,9 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/additional.css" type="text/css">
     
+
+
+
 </head>
 
 <body>
@@ -135,7 +140,7 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form action="/ShoppingMall/checkout/checkout.do">
+                <form action="/ShoppingMall/shop/payment.do" method='post'>
                     	<div class="country_radio">
                     		<label for="korean"><input type="radio" name="country" id="korean" value="9" checked> 내국인/Korean </label>
                     		<label for="foreigner"><input type="radio" name="country" id="foreigner" value="8"> 외국인/Foreigner </label>
@@ -152,7 +157,7 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>수령인<span>*</span></p>
-                                        <input type="text" name ="o_name1">
+                                        <input type="text" name ="o_name" value="${addrVO[0].o_name}">
                                     </div>
                                 </div>
                             </div>
@@ -160,48 +165,36 @@
                             <div class="checkout__input">
                                 <p>우편번호<span>*</span></p>
                             </div>
-	                            <input type="text" id="sample4_postcode" name="o_post" placeholder="우편번호" readonly="readonly">
+	                            <input type="text" id="sample4_postcode" name="o_Post" placeholder="우편번호" readonly="readonly" value="${addrVO[0].o_post}">
 								<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
                             <div class="checkout__input">
                                 <p>배송지 주소<span>*</span></p>
                             </div>
-								<input type="text" id="sample4_roadAddress" name="o_addr1" placeholder="도로명주소" class="checkout__input__add" readonly="readonly">
+								<input type="text" id="sample4_roadAddress" name="o_Addr" placeholder="도로명주소" class="checkout__input__add" readonly="readonly" value="${addrVO[0].o_addr}">
 								<input type="text" id="sample4_jibunAddress" name="o_addr2" placeholder="지번주소" class="checkout__input__add" readonly="readonly">
 								<span id="guide" style="color:#999;display:none"></span><br/>
-								<input type="text" id="sample4_detailAddress" name="o_addr3" placeholder="상세주소">
+								<input type="text" id="sample4_detailAddress" name="o_DetailAddr" placeholder="상세주소">
                             
                             
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>연락처<span>*</span></p>
-                                        <input type="text" name="o_tel">
+                                        <input type="text" name="o_Tel" value="${addrVO[0].o_tel}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
   <!-- 이메일 컬럼이 따로 없음 -->
-                                        <input type="text"> 
+                                        <input type="email" name='m_Email'> 
                                     </div>
                                 </div>
                             </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
+                           
                             <div class="checkout__input__checkbox">
                                 <label for="diff-acc">
-                                    Note about your order, e.g, special noe for delivery
+                                    배송 요청 사항 남기기
                                     <input type="checkbox" id="diff-acc">
                                     <span class="checkmark"></span>
                                 </label>
@@ -268,19 +261,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
+              
                             <div class="checkout__input__checkbox">
                                 <label for="diff-acc">
                                     Note about your order, e.g, special noe for delivery
@@ -296,19 +277,20 @@
                         </div>
                         <!-- 외국인용 END -->
                         
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-md-4">
                             <div class="checkout__order">
                                 <h4 class="order__title">주문 내역/Your order</h4>
-                                <div class="checkout__order__products">상품/Product <span>가격/Total</span></div>
-                                <ul class="checkout__total__products">
-                                    <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
-                                    <li>02. German chocolate <span>$ 170.0</span></li>
-                                    <li>03. Sweet autumn <span>$ 170.0</span></li>
-                                    <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
+                                <div class="center-block"><span class="col-md-1 text-center">상품</span> <span class="col-md-2 text-center" >수량</span> <span class="ol-md-1 text-center">가격</span></div>
+                                <ul>
+                                	<c:forEach items="${cartList}" var="list">
+                                    <li> <span class="col-md-1" >${list.p_name} </span> <span class="col-md-2" >${list.p_count }</span> <span class="col-md-1" >&#8361;${list.p_price}</span></li>
+                                   
+                                    </c:forEach>
                                 </ul>
                                 <ul class="checkout__total__all">
                                     <li>소계/Subtotal <span>$750.99</span></li>
-                                    <li>총합/Total <span>$750.99</span></li>
+                                    <li>총합/Total <span>40000</span></li>
+                                    <input type='hidden' name='p_Price' value='40000'>
                                 </ul>
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
@@ -333,7 +315,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">주문하기/PLACE ORDER</button>
+                                <button id='checkOut' type="submit" class="site-btn">주문하기/PLACE ORDER</button>
                             </div>
                         </div>
                         
@@ -424,7 +406,7 @@
     <!-- Search End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>    
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>

@@ -102,7 +102,6 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="/ShoppingMall/shop/about.do">About Us</a></li>
-                                    <li><a href="/ShoppingMall/shop/shop-details.do">세부사항</a></li>
                                     <li><a href="/ShoppingMall/shop/shopping-cart.do">장바구니</a></li>
                                     <li><a href="/ShoppingMall/shop/checkout.do">결제하기</a></li>
                                     <li><a href="/ShoppingMall/board/getBoardList.do">게시판</a></li>
@@ -248,15 +247,20 @@
 <!--                                     </label> -->
                                 </div>
                             </div>
+                            <form action="/ShoppingMall/shop/cart.do?p_id=${product.p_id }&m_id=${sessionScope.m_Id}">
+                            <input type="hidden" name="p_id" value="${product.p_id }">
+                            <input type="hidden" name="m_id" value="${sessionScope.m_Id}">
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="text" value="1" name="p_count">
                                     </div>
                                 </div>
-                                <a href="/ShoppingMall/shop/cart.do?p_id=${product.p_id }&m_id=${sessionScope.m_Id}" class="primary-btn">+ 장바구니에 담기</a>
+                                <button type="submit" class="primary-btn">+ 장바구니에 담기</button>
+<%--                                 <a href="/ShoppingMall/shop/cart.do?p_id=${product.p_id }&m_id=${sessionScope.m_Id}" class="primary-btn">+ 장바구니에 담기</a> --%>
 <!--                                 <a href="/ShoppingMall/shop/cart.do" class="primary-btn">+ 장바구니에 담기</a> -->
                             </div>
+                            </form>
 <!--                             <div class="product__details__btns__option"> -->
 <!--                                 <a href="#"><i class="fa fa-heart"></i> 찜</a> -->
 <!--                                 <a href="#"><i class="fa fa-exchange"></i> 비교하기에 담기(없앨 수 있음) </a> -->

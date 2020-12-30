@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.annotation.RequestMap;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import spring.mvc.domain.MemberVO;
-import spring.mvc.domain.OrderInfoVO;
-import spring.mvc.domain.PaymentVO;
-import spring.mvc.domain.PorderAddrVO;
+import spring.mvc.domain.*;
 import spring.mvc.service.MemberService;
 import spring.mvc.service.OrderService;
 import spring.mvc.service.ProductService;
@@ -32,6 +30,7 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
+
 
     @RequestMapping("/admin/orders.do")
     public String getOrderList(Model m){
@@ -63,8 +62,9 @@ public class OrderController {
 
         return "성공";
     }
-    
-    
+
+
+
     //CheckOut 결제
     @RequestMapping("shop/checkout.do")
     public void checkOut(HttpSession session, Model m) {

@@ -108,7 +108,6 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="/ShoppingMall/shop/about.do">About Us</a></li>
-                                    <li><a href="/ShoppingMall/shop/shop-details.do">세부사항</a></li>
                                     <li><a href="/ShoppingMall/shop/shopping-cart.do">장바구니</a></li>
                                     <li><a href="/ShoppingMall/shop/checkout.do">결제하기</a></li>
                                     <li><a href="/ShoppingMall/board/getBoardList.do">게시판</a></li>
@@ -293,24 +292,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseSix">태그(지우거나 대체 될 수 있음)</a>
-                                    </div>
-                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__tags">
-                                                <a href="#">Product</a>
-                                                <a href="#">Bags</a>
-                                                <a href="#">Shoes</a>
-                                                <a href="#">Fashio</a>
-                                                <a href="#">Clothing</a>
-                                                <a href="#">Hats</a>
-                                                <a href="#">Accessories</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+<!--                                 <div class="card"> -->
+<!--                                     <div class="card-heading"> -->
+<!--                                         <a data-toggle="collapse" data-target="#collapseSix">태그(지우거나 대체 될 수 있음)</a> -->
+<!--                                     </div> -->
+<!--                                     <div id="collapseSix" class="collapse show" data-parent="#accordionExample"> -->
+<!--                                         <div class="card-body"> -->
+<!--                                             <div class="shop__sidebar__tags"> -->
+<!--                                                 <a href="#">Product</a> -->
+<!--                                                 <a href="#">Bags</a> -->
+<!--                                                 <a href="#">Shoes</a> -->
+<!--                                                 <a href="#">Fashio</a> -->
+<!--                                                 <a href="#">Clothing</a> -->
+<!--                                                 <a href="#">Hats</a> -->
+<!--                                                 <a href="#">Accessories</a> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
                             </div>
                         </div>
                     </div>

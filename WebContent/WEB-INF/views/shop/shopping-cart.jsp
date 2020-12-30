@@ -147,7 +147,7 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
+<form id="frm" method="post">
     <!-- Shopping Cart Section Begin -->
     <section class="shopping-cart spad">
         <div class="container">
@@ -165,21 +165,25 @@
                             </thead>
                             <tbody>
                             <c:forEach items="${list1}" var="list1" varStatus="status">
-                            <tr>
+                            <tr class="trList">
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
                                             <img style="width: 100px; height: 100px;" src="${list3[status.index]}" alt="">
                                         </div>
                                         <div class="product__cart__item__text">
                                             <h6 class="p_name">${list4[status.index].p_Name}</h6>
-                                            <h5 class="p_count">${list1.P_COUNT}</h5>
-
+                                            <input type="hidden" class="pp_count" value="${list1.P_COUNT}">
+                                            <input class="p_Id" name="p_Id" type="hidden" value="${list1.P_ID}">
+                                            <input class="p_Price" name ="p_Price" type="hidden" value="${list1.P_PRICE}">
                                         </div>
                                     </td>
                                     <td class="quantity__item">
                                         <div class="quantity">
                                             <div class="pro-qty-2">
                                                 <input type="text" value="${list1.P_COUNT}">
+                                                <input class="p_Count" name="p_Count" type="hidden" value="${list1.P_COUNT}">
+                                                <input class="p_Id2" type="hidden" value="${list1.P_ID}">
+                                                <input class="p_Price2" type="hidden" value="${list1.P_PRICE}">
                                             </div>
                                         </div>
                                     </td>
@@ -213,11 +217,9 @@
                     <div class="cart__total">
                         <h6>　장바구니 총합 금액</h6>
                         <ul>
-                            <c:forEach items="${list1}" var="list1" varStatus="status">
-                            <li>　${list4[status.index].p_Name} <span class="p_total"></span></li>
-                            </c:forEach>
+
                             <hr>
-                            <li>+　총합 <span id="total_price">50000원</span></li>
+                            <li>+　총합 <span id="total_price">50000</span></li>
                         </ul>
                         <a href="#" class="primary-btn">결제 진행</a>
                     </div>
@@ -227,11 +229,8 @@
             </div>
         </div>
     </section>
+</form>
     <!-- Shopping Cart Section End -->
-    <script type="text/javascript">
-        var price = $('.cart__price');
-        var count = $('.p_count');
-    </script>
     <!-- Footer Section Begin -->
     <<!-- Footer Section Begin -->
     <footer class="footer">
@@ -312,9 +311,7 @@
         </div>
     </div>
     <!-- Search End -->
-
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>

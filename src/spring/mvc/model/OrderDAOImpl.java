@@ -1,5 +1,7 @@
 package spring.mvc.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,10 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import spring.mvc.domain.MemberVO;
-import spring.mvc.domain.OrderInfoVO;
-import spring.mvc.domain.PorderAddrVO;
-import spring.mvc.domain.PorderListVO;
+import spring.mvc.domain.*;
 
 @Repository("orderDAO")
 public class OrderDAOImpl implements OrderDAO{
@@ -47,6 +46,22 @@ public class OrderDAOImpl implements OrderDAO{
     @Override
     public List<Map<String, Object>> getCartList(MemberVO vo) {
         System.out.println("===> Mybatis getCartList() 호출");
-        return mybatis.selectList("order.getCartList", vo);
+
+        try{
+            return mybatis.selectList("order.getCartList", vo);
+        }catch (Exception e){
+            Map<String, Object> map = new HashMap<>();
+            map.put("test","1234");
+            List<Map<String,Object>> list = null;
+            list.add(map);
+            return list;
+        }
+
+    }
+
+    @Override
+    public int deleteCartInfo(ProductVO vo) {
+        System.out.println("===> Mybatis deleteCartInfo() 호출");
+        return mybatis.delete("order.deleteCartInfo", vo);
     }
 }

@@ -3,10 +3,10 @@ package spring.mvc.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import spring.mvc.domain.MemberVO;
-import spring.mvc.domain.ProductImageVO;
-import spring.mvc.domain.ProductVO;
+import org.springframework.web.bind.annotation.ResponseBody;
+import spring.mvc.domain.*;
 import spring.mvc.service.MemberService;
 import spring.mvc.service.OrderService;
 import spring.mvc.service.ProductService;
@@ -27,10 +27,37 @@ public class CartController {
     @Autowired
     private OrderService orderService;
 
+    @RequestMapping("/shop/cartDelete.do")
+    @ResponseBody
+    public String cartDelete(@RequestBody Map<String, Object> map){
+        System.out.println(map.get("p_Id"));
+        ProductVO vo = new ProductVO();
+        vo.setP_Id((String)map.get("p_Id"));
+        System.out.println(vo.getP_Id());
+        orderService.deleteCartInfo(vo);
+
+
+        return "삭제";
+    }
+
+    @RequestMapping("/shop/updateCartList.do")
+    @ResponseBody
+    public String updateCartList(@RequestBody String[] str){
+        for(int i=0; i<str.length; i++) {
+            System.out.println("updateCartList 컨트롤러 호출");
+
+            System.out.println(str[i]);
+        }
+
+
+        return "/shop/checkout.do";
+    }
+
+
     @RequestMapping("/shop/shopping-cart.do")
     public String getCartList(HttpSession session, Model m){
-
-        if(session.getAttribute("m_Id").equals(null)){
+        System.out.println(session.getAttribute("m_Id"));
+        if(session.getAttribute("m_Id")==null){
             return "/shop/shopping-cart";
         }
 
@@ -41,8 +68,19 @@ public class CartController {
         MemberVO result = new MemberVO();
         result = memberService.idCheck_Login(memberVO);
         System.out.println(result.getM_Code());
-        List<Map<String,Object>> list;
-        list = orderService.getCartList(result);
+
+        List<Map<String,Object>> list = null;
+
+
+        try{
+            list = orderService.getCartList(result);
+        }catch (Exception e){
+            list = null;
+            return "/shop/shopping-cart";
+        }
+
+
+
 
         List<ProductImageVO> pList = new ArrayList<>();
         List<ProductVO> test = new ArrayList<>();

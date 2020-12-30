@@ -39,7 +39,7 @@ $(function () {
 
             $('#newForm').attr("action", "/ShoppingMall/admin/product_modify.do").submit();
             alert("수정성공");
-            location.href = "/ShoppingMall/admin/"
+
         })
 
 

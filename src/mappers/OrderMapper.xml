@@ -44,4 +44,8 @@
         select * from cart WHERE M_CODE = #{m_Code}
         ORDER BY P_ID
     </select>
+
+    <delete id="deleteCartInfo" parameterType="product">
+        DELETE FROM cart WHERE P_ID = #{p_Id}
+    </delete>
 </mapper>
