@@ -228,7 +228,10 @@
         </div>
     </section>
     <!-- Shopping Cart Section End -->
-
+    <script type="text/javascript">
+        var price = $('.cart__price');
+        var count = $('.p_count');
+    </script>
     <!-- Footer Section Begin -->
     <<!-- Footer Section Begin -->
     <footer class="footer">

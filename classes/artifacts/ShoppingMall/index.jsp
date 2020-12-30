@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html lang="zxx">
 
 <head>
@@ -8,8 +11,8 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BUA-FashionMall</title>
-
+    <title>BUA-FashionMall </title>
+	
     <!-- Google Font --> 
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
@@ -64,11 +67,23 @@
                             <a href="/ShoppingMall/admin/login.do">Admin Log In</a>
                         </div>
                     </div>
+                    
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="/ShoppingMall/member/login.do">Sign in</a>
-                                <a href="#">FAQs</a>
+                            <c:set var="data" value="null" />
+                        
+                              <c:choose>
+                             	 <c:when test="${empty sessionScope.m_Id }"> 
+                              	  <a href="/ShoppingMall/member/login.do">Sign in</a>
+                             	 </c:when>
+                             	 
+                             	 <c:otherwise>  
+                                <a href="#">${sessionScope.m_Name} 님</a>
+                                <a href="/ShoppingMall/index.jsp">log out</a>
+                              	</c:otherwise>
+                              </c:choose>
+                                <a href="/ShoppingMall/shop/faq.do">FAQs</a>
                             </div>
                         </div>
                     </div>
@@ -105,7 +120,7 @@
                         <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
                         <a href="#"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">0원</div>
+                        <div class="price">0원 </div>
                     </div>
                 </div>
             </div>

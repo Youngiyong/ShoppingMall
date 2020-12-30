@@ -11,14 +11,19 @@
                 , P.P_ID , P.P_NAME , PA.O_POST
             FROM PORDER_INFO PI, PORDER_ADDR PA, PRODUCT P
         WHERE PI.PA_CODE = PA.PA_CODE AND P.P_ID = PI.P_ID
+
     </select>
 
     <update id="updateOrderListStatus" parameterType="java.util.List">
         <foreach collection="list" item="item"  separator=";">
-            UPDATE PORDER_INFO
+        UPDATE PORDER_INFO
             SET O_STATUS = #{item.o_Status}
             WHERE O_ID = #{item.o_Id}
         </foreach>
     </update>
 
+    <select id="getCartList" parameterType="member" resultType="java.util.HashMap">
+        select * from cart WHERE M_CODE = #{m_Code}
+        ORDER BY P_ID
+    </select>
 </mapper>

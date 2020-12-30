@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-
     <!-- VO객체 별칭 지정 -->
     <typeAliases>
         <typeAlias type="spring.mvc.domain.MemberVO" alias="member"/>
@@ -12,16 +11,19 @@
         <typeAlias type="spring.mvc.domain.ProductVO" alias="product"/>
         <typeAlias type="spring.mvc.domain.ProductImageVO" alias="product_img"/>
         <typeAlias type="spring.mvc.domain.ProductStockVO" alias="product_stock"/>
-        <typeAlias type="spring.mvc.domain.OrderInfoVO" alias="order_info"/>
         <typeAlias type="spring.mvc.domain.DashBoardVO" alias="dash"/>
-        <!-- BoardAlias 설정 -->
-        <typeAlias type="spring.mvc.domain.BoardVO" alias="board" />
-
+        <typeAlias type="spring.mvc.domain.PorderAddrVO" alias="porder_addr"/>
+        <typeAlias type="spring.mvc.domain.OrderInfoVO" alias="order_info"/>
+        <typeAlias type="spring.mvc.domain.ShopVO" alias="shop"/>
+    	<!-- BoardAlias 설정 -->
+		<typeAlias type="spring.mvc.domain.BoardVO" alias="board" />	
     </typeAliases>
+
     <!-- 오라클에서 Long타입 가져오기 위한 핸들러 -->
     <typeHandlers>
         <typeHandler handler="spring.mvc.controller.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
     </typeHandlers>
+
 
 </configuration>
 
