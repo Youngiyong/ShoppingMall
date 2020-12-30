@@ -11,4 +11,8 @@ public interface OrderDAO {
 
     //주문 상태 업데이트
     public int updateOrderListStatus(List<OrderInfoVO> vo);
+    
+    
+    //주소지 불러오기
+    public List<PorderAddrVO> searchAddr(MemberVO vo);
 }

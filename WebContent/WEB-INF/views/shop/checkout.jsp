@@ -152,7 +152,7 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>수령인<span>*</span></p>
-                                        <input type="text" name ="o_name1">
+                                        <input type="text" name ="o_name1" value="${addrVO[0].o_name}">
                                     </div>
                                 </div>
                             </div>
@@ -160,12 +160,12 @@
                             <div class="checkout__input">
                                 <p>우편번호<span>*</span></p>
                             </div>
-	                            <input type="text" id="sample4_postcode" name="o_post" placeholder="우편번호" readonly="readonly">
+	                            <input type="text" id="sample4_postcode" name="o_post" placeholder="우편번호" readonly="readonly" value="${addrVO[0].o_post}">
 								<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
                             <div class="checkout__input">
                                 <p>배송지 주소<span>*</span></p>
                             </div>
-								<input type="text" id="sample4_roadAddress" name="o_addr1" placeholder="도로명주소" class="checkout__input__add" readonly="readonly">
+								<input type="text" id="sample4_roadAddress" name="o_addr1" placeholder="도로명주소" class="checkout__input__add" readonly="readonly" value="${addrVO[0].o_addr}">
 								<input type="text" id="sample4_jibunAddress" name="o_addr2" placeholder="지번주소" class="checkout__input__add" readonly="readonly">
 								<span id="guide" style="color:#999;display:none"></span><br/>
 								<input type="text" id="sample4_detailAddress" name="o_addr3" placeholder="상세주소">
@@ -175,7 +175,7 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>연락처<span>*</span></p>
-                                        <input type="text" name="o_tel">
+                                        <input type="text" name="o_tel" value="${addrVO[0].o_tel}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">

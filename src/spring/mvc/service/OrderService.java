@@ -14,5 +14,7 @@ public interface OrderService {
 
     //주문 상태 업데이트
     public int updateOrderListStatus(List<OrderInfoVO> vo);
+    
+    public List<PorderAddrVO> searchAddr(MemberVO vo);
 
 }

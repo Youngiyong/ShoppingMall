@@ -4,6 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="order">
+	<!-- 기등록된 주소가 있으면 찾아온다 -->
+	<select id="searchAddr" parameterType="member" resultType="porder_addr">
+		    SELECT*
+   			FROM porder_addr
+   			WHERE  M_CODE = #{m_Code}
+	</select>
+		
+		
 
     <select id="getOrderList" resultType="java.util.HashMap">
         select PI.O_ID, PI.PA_CODE, PI.M_CODE, PI.OD_ID, PI.O_DATE,

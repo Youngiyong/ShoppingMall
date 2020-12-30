@@ -1,20 +1,24 @@
 package spring.mvc.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import spring.mvc.domain.MemberVO;
 import spring.mvc.domain.OrderInfoVO;
+import spring.mvc.domain.PorderAddrVO;
 import spring.mvc.service.MemberService;
 import spring.mvc.service.OrderService;
 import spring.mvc.service.ProductService;
-
-import javax.persistence.criteria.Order;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 public class OrderController {
@@ -58,5 +62,18 @@ public class OrderController {
 
         return "성공";
     }
+    
+    
+    //CheckOut 결제
+    @RequestMapping("shop/checkout.do")
+    public void checkOut(HttpSession session, Model m) {
+    	
+    	//주소지 찾기
+    	MemberVO vo = new MemberVO();
+    	vo.setM_Code((String)session.getAttribute("m_Code"));
+    	List<PorderAddrVO> addrVO =orderService.searchAddr(vo);
+    	m.addAttribute("addrVO", addrVO);
+    }	
+    
 
 }

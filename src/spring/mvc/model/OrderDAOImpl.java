@@ -7,6 +7,7 @@ import spring.mvc.domain.MemberVO;
 import spring.mvc.domain.OrderAddrVO;
 import spring.mvc.domain.OrderInfoVO;
 import spring.mvc.domain.OrderListVO;
+import spring.mvc.domain.PorderAddrVO;
 
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,13 @@ public class OrderDAOImpl implements OrderDAO{
 
     @Autowired
     private SqlSessionTemplate mybatis;
+    
+    
+    //주소지 찾아오기
+    public List<PorderAddrVO> searchAddr(MemberVO vo){
+    	return mybatis.selectList("order.searchAddr",vo);
+    }
+    
 
 
     @Override
