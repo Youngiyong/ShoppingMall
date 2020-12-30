@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.mvc.domain.MemberVO;
 import spring.mvc.domain.OrderInfoVO;
+import spring.mvc.domain.PaymentVO;
 import spring.mvc.domain.PorderAddrVO;
 import spring.mvc.service.MemberService;
 import spring.mvc.service.OrderService;
@@ -73,7 +74,26 @@ public class OrderController {
     	vo.setM_Code((String)session.getAttribute("m_Code"));
     	List<PorderAddrVO> addrVO =orderService.searchAddr(vo);
     	m.addAttribute("addrVO", addrVO);
+    	
+    	//카트에서 물품 가져오기
+    	m.addAttribute("cartList", orderService.cartList(vo));
+    	
+    	 	
+    	
     }	
+    
+    //결제 진행
+    @RequestMapping("shop/payment.do")
+    public void payment(HttpSession session,Model m, PaymentVO vo) {
+    	
+    	System.out.println(vo.getP_Price());
+    	System.out.println(vo.getO_Tel());
+    	m.addAttribute("Bname",session.getAttribute("m_Name"));
+    	m.addAttribute("order", vo);
+    	
+    }
+    
+    
     
 
 }

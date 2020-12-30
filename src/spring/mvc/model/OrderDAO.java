@@ -15,4 +15,6 @@ public interface OrderDAO {
     
     //주소지 불러오기
     public List<PorderAddrVO> searchAddr(MemberVO vo);
+    
+    public List<PorderListVO> cartList(MemberVO vo);
 }

@@ -16,5 +16,5 @@ public interface OrderService {
     public int updateOrderListStatus(List<OrderInfoVO> vo);
     
     public List<PorderAddrVO> searchAddr(MemberVO vo);
-
+    public List<PorderListVO> cartList(MemberVO vo);
 }

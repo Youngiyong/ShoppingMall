@@ -1,16 +1,16 @@
 package spring.mvc.model;
 
+import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import spring.mvc.domain.MemberVO;
-import spring.mvc.domain.OrderAddrVO;
-import spring.mvc.domain.OrderInfoVO;
-import spring.mvc.domain.OrderListVO;
-import spring.mvc.domain.PorderAddrVO;
 
-import java.util.List;
-import java.util.Map;
+import spring.mvc.domain.MemberVO;
+import spring.mvc.domain.OrderInfoVO;
+import spring.mvc.domain.PorderAddrVO;
+import spring.mvc.domain.PorderListVO;
 
 @Repository("orderDAO")
 public class OrderDAOImpl implements OrderDAO{
@@ -18,8 +18,14 @@ public class OrderDAOImpl implements OrderDAO{
     @Autowired
     private SqlSessionTemplate mybatis;
     
+    //카트 물품 담아오기
+    public List<PorderListVO> cartList(MemberVO vo){
+    	return mybatis.selectList("order.cartList",vo);
+    }
+    
     
     //주소지 찾아오기
+    @Override
     public List<PorderAddrVO> searchAddr(MemberVO vo){
     	return mybatis.selectList("order.searchAddr",vo);
     }

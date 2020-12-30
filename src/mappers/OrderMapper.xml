@@ -4,6 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="order">
+	<!-- 장바구니 품목 담아오기 -->
+	<select id="cartList" parameterType="member" resultType="order_list">
+   			 SELECT p.p_name, c.p_count, c.p_count*c.p_price p_price
+   			 FROM cart c
+   			 INNER JOIN product p
+   			 ON c.p_id=p.p_id
+   			 WHERE  c.M_CODE = #{m_Code}
+	</select>
+
+
 	<!-- 기등록된 주소가 있으면 찾아온다 -->
 	<select id="searchAddr" parameterType="member" resultType="porder_addr">
 		    SELECT*

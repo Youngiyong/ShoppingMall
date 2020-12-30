@@ -12,8 +12,6 @@ public class PorderListVO {
 	private int p_size;
 	private String p_root;
 	private String m_code;
-	
-	
 	private String p_name;
 	private String p_cate;
 	private String p_content;

@@ -1,22 +1,28 @@
 package spring.mvc.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import spring.mvc.domain.MemberVO;
-import spring.mvc.domain.OrderAddrVO;
-import spring.mvc.domain.OrderInfoVO;
-import spring.mvc.domain.OrderListVO;
-import spring.mvc.domain.PorderAddrVO;
-import spring.mvc.model.OrderDAOImpl;
-
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import spring.mvc.domain.MemberVO;
+import spring.mvc.domain.OrderInfoVO;
+import spring.mvc.domain.PorderAddrVO;
+import spring.mvc.domain.PorderListVO;
+import spring.mvc.model.OrderDAOImpl;
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderDAOImpl orderDAO;
+    //카트 물품
+    public List<PorderListVO> cartList(MemberVO vo){
+    	return orderDAO.cartList(vo);
+    	
+    }
+    
     
     //주소지 불러오기
     @Override

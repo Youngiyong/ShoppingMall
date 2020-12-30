@@ -8,10 +8,18 @@ public class OrderListVO {
     private String p_Size;
     private String p_Root;
     private String o_Date;
+    private String p_Name;
     private int p_Price;
     private int p_Count;
 
-    public String getO_Id() { return o_Id; }
+    
+	public String getP_Name() {
+		return p_Name;
+	}
+	public void setP_Name(String p_Name) {
+		this.p_Name = p_Name;
+	}
+	public String getO_Id() { return o_Id; }
     public void setO_Id(String o_Id) { this.o_Id = o_Id; }
     public String getP_Id() { return p_Id; }
     public void setP_Id(String p_Id) { this.p_Id = p_Id; }
