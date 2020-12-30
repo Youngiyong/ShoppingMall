@@ -32,4 +32,13 @@ public class ShopController {
     public void getProduct(ShopVO vo, Model model){
     	model.addAttribute("product", shopService.getProduct(vo));
     }
+    
+    
+    // 장바구니 담기
+    @RequestMapping("/shop/cart.do")
+    public String insertCart(ShopVO vo) {
+    	System.out.println("ShopController 호출");
+    	shopService.insertCart(vo);
+    	return "redirect:/shop/shop.do";
+    }
 }

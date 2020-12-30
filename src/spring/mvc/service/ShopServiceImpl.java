@@ -22,4 +22,8 @@ public class ShopServiceImpl implements ShopService{
 	public ShopVO getProduct(ShopVO vo) {
 		return shopDAO.getProduct(vo);
 	}
+	
+	public void insertCart(ShopVO vo) {
+		shopDAO.insertCart(vo);
+	}
 }

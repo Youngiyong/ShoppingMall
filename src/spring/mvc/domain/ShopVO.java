@@ -15,6 +15,7 @@ public class ShopVO {
 	private String p_content;
 	private String p_id;
 	
+	private String m_id;
 	
 	
 	public String getI_Path() {
@@ -83,6 +84,14 @@ public class ShopVO {
 	public void setP_id(String p_id) {
 		this.p_id = p_id;
 	}
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
+	
+	
 	
 	
 }

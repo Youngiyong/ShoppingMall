@@ -9,4 +9,6 @@ public interface ShopDAO {
 	public List<ShopVO> getProductList(ShopVO vo);
 	
 	public ShopVO getProduct(ShopVO vo);
+	
+	public void insertCart(ShopVO vo);
 }

@@ -10,4 +10,6 @@ public interface ShopService {
 	List<ShopVO> getProductList(ShopVO vo);
 	
 	ShopVO getProduct(ShopVO vo);
+	
+	void insertCart(ShopVO vo);
 }

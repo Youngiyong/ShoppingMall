@@ -20,5 +20,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE p.p_id=ps.p_id and p.p_id=pi.p_id and p.p_id = #{p_id}
 	
 	</select>
+	
+	<insert id="insertCart" parameterType="shop">
+		INSERT INTO cart
+		(m_code, p_id, p_count, p_price, p_color, p_size, p_root)
+		VALUES
+		((SELECT m_code FROM member where m_id = #{m_id}),
+		#{p_id},
+		
+		<choose>
+			<when test="p_count != null">
+			#{p_count},
+			</when>
+			<otherwise>
+			1,
+			</otherwise>
+		</choose>		
+		  
+		(select p_price from product where p_id = #{p_id}),
+		(select p_color from product_stock where p_id = #{p_id}),
+		(select p_size from product_stock where p_id = #{p_id}),
+		'null')
+	
+	</insert>
+	
 
 </mapper>
