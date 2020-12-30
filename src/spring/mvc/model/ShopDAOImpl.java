@@ -29,6 +29,7 @@ public class ShopDAOImpl implements ShopDAO{
 		System.out.println("ShopMapper insertCart() 호출");
 		System.out.println(vo.getM_id());
 		System.out.println(vo.getP_id());
+		System.out.println(vo.getP_count());
 		mybatis.insert("shop.insertCart", vo);
 	}
 
