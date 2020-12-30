@@ -123,7 +123,7 @@ var dd6=${d6}/100000;
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
                         <!-- Logo icon -->
-                        <a href="/ShoppingMall/admin/index.do">
+                        <a href="index.do">
                             <b class="logo-icon">
                                 <!-- Dark Logo icon -->
                                 <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
