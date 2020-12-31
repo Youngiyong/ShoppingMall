@@ -31,9 +31,10 @@ public class OrderServiceImpl implements OrderService {
     public int insertAddr(PaymentVO vo) {
     	return orderDAO.insertAddr(vo);
     }
- 
- 
 
+
+    @Override
+    public int UpdateCartInfo(OrderListVO vo){ return orderDAO.UpdateCartInfo(vo);}
     @Override
     public List<Map<String, Object>> getOrderList() { return orderDAO.getOrderList(); }
 

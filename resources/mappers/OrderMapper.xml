@@ -30,4 +30,9 @@
     <delete id="deleteCartInfo" parameterType="product">
         DELETE FROM cart WHERE P_ID = #{p_Id}
     </delete>
+
+    <update id="UpdateCartInfo" parameterType="order_listvo">
+        UPDATE CART SET P_COUNT = #{p_Count} WHERE P_ID = #{p_Id}
+    </update>
+
 </mapper>

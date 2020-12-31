@@ -1,5 +1,6 @@
 package spring.mvc.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +28,13 @@ public class CartController {
     @Autowired
     private OrderService orderService;
 
+    @RequestMapping("/shop/CheckOutPage.do")
+    public String CheckOutPage(Model m){
+        System.out.println("CheckOutPage 컨트롤러 호출");
+
+        return "/shop/checkout";
+    }
+
     @RequestMapping("/shop/cartDelete.do")
     @ResponseBody
     public String cartDelete(@RequestBody Map<String, Object> map){
@@ -42,13 +50,17 @@ public class CartController {
 
     @RequestMapping("/shop/updateCartList.do")
     @ResponseBody
-    public String updateCartList(@RequestBody String[] str){
-        for(int i=0; i<str.length; i++) {
+    public String updateCartList(@RequestBody OrderListVO[] vo, Model m){
+        for(int i=0; i<vo.length; i++) {
             System.out.println("updateCartList 컨트롤러 호출");
-
-            System.out.println(str[i]);
+            OrderListVO votest = new OrderListVO();
+            votest.setP_Id(vo[i].getP_Id());
+            votest.setP_Count(vo[i].getP_Count());
+            orderService.UpdateCartInfo(votest);
         }
-
+        int price = vo[0].getP_Price();
+        System.out.println(price);
+        m.addAttribute("total_price", price);
 
         return "/shop/checkout.do";
     }

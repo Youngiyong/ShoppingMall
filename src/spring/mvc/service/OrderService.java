@@ -19,4 +19,5 @@ public interface OrderService {
     public List<PorderListVO> cartList(MemberVO vo);
     public int insertAddr(PaymentVO vo);
     public int deleteCartInfo(ProductVO vo);
+    public int UpdateCartInfo(OrderListVO vo);
 }
