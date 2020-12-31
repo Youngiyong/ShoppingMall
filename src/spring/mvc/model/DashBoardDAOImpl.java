@@ -15,6 +15,7 @@ public class DashBoardDAOImpl implements DashBoardDAO {
 	private SqlSessionTemplate mybatis;
 	
 	//-----------------------------morris dao-----------------------------
+	//시간대별 매출
 	public List<DashBoardVO> hourlySales(DashBoardVO vo){
 		
 		return mybatis.selectList("dashBoard.hourlySales", vo);
@@ -33,6 +34,9 @@ public class DashBoardDAOImpl implements DashBoardDAO {
 	}
 	
 	
+	
+	
+
 	
 	//-----------------------------index dao------------------------------
 	

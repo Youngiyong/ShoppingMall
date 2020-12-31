@@ -27,12 +27,11 @@ public class DashBoardController {
 	public void morris(DashBoardVO vo,Model m) {
 		
 		//시간대별 매출
-		HashMap mapHourlySales = service.hourlySales(vo);
+		m.addAttribute("hourlySales",  service.hourlySales(vo));
 		
-		for(int i=0; i<mapHourlySales.size(); i++) {
-			m.addAttribute("hh"+i,mapHourlySales.get("0"+i) );
 		
-		}
+		
+		
 		
 		//일별 매출 기간 조정
 		m.addAttribute("dailySalesScale", service.dailySalesScale(vo));

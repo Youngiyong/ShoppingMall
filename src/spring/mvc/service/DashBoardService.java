@@ -19,7 +19,7 @@ public interface DashBoardService {
 	public List<DashBoardVO> countrySales();
 	public HashMap dailySales();
 	public List<DashBoardVO> topItems();
-	public HashMap hourlySales(DashBoardVO vo) ;
+	public List<DashBoardVO>  hourlySales(DashBoardVO vo);
 	public List<DashBoardVO> dailySalesScale(DashBoardVO vo);
 	public List<DashBoardVO> cateSales(DashBoardVO vo);
 }

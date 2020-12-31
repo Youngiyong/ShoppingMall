@@ -31,7 +31,7 @@ public class CartController {
     @RequestMapping("/shop/CheckOutPage.do")
     public String CheckOutPage(Model m){
         System.out.println("CheckOutPage 컨트롤러 호출");
-
+  
         return "/shop/checkout";
     }
 
