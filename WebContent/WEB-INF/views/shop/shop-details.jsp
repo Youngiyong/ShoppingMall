@@ -77,7 +77,7 @@
                              	 
                              	 <c:otherwise>  
                                 <a href="#">${sessionScope.m_Name} 님</a>
-                                <a href="/ShoppingMall/index.jsp">log out</a>
+                                <a href="/ShoppingMall/member/logout.do">log out</a>
                               	</c:otherwise>
                               </c:choose>
                                 <a href="/ShoppingMall/shop/faq.do">FAQs</a>
@@ -647,6 +647,18 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 <!--     <script src="js/additional.js"></script> -->
+	<script type="text/javascript">
+	$('.primary-btn').click(function(ignore){
+		if(${not empty sessionScope.m_Id}){
+			alert('장바구니에 담았습니다.')
+		}else{
+			alert('로그인이 필요합니다.')
+            ignore.preventDefault();
+			location.href='/ShoppingMall/member/login.do';
+
+		}
+	})
+	</script>
 </body>
 
 </html>

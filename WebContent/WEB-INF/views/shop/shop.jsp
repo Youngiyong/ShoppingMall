@@ -82,7 +82,7 @@
                              	 
                              	 <c:otherwise>  
                                 <a href="#">${sessionScope.m_Name} 님</a>
-                                <a href="/ShoppingMall/index.jsp">log out</a>
+                                <a href="/ShoppingMall/member/logout.do">log out</a>
                               	</c:otherwise>
                               </c:choose>
                                 <a href="/ShoppingMall/shop/faq.do">FAQs</a>
@@ -165,8 +165,8 @@
                         
                         <!-- 카테고리 폼 start -->
                         <form action="/ShoppingMall/shop/shop.do" >
-                        <input type="button" id="ajax" value="상세검색">
-<!--                         <input type="submit" value="상세검색"> -->
+<!--                         <input type="button" id="ajax" value="상세검색"> -->
+                        <input type="submit" value="상세검색">
                         <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
@@ -364,7 +364,7 @@
                     	
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/resources/upload/thumb-3.png ">
+                                <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/shop-details/thumb-3.png ">
                                     <ul class="product__hover">
                                         <li><a href="/ShoppingMall/shop/shop-details224.do"><img src="img/icon/search.png" alt=""></a></li>
                                     </ul>
@@ -433,72 +433,72 @@
                         </c:forEach>
                         
                         
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                                    <ul class="product__hover">
-                                        <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>Piqué Biker Jacket</h6>
-                                    <a href="#" class="add-cart">+ 장바구니에 담기</a>
-                                    <div class="rating">
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <h5>$67.24</h5>
-                                    <div class="product__color__select">
-                                        <label for="pc-4">
-                                            <input type="radio" id="pc-4">
-                                        </label>
-                                        <label class="active black" for="pc-5">
-                                            <input type="radio" id="pc-5">
-                                        </label>
-                                        <label class="grey" for="pc-6">
-                                            <input type="radio" id="pc-6">
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                         <div class="col-lg-4 col-md-6 col-sm-6"> -->
+<!--                             <div class="product__item"> -->
+<!--                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg"> -->
+<!--                                     <ul class="product__hover"> -->
+<!--                                         <li><a href="#"><img src="img/icon/search.png" alt=""></a></li> -->
+<!--                                     </ul> -->
+<!--                                 </div> -->
+<!--                                 <div class="product__item__text"> -->
+<!--                                     <h6>Piqué Biker Jacket</h6> -->
+<!--                                     <a href="#" class="add-cart">+ 장바구니에 담기</a> -->
+<!--                                     <div class="rating"> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                     </div> -->
+<!--                                     <h5>$67.24</h5> -->
+<!--                                     <div class="product__color__select"> -->
+<!--                                         <label for="pc-4"> -->
+<!--                                             <input type="radio" id="pc-4"> -->
+<!--                                         </label> -->
+<!--                                         <label class="active black" for="pc-5"> -->
+<!--                                             <input type="radio" id="pc-5"> -->
+<!--                                         </label> -->
+<!--                                         <label class="grey" for="pc-6"> -->
+<!--                                             <input type="radio" id="pc-6"> -->
+<!--                                         </label> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
                         
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                                    <span class="label">Sale</span>
-                                    <ul class="product__hover">
-                                        <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>Multi-pocket Chest Bag</h6>
-                                    <a href="#" class="add-cart">+ 장바구니에 담기</a>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <h5>$43.48</h5>
-                                    <div class="product__color__select">
-                                        <label for="pc-7">
-                                            <input type="radio" id="pc-7">
-                                        </label>
-                                        <label class="active black" for="pc-8">
-                                            <input type="radio" id="pc-8">
-                                        </label>
-                                        <label class="grey" for="pc-9">
-                                            <input type="radio" id="pc-9">
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                         <div class="col-lg-4 col-md-6 col-sm-6"> -->
+<!--                             <div class="product__item sale"> -->
+<!--                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg"> -->
+<!--                                     <span class="label">Sale</span> -->
+<!--                                     <ul class="product__hover"> -->
+<!--                                         <li><a href="#"><img src="img/icon/search.png" alt=""></a></li> -->
+<!--                                     </ul> -->
+<!--                                 </div> -->
+<!--                                 <div class="product__item__text"> -->
+<!--                                     <h6>Multi-pocket Chest Bag</h6> -->
+<!--                                     <a href="#" class="add-cart">+ 장바구니에 담기</a> -->
+<!--                                     <div class="rating"> -->
+<!--                                         <i class="fa fa-star"></i> -->
+<!--                                         <i class="fa fa-star"></i> -->
+<!--                                         <i class="fa fa-star"></i> -->
+<!--                                         <i class="fa fa-star"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                     </div> -->
+<!--                                     <h5>$43.48</h5> -->
+<!--                                     <div class="product__color__select"> -->
+<!--                                         <label for="pc-7"> -->
+<!--                                             <input type="radio" id="pc-7"> -->
+<!--                                         </label> -->
+<!--                                         <label class="active black" for="pc-8"> -->
+<!--                                             <input type="radio" id="pc-8"> -->
+<!--                                         </label> -->
+<!--                                         <label class="grey" for="pc-9"> -->
+<!--                                             <input type="radio" id="pc-9"> -->
+<!--                                         </label> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
                         
 <!--                         <div class="col-lg-4 col-md-6 col-sm-6"> -->
 <!--                             <div class="product__item"> -->
@@ -949,31 +949,44 @@
     <script src="js/main.js"></script>
     <script src="js/additional.js"></script>
     <script type="text/javascript">
-    $('#ajax').click(function(){
-        $.ajax({
-           type : 'post',                           //전송방식
-           async : true,                           //비동기통신
-           url : '/ShoppingMall/shop/shop.do',                     //request
-           contextType : 'application/x-www-form-urlencoded;charset=utf-8',   //한글처리
-           data :
-           	{
-        	   'p_cate' : $('.shop__sidebar__categories ul li label input').val(),
-        	   'p_price' : $('.shop__sidebar__price ul li label input').val(),
-        	   'p_size' : $('.shop__sidebar__size label input').val(),
-        	   'p_color' : $('.shop__sidebar__color label input').val(),
+//     $('#ajax').click(function(){
+//         $.ajax({
+//            type : 'post',                           //전송방식
+//            async : true,                           //비동기통신
+//            url : '/ShoppingMall/shop/shop.do',                     //request
+//            contextType : 'application/x-www-form-urlencoded;charset=utf-8',   //한글처리
+//            data :
+//            	{
+//         	   'p_cate' : $('.shop__sidebar__categories ul li label input').val(),
+//         	   'p_price' : $('.shop__sidebar__price ul li label input').val(),
+//         	   'p_size' : $('.shop__sidebar__size label input').val(),
+//         	   'p_color' : $('.shop__sidebar__color label input').val(),
         	   
-        	},
-           }
-           success : function(result)
-              {
-        	   alert('aa')
-//                  $('#idCheckResult').text(result);
-              },
-           error : function(err)
-              {
-                 console.log(err);
-              }
-        });
+//         	},
+//            }
+//            success : function(result)
+//               {
+//         	   alert('aa')
+// //                  $('#idCheckResult').text(result);
+//               },
+//            error : function(err)
+//               {
+//                  console.log(err);
+//               }
+//         });
+
+    
+    $('.add-cart').click(function(ignore){
+    	if(${not empty sessionScope.m_Id}){
+			alert('장바구니에 담았습니다.')
+		}else{
+			alert('로그인이 필요합니다.')
+           	ignore.preventDefault();
+			location.href='/ShoppingMall/member/login.do';
+		}
+	});
+	
+    
 
     
     </script>
