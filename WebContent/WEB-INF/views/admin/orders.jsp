@@ -94,6 +94,12 @@
                      <i class="zmdi zmdi-assignment-o"></i> <span> 주문 정보</span>
                  </a>
              </li>
+             
+                <li>
+                 <a href="/ShoppingMall/dashBoard/index.do">
+                     <i class="zmdi zmdi-chart"></i> <span> 콘솔</span>
+                 </a>
+             </li>
          </ul>
 
      </div>

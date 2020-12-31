@@ -41,6 +41,8 @@ public class DashBoardController {
 		
 		//카테고리별 매출
 		m.addAttribute("cateSales", service.cateSales(vo));
+		System.out.println("카테 사이즈"+service.cateSales(vo).size());
+		
 	}
 	
 	

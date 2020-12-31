@@ -29,7 +29,7 @@ public class DashBoardDAOImpl implements DashBoardDAO {
 	
 	//카테고리별 매출
 	public List<DashBoardVO> cateSales(DashBoardVO vo){
-		return mybatis.selectList("dashBoard.cateSales");
+		return mybatis.selectList("dashBoard.cateSales",vo);
 	}
 	
 	
