@@ -17,7 +17,15 @@ public class ShopVO {
 	
 	private String m_id;
 	
+	private String p_root;
 	
+	
+	public String getP_root() {
+		return p_root;
+	}
+	public void setP_root(String p_root) {
+		this.p_root = p_root;
+	}
 	public String getI_Path() {
 		return i_fname;
 	}
