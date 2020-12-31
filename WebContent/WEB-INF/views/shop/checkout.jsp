@@ -289,9 +289,9 @@
                                     </c:forEach>
                                 </ul>
                                 <ul class="checkout__total__all">
-                                    <li>소계/Subtotal <span>${total_price}</span></li>
-                                    <li>총합/Total <span>${total_price}</span></li>
-                                    <input type='hidden' name='p_Price' value='40000'>
+                                    <li>소계/Subtotal <span>100</span></li>
+                                    <li>총합/Total <span>100</span></li>
+                                    <input type='hidden' name='p_Price' value='100'>
                                 </ul>
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">

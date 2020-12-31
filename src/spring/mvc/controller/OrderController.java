@@ -103,7 +103,7 @@ public class OrderController {
     
   //결제 완료
     @RequestMapping("shop/paymentDone.do")
-    public void paymentDone(HttpSession session,OrderInfoVO vo) {
+    public String paymentDone(HttpSession session,OrderInfoVO vo) {
     	
     	//porder_info 생성
     	
@@ -113,6 +113,10 @@ public class OrderController {
     	MemberVO vo2 = new MemberVO();
     	vo2.setM_Code((String)session.getAttribute("m_Code"));
     	
+    	
+    	
+    	//메인 화면으로 돌아가기
+    	return "redirect:/shop/shop.do";
     	
     }
     

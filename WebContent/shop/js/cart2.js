@@ -83,6 +83,7 @@ $(function () {
                         alert("에러@!")
                     }
                 })
+                location.href = "/ShoppingMall/shop/CheckOutPage.do"
             }
             else   alert("악 실패!");
 
