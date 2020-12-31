@@ -143,6 +143,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__text">
                         <h4>FAQS</h4>
+                        <h5> Tel.1577-1577 </h5>
                         <div class="breadcrumb__links">
                             <a href="/ShoppingMall/index.jsp">Home</a>
                             <span>FAQS</span>

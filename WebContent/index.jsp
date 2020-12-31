@@ -120,7 +120,7 @@
                         <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
                         <a href="/ShoppingMall/shop/shopping-cart.do"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">0원 </div>
+                        <div class="price">0원</div>
                     </div>
                 </div>
             </div>
