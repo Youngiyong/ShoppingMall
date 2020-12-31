@@ -119,7 +119,7 @@
                         <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
                         <a href="/ShoppingMall/shop/shopping-cart.do"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">0원</div>
+                        <div class="price">100원</div>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                     <ul class="filter__controls">
                         <li class="active" data-filter="*">인기제품</li>
                         <li data-filter=".new-arrivals">신상품</li>
-                        <li data-filter=".hot-sales">핫 세일</li>
+                        <li data-filter=".hot-sales">추천 상품</li>
                     </ul>
                 </div>
             </div>
