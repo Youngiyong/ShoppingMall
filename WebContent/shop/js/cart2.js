@@ -41,6 +41,7 @@ $(function () {
                 url: '/ShoppingMall/shop/cartDelete.do',
                 contentType: 'application/json; charset=UTF-8',
                 data: JSON.stringify(obj),
+                context: this,
                 success: function (result) {
                     alert("삭제가 완료되었습니다.");
                     $(this).parent().parent().find('td').remove();
