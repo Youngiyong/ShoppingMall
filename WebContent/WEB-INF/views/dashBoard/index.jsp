@@ -401,16 +401,16 @@ var dd6=${d6}/100000;
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">${listCountrySales[2].m_country}</span>
+                                        <span class="text-muted font-14">${listCountrySales[3].m_country}</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: ${listCountrySales[2].ratio}%"
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: ${listCountrySales[3].ratio}%"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">${listCountrySales[2].ratio}%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium">${listCountrySales[3].ratio}%</span>
                                     </div>
                                 </div>
                             </div>
