@@ -136,15 +136,11 @@
     
      	<!-- 나라별 매출 및 비중 -->
     <select id="countrySales" resultType="dash">
-   		SELECT  o.m_country m_country,SUM(o.p_count*o.p_price) sales, SUM(o.p_count*o.p_price)/(SELECT SUM(p_count*p_price) FROM porder_list)*100 ratio
-     	FROM (SELECT*
-     	FROM porder_list p
-      	INNER JOIN member m
-     	ON p.m_code = m.m_code)o
-     	WHERE TO_CHAR(o.o_date,'YYYYMM')=TO_CHAR(sysdate,'YYYYMM')
-     	GROUP BY o.m_country
-     	ORDER BY ratio DESC  
-     	     
+       SELECT  o_country m_country, SUM(p_count*p_price) sales, ROUND(SUM(p_count*p_price)/(SELECT SUM(p_count*p_price) FROM porder_list)*100,1) ratio
+     	FROM porder_list 
+     	GROUP BY o_country
+     	ORDER BY ratio DESC
+     	    	    	   
                         
     </select>
     

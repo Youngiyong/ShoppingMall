@@ -88,6 +88,7 @@ public class DashBoardServiceImpl implements DashBoardService {
 	public List<DashBoardVO> countrySales() {
 		List<DashBoardVO> result= new ArrayList();
 		List<DashBoardVO> list = dao.countrySales();
+		System.out.println("리스트 사이즈"+list.size());
 		
 		for(int i=0; i<4; i++) {
 			if(list.size()>i) {
