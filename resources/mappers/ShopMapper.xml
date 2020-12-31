@@ -69,15 +69,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(select p_price from product where p_id = #{p_id}),
 		(select p_color from product_stock where p_id = #{p_id}),
 		(select p_size from product_stock where p_id = #{p_id}),
-		
-		<choose>
-			<when test="p_root != null">
-			#{p_root})
-			</when>
-			<otherwise>
-			'null')
-			</otherwise>
-		</choose>
+		'null')
 	
 	</insert>
 	

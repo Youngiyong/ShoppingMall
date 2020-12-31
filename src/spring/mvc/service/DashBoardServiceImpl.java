@@ -19,18 +19,9 @@ public class DashBoardServiceImpl implements DashBoardService {
 	DashBoardDAO dao;
 	//---------------------------morris service--------------------------------------
 	
-	public HashMap hourlySales(DashBoardVO vo) {
-		HashMap map = new HashMap();
-		for(int i=0; i<24;i++) {
-			map.put("0"+i, 0);
-		}
-		List<DashBoardVO> list =dao.hourlySales(vo);
-		for(int i=0; i<list.size();i++) {
-			map.put(list.get(i).getTime(),list.get(i).getSales());
-		}
-		
-		return map;
-		
+	public List<DashBoardVO>  hourlySales(DashBoardVO vo) {
+		return dao.hourlySales(vo);
+				
 	}
 	
 	public List<DashBoardVO> dailySalesScale(DashBoardVO vo){

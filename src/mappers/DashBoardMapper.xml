@@ -70,10 +70,12 @@
  	
  	<!-- 시간대별 매출 -->
 	<select id="hourlySales" resultType="dash" parameterType='dash'>
-		SELECT TO_CHAR(o_date,'HH24') time, SUM(p_price*p_count) sales
-		FROM porder_list	
-				
- 		<choose>
+        
+        SELECT  t.time, p.sales
+        FROM(SELECT TO_CHAR(o_date,'HH24') time, SUM(p_price*p_count) sales
+		FROM porder_list
+		
+         <choose>
         	<when test="startDate!=null">
         		WHERE o_date BETWEEN #{startDate} AND #{endDate}        	
         	</when>
@@ -81,7 +83,16 @@
  		       WHERE o_date BETWEEN TO_CHAR(ADD_MONTHS(sysdate,-1),'YYYY-MM-DD') AND TO_CHAR(sysdate,'YYYY-MM-DD')
         	</otherwise>
         </choose>
-				GROUP BY TO_CHAR(o_date,'HH24')
+        
+        
+        GROUP BY TO_CHAR(o_date,'HH24')) p
+        RIGHT OUTER JOIN(SELECT TO_CHAR(LEVEL,'FM09') AS TIME
+        FROM dual
+        <![CDATA[
+        CONNECT BY LEVEL <=24) t
+        ON t.time=p.time
+        ORDER BY t.time
+      	]]>
 	</select>
 
 
