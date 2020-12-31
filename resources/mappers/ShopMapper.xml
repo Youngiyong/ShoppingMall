@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="shop">
+
+	<select id="getProductList" parameterType="shop" resultType="shop">
+		
+		SELECT p.p_id p_id, p.p_name p_name, p.p_price p_price, p.p_cate p_cate, p.p_date p_date, ps.p_size p_size, ps.p_color p_color, ps.p_count p_count, pi.i_fname i_fname
+		FROM product p, product_stock ps, product_image pi
+		WHERE p.p_id=ps.p_id and p.p_id=pi.p_id
+		<if test="p_cate != null">
+		and p.p_cate = #{p_cate}
+		</if>
+		<if test="p_size != null">
+		and ps.p_size = #{p_size}
+		</if>
+		<if test="p_color != null">
+		and ps.p_color = #{p_color}
+		</if>
+		
+		<if test='p_price != null and p_price ==0'>
+		and p.p_price BETWEEN 0 AND 50000
+		</if>
+		<if test='p_price != null and p_price ==50000'>
+		and p.p_price BETWEEN 50000 AND 100000
+		</if>
+		<if test='p_price != null and p_price ==100000'>
+		and p.p_price BETWEEN 100000 AND 150000
+		</if>
+		<if test='p_price != null and p_price ==150000'>
+		and p.p_price BETWEEN 150000 AND 200000
+		</if>
+		<if test='p_price != null and p_price ==200000'>
+		and p.p_price BETWEEN 200000 AND 250000
+		</if>
+		<if test='p_price != null and p_price ==200000'>
+		and p.p_price >= 250000
+		</if>
+		
+		order by p.p_id desc
+		
+	</select>
+	
+	<select id="getProduct" parameterType="shop" resultType="shop">
+		SELECT p.p_id p_id, p.p_name p_name, p.p_price p_price, p.p_cate p_cate, p.p_date p_date, ps.p_size p_size, ps.p_color p_color, ps.p_count p_count, pi.i_fname i_fname
+		FROM product p, product_stock ps, product_image pi
+		WHERE p.p_id=ps.p_id and p.p_id=pi.p_id and p.p_id = #{p_id}
+	
+	</select>
+	
+	<insert id="insertCart" parameterType="shop">
+		INSERT INTO cart
+		(m_code, p_id, p_count, p_price, p_color, p_size, p_root)
+		VALUES
+		((SELECT m_code FROM member where m_id = #{m_id}),
+		#{p_id},
+		
+		<choose>
+			<when test="p_count != null">
+			#{p_count},
+			</when>
+			<otherwise>
+			1,
+			</otherwise>
+		</choose>		
+		  
+		(select p_price from product where p_id = #{p_id}),
+		(select p_color from product_stock where p_id = #{p_id}),
+		(select p_size from product_stock where p_id = #{p_id}),
+		'null')
+	
+	</insert>
+	
+
+</mapper>

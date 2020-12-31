@@ -49,7 +49,6 @@ public class CartController {
     }
 
     @RequestMapping("/shop/updateCartList.do")
-    @ResponseBody
     public String updateCartList(@RequestBody OrderListVO[] vo, Model m){
         for(int i=0; i<vo.length; i++) {
             System.out.println("updateCartList 컨트롤러 호출");
@@ -62,7 +61,7 @@ public class CartController {
         System.out.println(price);
         m.addAttribute("total_price", price);
 
-        return "/shop/checkout.do";
+        return "/shop/checkout";
     }
 
 
