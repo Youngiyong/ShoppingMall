@@ -22,4 +22,7 @@ public interface OrderDAO {
     public int insertAddr(PaymentVO vo);
 
     public int deleteCartInfo(ProductVO vo);
+
+    public int UpdateCartInfo(OrderListVO vo);
+
 }

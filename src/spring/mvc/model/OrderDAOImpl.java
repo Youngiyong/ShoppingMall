@@ -65,6 +65,13 @@ public class OrderDAOImpl implements OrderDAO{
     }
 
     @Override
+    public int UpdateCartInfo(OrderListVO vo) {
+        System.out.println("===> Mybatis UpdateCartInfo() 호출");
+        return mybatis.delete("order.UpdateCartInfo", vo);
+    }
+
+
+    @Override
     public int deleteCartInfo(ProductVO vo) {
         System.out.println("===> Mybatis deleteCartInfo() 호출");
         return mybatis.delete("order.deleteCartInfo", vo);
