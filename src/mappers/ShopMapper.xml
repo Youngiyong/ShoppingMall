@@ -44,7 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getProduct" parameterType="shop" resultType="shop">
-		SELECT p.p_id p_id, p.p_name p_name, p.p_price p_price, p.p_cate p_cate, p.p_date p_date, ps.p_size p_size, ps.p_color p_color, ps.p_count p_count, pi.i_fname i_fname
+		SELECT p.p_id p_id, p.p_name p_name, p.p_price p_price, p.p_cate p_cate, p.p_date p_date, ps.p_size p_size, ps.p_color p_color, ps.p_count p_count, pi.i_fname i_fname, p.p_content p_content
 		FROM product p, product_stock ps, product_image pi
 		WHERE p.p_id=ps.p_id and p.p_id=pi.p_id and p.p_id = #{p_id}
 	

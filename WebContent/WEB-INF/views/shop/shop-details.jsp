@@ -301,19 +301,18 @@
 <!--                                         pharetras loremos.</p> -->
                                         <div class="product__details__tab__content__item">
                                             <h5>정보</h5>
-                                            <p>목을 여유 있게 감싸는 네크라인이 특징인 깔끔한 베이직 티셔츠 디자인으로 편리한 사이드 트임 및 심플하면서 포인트가 되는 소매 트임 디테일이 특징입니다. 고급스럽고 부드러운 질감이 잦은 세탁에도 변형 없는 프리미엄 소재를 사용한 제품으로 다양한 스타일의 코디에 오랜 기간 범용성 높게 활용하실 수 있습니다.</p>
-                                            <p>The clean basic T-shirt design features a neckline that wraps around the neck comfortably, and features convenient side openings and simple, pointed sleeve openings. It is a product that uses premium materials that are not deformed even in frequent washing with a luxurious and soft texture, and can be used with high versatility for a long time in coordination of various styles.</p>
+                                            <p>${product.p_content }</p>
                                         </div>
                                         <div class="product__details__tab__content__item">
-                                            <h5>재질</h5>
-                                            <p>폴리 에스테르는 천연 품질이 아니기 때문에 품질이 낮은 것으로 간주됩니다. 양모와 같은 천연 소재가 아닌 합성 소재로 제작되었습니다. 폴리 에스테르 수트는 쉽게 구겨지고 통기성이없는 것으로 알려져 있습니다. 폴리 에스테르 수트는 울과면 수트에 비해 빛을 발하는 경향이있어 수트가 저렴 해 보일 수 있습니다. 벨벳의 질감은 고급스럽고 통기성이 있습니다. 벨벳은 디너 파티 재킷에 좋은 선택이며 일년 내내 입을 수 있습니다.</p>
-                                            <p>Polyester is deemed lower quality due to its none natural quality’s. Made 
-                                                from synthetic materials, not natural like wool. Polyester suits become
-                                                creased easily and are known for not being breathable. Polyester suits
-                                                tend to have a shine to them compared to wool and cotton suits, this can
-                                                make the suit look cheap. The texture of velvet is luxurious and
-                                                breathable. Velvet is a great choice for dinner party jacket and can be
-                                           worn all year round.</p>
+<!--                                             <h5>재질</h5> -->
+<!--                                             <p>폴리 에스테르는 천연 품질이 아니기 때문에 품질이 낮은 것으로 간주됩니다. 양모와 같은 천연 소재가 아닌 합성 소재로 제작되었습니다. 폴리 에스테르 수트는 쉽게 구겨지고 통기성이없는 것으로 알려져 있습니다. 폴리 에스테르 수트는 울과면 수트에 비해 빛을 발하는 경향이있어 수트가 저렴 해 보일 수 있습니다. 벨벳의 질감은 고급스럽고 통기성이 있습니다. 벨벳은 디너 파티 재킷에 좋은 선택이며 일년 내내 입을 수 있습니다.</p> -->
+<!--                                             <p>Polyester is deemed lower quality due to its none natural quality’s. Made  -->
+<!--                                                 from synthetic materials, not natural like wool. Polyester suits become -->
+<!--                                                 creased easily and are known for not being breathable. Polyester suits -->
+<!--                                                 tend to have a shine to them compared to wool and cotton suits, this can -->
+<!--                                                 make the suit look cheap. The texture of velvet is luxurious and -->
+<!--                                                 breathable. Velvet is a great choice for dinner party jacket and can be -->
+<!--                                            worn all year round.</p> -->
                                         </div>
                                     </div>
                                 </div>
