@@ -17,6 +17,11 @@ public class OrderDAOImpl implements OrderDAO{
     @Autowired
     private SqlSessionTemplate mybatis;
     
+    //주소지 저장하기
+    public int insertAddr(PaymentVO vo) {
+    	return mybatis.insert("order.insertAddr", vo);
+    }
+    
     //카트 물품 담아오기
     public List<PorderListVO> cartList(MemberVO vo){
     	return mybatis.selectList("order.cartList",vo);

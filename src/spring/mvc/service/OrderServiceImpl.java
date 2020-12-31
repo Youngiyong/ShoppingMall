@@ -26,6 +26,12 @@ public class OrderServiceImpl implements OrderService {
     public List<PorderAddrVO> searchAddr(MemberVO vo){
     	return orderDAO.searchAddr(vo);
     }
+    
+    //주소지 저장
+    public int insertAddr(PaymentVO vo) {
+    	return orderDAO.insertAddr(vo);
+    }
+ 
  
 
     @Override

@@ -86,12 +86,36 @@ public class OrderController {
     @RequestMapping("shop/payment.do")
     public void payment(HttpSession session,Model m, PaymentVO vo) {
     	
+
+    	//배송지 저장
+    	if(vo.getPa_code().length()<1) {
+    		vo.setM_Code((String)session.getAttribute("m_Code"));
+    		orderService.insertAddr(vo);
+    	}
+    	
     	System.out.println(vo.getP_Price());
     	System.out.println(vo.getO_Tel());
     	m.addAttribute("Bname",session.getAttribute("m_Name"));
     	m.addAttribute("order", vo);
     	
     }
+    
+    
+  //결제 완료
+    @RequestMapping("shop/paymentDone.do")
+    public void paymentDone(HttpSession session,OrderInfoVO vo) {
+    	
+    	//porder_info 생성
+    	
+    	
+    	
+    	//카트 데이터 삭제
+    	MemberVO vo2 = new MemberVO();
+    	vo2.setM_Code((String)session.getAttribute("m_Code"));
+    	
+    	
+    }
+    
     
     
     

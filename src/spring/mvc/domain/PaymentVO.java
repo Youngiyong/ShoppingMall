@@ -1,15 +1,38 @@
 package spring.mvc.domain;
 
 public class PaymentVO {
-	
+	String pa_code;
 	String m_Name;
 	String m_Email;
+	String m_Code;
+	String o_Name;
 	String o_Tel;
 	String o_Addr;
 	String o_DetailAddr;
 	String o_Post;
 	String p_Price;
 	String o_Id;
+	
+	
+	
+	public String getM_Code() {
+		return m_Code;
+	}
+	public void setM_Code(String m_Code) {
+		this.m_Code = m_Code;
+	}
+	public String getO_Name() {
+		return o_Name;
+	}
+	public void setO_Name(String o_Name) {
+		this.o_Name = o_Name;
+	}
+	public String getPa_code() {
+		return pa_code;
+	}
+	public void setPa_code(String pa_code) {
+		this.pa_code = pa_code;
+	}
 	public String getM_Name() {
 		return m_Name;
 	}

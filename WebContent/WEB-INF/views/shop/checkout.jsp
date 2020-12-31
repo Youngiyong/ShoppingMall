@@ -155,9 +155,10 @@
                             <h6 class="checkout__title">주문/결제</h6>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="checkout__input">
+                                    <div class="checkout__input">                                    	
+                                    	<input type="hidden" name ="pa_code" value="${addrVO[0].pa_code}">
                                         <p>수령인<span>*</span></p>
-                                        <input type="text" name ="o_name" value="${addrVO[0].o_name}">
+                                        <input type="text" name ="o_Name" value="${addrVO[0].o_name}">
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +174,7 @@
 								<input type="text" id="sample4_roadAddress" name="o_Addr" placeholder="도로명주소" class="checkout__input__add" readonly="readonly" value="${addrVO[0].o_addr}">
 								<input type="text" id="sample4_jibunAddress" name="o_addr2" placeholder="지번주소" class="checkout__input__add" readonly="readonly">
 								<span id="guide" style="color:#999;display:none"></span><br/>
-								<input type="text" id="sample4_detailAddress" name="o_DetailAddr" placeholder="상세주소">
+								<input type="text" id="sample4_detailAddress" name="o_DetailAddr" placeholder="상세주소" value="${addrVO[0].o_DetailAddr}">
                             
                             
                             <div class="row">

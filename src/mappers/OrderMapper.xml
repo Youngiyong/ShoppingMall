@@ -20,6 +20,13 @@
    			FROM porder_addr
    			WHERE  M_CODE = #{m_Code}
 	</select>
+	
+	<!-- 등록된 주소가 없으면 저장한다 -->
+	<insert id="insertAddr" parameterType="payment">
+			insert into porder_addr(pa_code, m_code, o_name, o_tel, o_addr, o_post, o_detailaddr)
+   			VALUES (seq_porder_addr_pa_code.nextval, #{m_Code},#{o_Name},#{o_Tel},#{o_Addr},#{o_Post},#{o_DetailAddr})
+	
+	</insert>
 		
 		
 

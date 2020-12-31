@@ -17,6 +17,9 @@ public interface OrderDAO {
     public List<PorderAddrVO> searchAddr(MemberVO vo);
     
     public List<PorderListVO> cartList(MemberVO vo);
+    
+    //주소지 저장
+    public int insertAddr(PaymentVO vo);
 
     public int deleteCartInfo(ProductVO vo);
 }

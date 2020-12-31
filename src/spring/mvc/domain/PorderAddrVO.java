@@ -15,8 +15,8 @@ public class PorderAddrVO {
 	private String o_addr4;
 	private String o_addr5;
 	private String o_post;
-	
-	
+	private String o_DetailAddr;
+	 
 	public String getPa_code() {
 		return pa_code;
 	}
@@ -28,6 +28,12 @@ public class PorderAddrVO {
 	}
 	public void setM_code(String m_code) {
 		this.m_code = m_code;
+	}
+	public String getO_DetailAddr() {
+		return o_DetailAddr;
+	}
+	public void setO_DetailAddr(String o_DetailAddr) {
+		this.o_DetailAddr = o_DetailAddr;
 	}
 	public String getO_name() {
 		return o_name;
