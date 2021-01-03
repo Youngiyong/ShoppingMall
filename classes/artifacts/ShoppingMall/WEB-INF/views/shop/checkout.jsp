@@ -155,9 +155,10 @@
                             <h6 class="checkout__title">주문/결제</h6>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="checkout__input">
+                                    <div class="checkout__input">                                    	
+                                    	<input type="hidden" name ="pa_code" value="${addrVO[0].pa_code}">
                                         <p>수령인<span>*</span></p>
-                                        <input type="text" name ="o_name" value="${addrVO[0].o_name}">
+                                        <input type="text" name ="o_Name" value="${addrVO[0].o_name}">
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +174,7 @@
 								<input type="text" id="sample4_roadAddress" name="o_Addr" placeholder="도로명주소" class="checkout__input__add" readonly="readonly" value="${addrVO[0].o_addr}">
 								<input type="text" id="sample4_jibunAddress" name="o_addr2" placeholder="지번주소" class="checkout__input__add" readonly="readonly">
 								<span id="guide" style="color:#999;display:none"></span><br/>
-								<input type="text" id="sample4_detailAddress" name="o_DetailAddr" placeholder="상세주소">
+								<input type="text" id="sample4_detailAddress" name="o_DetailAddr" placeholder="상세주소" value="${addrVO[0].o_DetailAddr}">
                             
                             
                             <div class="row">
@@ -288,33 +289,11 @@
                                     </c:forEach>
                                 </ul>
                                 <ul class="checkout__total__all">
-                                    <li>소계/Subtotal <span>$750.99</span></li>
-                                    <li>총합/Total <span>40000</span></li>
-                                    <input type='hidden' name='p_Price' value='40000'>
+                                    <li>소계/Subtotal <span>100</span></li>
+                                    <li>총합/Total <span>100</span></li>
+                                    <input type='hidden' name='p_Price' value='100'>
                                 </ul>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
+                              
                                 <button id='checkOut' type="submit" class="site-btn">주문하기/PLACE ORDER</button>
                             </div>
                         </div>

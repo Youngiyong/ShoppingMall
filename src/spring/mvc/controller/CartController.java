@@ -31,7 +31,7 @@ public class CartController {
     @RequestMapping("/shop/CheckOutPage.do")
     public String CheckOutPage(Model m){
         System.out.println("CheckOutPage 컨트롤러 호출");
-  
+
         return "/shop/checkout";
     }
 
@@ -95,38 +95,41 @@ public class CartController {
 
         List<ProductImageVO> pList = new ArrayList<>();
         List<ProductVO> test = new ArrayList<>();
-        for(int i=0; i<list.size(); i++){
-            ProductImageVO vo = new ProductImageVO();
-            ProductVO pvo = new ProductVO();
-            vo.setP_Id((String)list.get(i).get("P_ID"));
-            pList.add(vo);
-            pvo.setP_Id((String)list.get(i).get("P_ID"));
-            test.add(pvo);
+        if(list.size() > 0 ) {
+            for (int i = 0; i < list.size(); i++) {
+                ProductImageVO vo = new ProductImageVO();
+                ProductVO pvo = new ProductVO();
+                vo.setP_Id((String) list.get(i).get("P_ID"));
+                pList.add(vo);
+                pvo.setP_Id((String) list.get(i).get("P_ID"));
+                test.add(pvo);
+            }
+
+            ProductVO vo = new ProductVO();
+            vo.setP_Id((String) list.get(0).get("P_ID"));
+
+            List<ProductImageVO> iList = productService.getProductImg(pList);
+            List<String> imgList = new ArrayList<>();
+
+            List<ProductVO> productList = new ArrayList<>();
+            productList = productService.getCartProductList(test);
+
+            for (int i = 0; i < iList.size(); i++) {
+                String str = new String();
+                str = "/ShoppingMall/resources/upload/" + iList.get(i).getI_Fname();
+                imgList.add(str);
+                System.out.println(imgList.get(i));
+                System.out.println(productList.get(i).getP_Name());
+            }
+
+
+            m.addAttribute("list1", list);
+            m.addAttribute("list2", iList);
+            m.addAttribute("list3", imgList);
+            m.addAttribute("list4", productList);
+        }else {
+            return "/shop/shopping-cart";
         }
-
-        ProductVO vo = new ProductVO();
-        vo.setP_Id((String)list.get(0).get("P_ID"));
-
-        List<ProductImageVO> iList = productService.getProductImg(pList);
-        List<String> imgList = new ArrayList<>();
-
-        List<ProductVO> productList = new ArrayList<>();
-        productList = productService.getCartProductList(test);
-
-        for(int i=0; i<iList.size(); i++){
-            String str = new String();
-            str = "/ShoppingMall/resources/upload/" + iList.get(i).getI_Fname();
-            imgList.add(str);
-            System.out.println(imgList.get(i));
-            System.out.println(productList.get(i).getP_Name());
-        }
-
-
-
-        m.addAttribute("list1", list);
-        m.addAttribute("list2", iList);
-        m.addAttribute("list3", imgList);
-        m.addAttribute("list4", productList );
         return "/shop/shopping-cart";
     }
 }

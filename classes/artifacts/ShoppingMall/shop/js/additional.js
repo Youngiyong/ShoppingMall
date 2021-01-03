@@ -29,15 +29,23 @@ $(function(){
 	/******************
 		카테고리 클릭시 글씨색 변경
 	*******************/
-    $(".shop__sidebar__categories ul li a").click(function(){
+    $(".shop__sidebar__categories ul li label").click(function(){
     	if( $(this).css("color") === "rgb(17, 17, 17)"){
     		$(this).css("color", "#b7b7b7");
     	}else{
-    		$(".shop__sidebar__categories ul li a").css("color", "#b7b7b7");
+    		$(".shop__sidebar__categories ul li label").css("color", "#b7b7b7");
     		$(this).css("color", "#111111");
     	}
     });
     $(".shop__sidebar__price ul li a").click(function(){
+    	if( $(this).css("color") === "rgb(17, 17, 17)"){
+    		$(this).css("color", "#b7b7b7");
+    	}else{
+    		$(".shop__sidebar__price ul li a").css("color", "#b7b7b7");
+    		$(this).css("color", "#111111");
+    	}
+    });
+    $(".shop__sidebar__price ul li label").click(function(){
     	if( $(this).css("color") === "rgb(17, 17, 17)"){
     		$(this).css("color", "#b7b7b7");
     	}else{
@@ -51,6 +59,50 @@ $(function(){
     	}else{
 	    	$(this).css("color", "#111111");
 	    }
+    });
+    
+    
+    
+    
+    
+    /******************
+		장바구니 클릭 이벤트
+	*******************/
+
+
+	
+ 
+ 	/******************
+		checkbox 다중 선택 불가
+	*******************/   
+    $('.shop__sidebar__size input').click(function(){          
+ 
+            if ($(this).prop('checked')) {
+                $('.shop__sidebar__size label input').prop('checked', false);
+                $(this).prop('checked', true);
+            }
+    });
+    $('.shop__sidebar__color input').click(function(){          
+ 
+            if ($(this).prop('checked')) {
+                $('.shop__sidebar__color input').prop('checked', false);
+                $(this).prop('checked', true);
+            }
+    });
+    $('.shop__sidebar__categories input').click(function(){          
+ 
+            if ($(this).prop('checked')) {
+                $('.shop__sidebar__categories input').prop('checked', false);
+                $(this).prop('checked', true);
+            }
+    });
+    $('.shop__sidebar__price input').click(function(){          
+ 
+            if ($(this).prop('checked')) {
+                $('.shop__sidebar__price label').css("color", "#b7b7b7");
+                $('.shop__sidebar__price label input').prop('checked', false);
+                $(this).prop('checked', true);
+            }
     });
     
     

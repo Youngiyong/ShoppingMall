@@ -8,8 +8,18 @@
 ********************************/
 
 .shop__sidebar__brand ul li input:hover,
-.shop__sidebar__brand ul li a:hover{
+.shop__sidebar__brand ul li a:hover,
+.shop__sidebar__price ul li label,
+.shop__sidebar__categories ul li label{
 	cursor: pointer;
+}
+
+.shop__sidebar__color label {
+	border: 1px solid black;
+}
+
+.none_search {
+	margin: 0 auto; 
 }
 
 

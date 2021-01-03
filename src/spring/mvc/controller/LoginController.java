@@ -1,6 +1,7 @@
 package spring.mvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import spring.mvc.domain.AdminVO;
 import spring.mvc.domain.MemberVO;
 import spring.mvc.service.MemberService;
 
+import javax.inject.Inject;
 import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -26,6 +28,9 @@ public class LoginController {
     @Autowired
     private MemberService memberService;
 
+    @Inject
+    BCryptPasswordEncoder pwdEncoder;
+
     @RequestMapping("/member/{url}.do")
     public String test(@PathVariable String url) {
         System.out.println(url);
@@ -35,38 +40,39 @@ public class LoginController {
     @RequestMapping("/member/userInsertKaKao.do")
     @ResponseBody
     public String userInsertKaKao(@RequestBody MemberVO vo, HttpSession session){
-        System.out.println(vo.getM_Id());
-        System.out.println(vo.getM_Email());
-        System.out.println("40" + vo.getM_Name());
         MemberVO memberVO = memberService.idCheck_Login(vo);
-        System.out.println("42"+memberVO.getM_Name());
+        System.out.println(memberVO);
         if(memberVO==null){
-            System.out.println("43" + vo.getM_Name());
             memberService.userInsertKaKao(vo);
             session.setAttribute("m_Id", vo.getM_Id());
             session.setAttribute("m_Name", vo.getM_Name());
             session.setAttribute("m_Code", memberVO.getM_Code());
-            System.out.println("1" + vo.getM_Name());
-            return "아이디등록";
         } else{
             session.setAttribute("m_Id", memberVO.getM_Id());
             session.setAttribute("m_Name", memberVO.getM_Name());
             session.setAttribute("m_Code", memberVO.getM_Code());
-            System.out.println("2" + memberVO.getM_Name());
-            return "아이디확인";
         }
 
-
+        return "";
     }
     //회원가입 요청
     @RequestMapping("/member/adminInsert.do")
     public String userInsert(MemberVO vo){
-        String addr = vo.getM_Addr() + " "+ vo.getM_Addr2() +vo.getM_Addr3();
-        System.out.println(addr);
-        MemberVO memberVO = vo;
-        memberVO.setM_Addr(addr);
-        System.out.println(addr);
-        memberService.userInsert(memberVO);
+        vo.setM_Addr(vo.getM_Addr() + " "+ vo.getM_Addr2() +vo.getM_Addr3());
+        System.out.println(vo.getM_Addr());
+        Object result = (Object) memberService.idCheck_Login(vo);
+        if(result==null){
+            String inputPass = vo.getM_Pass();
+            String pwd = pwdEncoder.encode(inputPass);
+            vo.setM_Pass(pwd);
+            System.out.println(pwd);
+            System.out.println(vo.getM_Pass());
+            memberService.userInsert(vo);
+        }
+        else{
+            return "/member/register";
+        }
+
         return "/member/register_ok";
     }
 
@@ -84,13 +90,8 @@ public class LoginController {
     }
     @RequestMapping("/member/logout.do")
     public String logout(HttpSession session){
-        System.out.println();
-        System.out.println(session.getAttribute("m_Id"));
-        System.out.println(session.getAttribute("m_Code"));
-
         if(session.getAttribute("m_Id")==null){
             return "redirect:/index.jsp";
-
         }
         else{
             session.removeAttribute("m_Name");
@@ -98,13 +99,10 @@ public class LoginController {
             session.removeAttribute("m_Id");
         }
 
-
-
         return "redirect:/index.jsp";
     }
 
     @RequestMapping("/member/loginCheck.do")
-    @ResponseBody
     public Object loginCheck(@RequestBody Map<String, Object> map, HttpSession session) {
 
         MemberVO vo = new MemberVO();
@@ -146,7 +144,7 @@ public class LoginController {
         if (memberService.idSearch(vo) != null) {
             result = memberService.idSearch(vo);
         } else
-            return "redirect:/member/idsearch_no";
+            return "/member/idsearch_no";
 
         Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -200,10 +198,6 @@ public class LoginController {
         System.out.println(vo.getM_Pass());
         result = memberService.idSearch(vo);
         if (result != null) {
-            flag = true;
-        } else return "/member/reset-password_no";
-
-        if (flag==true) {
             memberService.updatePass(result);
             result = memberService.idSearch(vo);
         } else return "/member/reset-password_no";

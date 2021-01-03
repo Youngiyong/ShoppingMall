@@ -30,21 +30,21 @@ $(function () {
 
     $('#total_price').text(total_price);
 
-    $('tbody').on("click",".fa-close",function(e){
+    $('tbody').on("click",".fa-close",function(e) {
         if (confirm("삭제 하시겠습니까?") == true) {
             var obj = new Object();
             obj.p_Id = $(this).parent().parent().find('input.p_Id').val();
             alert(obj.p_Id);
 
             $.ajax({
-                type : 'post',
-                url : '/ShoppingMall/shop/cartDelete.do',
-                contentType:'application/json; charset=UTF-8',
+                type: 'post',
+                url: '/ShoppingMall/shop/cartDelete.do',
+                contentType: 'application/json; charset=UTF-8',
                 data: JSON.stringify(obj),
+                context: this,
                 success: function (result) {
                     alert("삭제가 완료되었습니다.");
-                    $(this).find('tr.trList').remove();
-
+                    $(this).parent().parent().find('td').remove();
                 },
                 err: function (err) {
                     alert("에러@!")
@@ -53,42 +53,64 @@ $(function () {
         } else {
             return;
         }
+    })
 
 
+        $('.primary-btn').click(function () {
+            if (confirm("결제 페이지로 이동하시겠습니까?") == true) {
+                var arrtest = new Array();
+
+                $('.pro-qty-2').each(function () {
+                    var obj = new Object();
+                    if ((Number)($(this).children().next('input.p_Count').val()) == 1) {
+                        obj.p_Count = (Number)($(this).children().next('input.p_Count').val());
+                    } else
+                        obj.p_Count = (Number)($(this).children().next('input.p_Count').val() - 1);
+                    obj.p_Id = $(this).parent().parent().parent().children().find('input.p_Id').val();
+                    obj.p_Price = (Number)($('#total_price').text());
+                    arrtest.push(obj);
+                })
+
+                $.ajax({
+                    type: 'post',
+                    url: '/ShoppingMall/shop/updateCartList.do',
+                    contentType: 'application/json; charset=UTF-8',
+                    data: JSON.stringify(arrtest),
+                    success: function (result) {
+                        alert("완료되었습니다.");
+                    },
+                    err: function (err) {
+                        alert("에러@!")
+                    }
+                })
+                location.href = "/ShoppingMall/shop/CheckOutPage.do"
+            }
+            else   alert("악 실패!");
 
         })
 
-    $('.primary-btn').click(function () {
-        if (confirm("결제 페이지로 이동하시겠습니까?") == true) {
-            $('#frm').attr("action", "/ShoppingMall/shop/updateCartList.do").submit();
-        }
-        else
-            return;
-    })
 
+        $('tbody').on("click", ".fa-angle-left", function (e) {
 
-    $('tbody').on("click",".fa-angle-left",function(e){
+            alert('시fire 좀되라@!!@');
+            console.log($(this).parent().parent().find(".p_Count").val());
+            $(this).parent().find(".p_Count").val(Number($(this).parent().find(".p_Count").val()) - 1);
+            $('#total_price').text((Number)($('#total_price').text()) - (Number)($(this).parent().parent().parent().parent().find('.p_Price').val()));
+            console.log($(this).parent().find(".p_Count"));
+            alert($(this).parent().parent().find(".p_Price").val());
+            // $('#total_price').text() - ));
+        })
 
-        alert('시fire 좀되라@!!@');
-        console.log($(this).parent().parent().find(".p_Count").val());
-        $(this).parent().find(".p_Count").val(Number($(this).parent().find(".p_Count").val())-1);
-        $('#total_price').text((Number)($('#total_price').text()) - (Number)($(this).parent().parent().parent().parent().find('.p_Price').val()));
-        console.log( $(this).parent().find(".p_Count"));
-        alert($(this).parent().parent().find(".p_Price").val());
-        // $('#total_price').text() - ));
-    })
+        $('tbody').on("click", ".fa-angle-right", function (e) {
 
-    $('tbody').on("click",".fa-angle-right",function(e) {
+            alert('시fire 좀되라@!!@');
+            console.log($(this).parent().parent().find(".p_Count").val());
+            $(this).parent().find(".p_Count").val(Number($(this).parent().find(".p_Count").val()) + 1);
+            $('#total_price').text((Number)($('#total_price').text()) + (Number)($(this).parent().parent().parent().parent().find('.p_Price').val()));
+            alert($(this).parent().parent().parent().parent().find('.p_Price').val());
+            console.log($(this).parent().parent().parent().parent().find('.p_Price').val());
 
-        alert('시fire 좀되라@!!@');
-        console.log($(this).parent().parent().find(".p_Count").val());
-        $(this).parent().find(".p_Count").val(Number($(this).parent().find(".p_Count").val()) + 1);
-       $('#total_price').text((Number)($('#total_price').text()) + (Number)($(this).parent().parent().parent().parent().find('.p_Price').val()));
-        alert($(this).parent().parent().parent().parent().find('.p_Price').val());
-        console.log($(this).parent().parent().parent().parent().find('.p_Price').val());
-
-    })
-
+        })
 
 
 

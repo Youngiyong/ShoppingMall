@@ -23,7 +23,13 @@
         <if test="m_Pass != null">
             and m_pass = #{m_Pass}
         </if>
-        ORDER BY M_CODE
+    </select>
+
+    <select id="idCheck2"  parameterType="member" resultType= "int">
+        SELECT * FROM member WHERE m_id = #{m_Id}
+        <if test="m_Pass != null">
+            and m_pass = #{m_Pass}
+        </if>
     </select>
 
     <select id="getMemberList" resultType="member">
@@ -45,8 +51,6 @@
         <if test="m_Id != null">
             and m_id = #{m_Id}
         </if>
-        ORDER BY M_CODE
-
     </select>
 
     <update id="updatePass" parameterType="member">

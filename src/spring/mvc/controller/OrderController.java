@@ -58,8 +58,6 @@ public class OrderController {
 
         orderService.updateOrderListStatus(voList);
 
-
-
         return "성공";
     }
 

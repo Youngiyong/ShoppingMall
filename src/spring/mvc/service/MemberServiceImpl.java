@@ -20,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
 	  * 아이디 중복 체크하는 sql + 로그인 기능 sql
 	  */
 	  public MemberVO idCheck_Login( MemberVO vo) { return memberDAO.idCheck(vo); }
-	  
+
 	  /**
 	   * 회원가입 sql
 	   */
@@ -31,6 +31,11 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int userInsertKaKao(MemberVO vo) { return memberDAO.userInsertKaKao(vo); }
+
+	@Override
+	public Integer idCheck2(MemberVO vo) {
+		return memberDAO.idCheck2(vo);
+	}
 
 	@Override
 	public MemberVO idSearch(MemberVO vo) { return memberDAO.idSearch(vo); }

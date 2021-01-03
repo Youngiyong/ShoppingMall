@@ -105,7 +105,6 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="/ShoppingMall/shop/about.do">About Us</a></li>
-                                    <li><a href="/ShoppingMall/shop/shop-details.do">세부사항</a></li>
                                     <li><a href="/ShoppingMall/shop/shopping-cart.do">장바구니</a></li>
                                     <li><a href="/ShoppingMall/shop/checkout.do">결제하기</a></li>
                                     <li><a href="/ShoppingMall/board/getBoardList.do">게시판</a></li>
@@ -120,7 +119,7 @@
                         <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
                         <a href="/ShoppingMall/shop/shopping-cart.do"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">0원 </div>
+                        <div class="price">100원</div>
                     </div>
                 </div>
             </div>
@@ -228,7 +227,7 @@
                     <ul class="filter__controls">
                         <li class="active" data-filter="*">인기제품</li>
                         <li data-filter=".new-arrivals">신상품</li>
-                        <li data-filter=".hot-sales">핫 세일</li>
+                        <li data-filter=".hot-sales">추천 상품</li>
                     </ul>
                 </div>
             </div>
@@ -238,14 +237,12 @@
                         <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/product/product-1.jpg">
                             <span class="label">New</span>
                             <ul class="product__hover">
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
+                                <li><a href="/ShoppingMall/shop/shop-details.do?p_id=251&p_root=인기제품"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>Piqué 스니커즈</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="/ShoppingMall/shop/cart.do?p_id=251&m_id=${sessionScope.m_Id}&p_root=인기제품" class="add-cart">+ 장바구니에 담기</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -272,14 +269,12 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/product/product-2.jpg">
                             <ul class="product__hover">
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
+                                <li><a href="/ShoppingMall/shop/shop-details.do?p_id=252&p_root=인기제품"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>Piqué 바이커 자켓</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="/ShoppingMall/shop/cart.do?p_id=252&m_id=${sessionScope.m_Id}&p_root=인기제품" class="add-cart">+ 장바구니에 담기</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -307,14 +302,12 @@
                         <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/product/product-3.jpg">
                             <span class="label">Sale</span>
                             <ul class="product__hover">
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
+                                <li><a href="/ShoppingMall/shop/shop-details.do?p_id=253&p_root=인기제품"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>무난한 스니커즈</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="/ShoppingMall/shop/cart.do?p_id=253&m_id=${sessionScope.m_Id}&p_root=인기제품" class="add-cart">+ 장바구니에 담기</a>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -341,14 +334,12 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/product/product-4.jpg">
                             <ul class="product__hover">
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
+                                <li><a href="/ShoppingMall/shop/shop-details.do?p_id=254&p_root=인기제품"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>Brown 후디 셔츠</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="/ShoppingMall/shop/cart.do?p_id=254&m_id=${sessionScope.m_Id}&p_root=인기제품" class="add-cart">+ 장바구니에 담기</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -375,14 +366,12 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/product/product-5.jpg">
                             <ul class="product__hover">
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
+                                <li><a href="/ShoppingMall/shop/shop-details.do?p_id=255&p_root=인기제품"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>검정 티셔츠</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="/ShoppingMall/shop/cart.do?p_id=255&m_id=${sessionScope.m_Id}&p_root=인기제품" class="add-cart">+ 장바구니에 담기</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -410,14 +399,12 @@
                         <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/product/product-6.jpg">
                             <span class="label">Sale</span>
                             <ul class="product__hover">
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
+                                <li><a href="/ShoppingMall/shop/shop-details.do?p_id=256&p_root=인기제품"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>베이직 플로잉 스카프</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="/ShoppingMall/shop/cart.do?p_id=256&m_id=${sessionScope.m_Id}&p_root=인기제품" class="add-cart">+ 장바구니에 담기</a>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -444,14 +431,12 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/product/product-7.jpg">
                             <ul class="product__hover">
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
+                                <li><a href="/ShoppingMall/shop/shop-details.do?p_id=257&p_root=인기제품"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>컨트레스트 포켓 백팩</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="/ShoppingMall/shop/cart.do?p_id=257&m_id=${sessionScope.m_Id}&p_root=인기제품" class="add-cart">+ 장바구니에 담기</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -478,14 +463,12 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/product/product-8.jpg">
                             <ul class="product__hover">
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
+                                <li><a href="/ShoppingMall/shop/shop-details.do?p_id=258&p_root=인기제품"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>Polo 남성 반팔</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="/ShoppingMall/shop/cart.do?p_id=258&m_id=${sessionScope.m_Id}&p_root=인기제품" class="add-cart">+ 장바구니에 담기</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -603,6 +586,17 @@
     <script src="/ShoppingMall/shop/js/mixitup.min.js"></script>
     <script src="/ShoppingMall/shop/js/owl.carousel.min.js"></script>
     <script src="/ShoppingMall/shop/js/main.js"></script>
+    <script type="text/javascript">
+    $('.add-cart').click(function(ignore){
+    	if(${not empty sessionScope.m_Id}){
+			alert('장바구니에 담았습니다.')
+		}else{
+			alert('로그인이 필요합니다.')
+           	ignore.preventDefault();
+			location.href='/ShoppingMall/member/login.do';
+		}
+	});
+    </script>
 </body>
 
 </html>

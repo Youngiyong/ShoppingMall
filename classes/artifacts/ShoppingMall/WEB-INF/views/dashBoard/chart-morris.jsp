@@ -112,33 +112,23 @@
 	
 	//시간대별 매출
 	var hours=[];	
+	var hourlySales=[];
+	var getHourlyData=[];
+	<c:forEach items="${hourlySales}" var='item1'>
 	
+	hours.push("${item1.time}");
+	hourlySales.push("${item1.sales}");
 	
-	hours[0] = ${hh0};
-	hours[1] = ${hh1};
-	hours[2] = ${hh2};
-	hours[3] = ${hh3};
-	hours[4] = ${hh4};
-	hours[5] = ${hh5};
-	hours[6] = ${hh6};
-	hours[7] = ${hh7};
-	hours[8] = ${hh8};
-	hours[9] = ${hh9};
-	hours[10] = ${hh10};
-	hours[11] = ${hh11};
-	hours[12] = ${hh12};
-	hours[13] = ${hh13};
-	hours[14] = ${hh14};
-	hours[15] = ${hh15};
-	hours[16] = ${hh16};
-	hours[17] = ${hh17};
-	hours[18] = ${hh18};
-	hours[19] = ${hh19};
-	hours[20] = ${hh20};
-	hours[21] = ${hh21};
-	hours[22] = ${hh22};
-	hours[23] = ${hh23};
-	 
+	</c:forEach>
+	
+	for(var i=0; i<hours.length; i++){
+	var json = new Object();
+	json.hour =hours[i];
+	json.SiteA =hourlySales[i];
+	getHourlyData.push(json);
+		
+	}
+
 	
 	
 		
@@ -492,14 +482,12 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Site visit Chart</h4>
+                                <h4 class="card-title">시간대별 매출</h4>
                                 <ul class="list-inline text-right">
                                     <li class="list-inline-item">
-                                        <h5><i class="fa fa-circle mr-1 text-info"></i>Site A View</h5>
+                                        <h5><i class="fa fa-circle mr-1 text-info"></i>매출</h5>
                                     </li>
-                                    <li class="list-inline-item">
-                                        <h5><i class="fa fa-circle mr-1 text-cyan"></i>Site B View</h5>
-                                    </li>
+                          
                                 </ul>
                                 <div id="morris-area-chart2"></div>
                             </div>

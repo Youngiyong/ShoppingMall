@@ -49,19 +49,9 @@ public class OrderDAOImpl implements OrderDAO{
     }
 
     @Override
-    public List<Map<String, Object>> getCartList(MemberVO vo) {
+    public List<Map<String, Object>>  getCartList(MemberVO vo) {
         System.out.println("===> Mybatis getCartList() 호출");
-
-        try{
-            return mybatis.selectList("order.getCartList", vo);
-        }catch (Exception e){
-            Map<String, Object> map = new HashMap<>();
-            map.put("test","1234");
-            List<Map<String,Object>> list = null;
-            list.add(map);
-            return list;
-        }
-
+        return mybatis.selectList("order.getCartList", vo);
     }
 
     @Override

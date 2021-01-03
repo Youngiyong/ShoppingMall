@@ -12,7 +12,13 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
-	
+
+	@Override
+	public Integer idCheck2(MemberVO vo) {
+		System.out.println("===> MemberMapper idCheck2 호출");
+		return mybatis.selectOne("user.idCheck2", vo);
+	}
+
 	@Override
 	public MemberVO idCheck(MemberVO vo) {
 		System.out.println("===> MemberMapper idCheck 호출");

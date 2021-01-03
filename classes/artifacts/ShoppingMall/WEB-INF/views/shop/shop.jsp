@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/additional.css" type="text/css">
     <style type="text/css">
+
     </style>
 </head>
 
@@ -81,7 +82,7 @@
                              	 
                              	 <c:otherwise>  
                                 <a href="#">${sessionScope.m_Name} 님</a>
-                                <a href="/ShoppingMall/index.jsp">log out</a>
+                                <a href="/ShoppingMall/member/logout.do">log out</a>
                               	</c:otherwise>
                               </c:choose>
                                 <a href="/ShoppingMall/shop/faq.do">FAQs</a>
@@ -121,7 +122,7 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="/ShoppingMall/shop/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="/ShoppingMall/shop/img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="/ShoppingMall/shop/shopping-cart.do"><img src="/ShoppingMall/shop/img/icon/cart.png" alt=""> <span>0</span></a>
                         <div class="price">0원</div>
                     </div>
                 </div>
@@ -161,6 +162,11 @@
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div>
+                        
+                        <!-- 카테고리 폼 start -->
+                        <form action="/ShoppingMall/shop/shop.do" >
+<!--                         <input type="button" id="ajax" value="상세검색"> -->
+                        <input type="submit" value="상세검색">
                         <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
@@ -171,14 +177,16 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
-                                                    <li><a href="#">전체 (140)</a></li>
-                                                    <li><a href="#">상의 (20)</a></li>
-                                                    <li><a href="#">하의 (20)</a></li>
-                                                    <li><a href="#">가방 (20)</a></li>
-                                                    <li><a href="#">시계 (20)</a></li>
-                                                    <li><a href="#">신발 (20)</a></li>
-                                                    <li><a href="#">악세서리 (20)</a></li>
-                                                    <li><a href="#">캐주얼의류 (20)</a></li>
+                                                    <li><label for="셔츠"><input type="checkbox" id="셔츠" name="p_cate" value="셔츠">셔츠 </label></li>
+                                                    <li><label for="반팔"><input type="checkbox" id="반팔" name="p_cate" value="반팔">반팔 </label></li>
+                                                    <li><label for="아우터"><input type="checkbox" id="아우터" name="p_cate" value="아우터">아우터 </label></li>
+                                                    <li><label for="바지"><input type="checkbox" id="바지" name="p_cate" value="바지">바지 </label></li>
+                                                    <li><label for="빤스"><input type="checkbox" id="빤스" name="p_cate" value="">빤스 </label></li>
+                                                    <li><label for="가방"><input type="checkbox" id="가방" name="p_cate" value="가방">가방 </label></li>
+                                                    <li><label for="시계"><input type="checkbox" id="시계" name="p_cate" value="시계">시계 </label></li>
+                                                    <li><label for="신발"><input type="checkbox" id="신발" name="p_cate" value="신발">신발 </label></li>
+                                                    <li><label for="악세서리"><input type="checkbox" id="악세서리" name="p_cate" value="악세서리">악세서리 </label></li>
+                                                    <li><label for="캐주얼의류"><input type="checkbox" id="캐주얼의류" name="p_cate" value="캐주얼의류">캐주얼의류 </label></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -211,12 +219,12 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="#">0 - 5만원</a></li>
-                                                    <li><a href="#">5만원 - 10만원</a></li>
-                                                    <li><a href="#">10만원 - 15만원</a></li>
-                                                    <li><a href="#">15만원 - 20만원</a></li>
-                                                    <li><a href="#">20만원 - 25만원</a></li>
-                                                    <li><a href="#">25만원 이상</a></li>
+                                                    <li><label for="0to5"><input type="checkbox" id="0to5" name="p_price" value="0">0 - 5만원</label></li>
+                                                    <li><label for="5to10"><input type="checkbox" id="5to10" name="p_price" value="50000">5만원 - 10만원</label></li>
+                                                    <li><label for="10to15"><input type="checkbox" id="10to15" name="p_price" value="100000">10만원 - 15만원</label></li>
+                                                    <li><label for="15to20"><input type="checkbox" id="15to20" name="p_price" value="150000">15만원 - 20만원</label></li>
+                                                    <li><label for="20to25"><input type="checkbox" id="20to25" name="p_price" value="200000">20만원 - 25만원</label></li>
+                                                    <li><label for="25"><input type="checkbox" id="25" name="p_price" value="250000">25만원 이상</label></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -229,64 +237,69 @@
                                     <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__size">
-                                                <label for="xs">xs
-                                                    <input type="radio" id="xs">
-                                                </label>
+<!--                                                 <label for="xs">xs -->
+<!--                                                     <input type="radio" id="xs"> -->
+<!--                                                 </label> -->
                                                 <label for="sm">s
-                                                    <input type="radio" id="sm">
+                                                    <input type="checkbox" id="sm" name="p_size" value="S">
                                                 </label>
                                                 <label for="md">m
-                                                    <input type="radio" id="md">
+                                                    <input type="checkbox" id="md"  name="p_size" value="M">
+                                                </label>
+                                                <label for="l">l
+                                                    <input type="checkbox" id="l"  name="p_size" value="L">
                                                 </label>
                                                 <label for="xl">xl
-                                                    <input type="radio" id="xl">
+                                                    <input type="checkbox" id="xl"  name="p_size" value="XL">
                                                 </label>
-                                                <label for="2xl">2xl
-                                                    <input type="radio" id="2xl">
-                                                </label>
-                                                <label for="3xl">3xl
-                                                    <input type="radio" id="3xl">
-                                                </label>
-                                                <label for="4xl">4xl
-                                                    <input type="radio" id="4xl">
-                                                </label>
+<!--                                                 <label for="2xl">2xl -->
+<!--                                                     <input type="radio" id="2xl"> -->
+<!--                                                 </label> -->
+<!--                                                 <label for="3xl">3xl -->
+<!--                                                     <input type="radio" id="3xl"> -->
+<!--                                                 </label> -->
+<!--                                                 <label for="4xl">4xl -->
+<!--                                                     <input type="radio" id="4xl"> -->
+<!--                                                 </label> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseFive">색상(지울수도있음)</a>
+                                        <a data-toggle="collapse" data-target="#collapseFive">색상</a>
                                     </div>
                                     <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__color">
+                                                    <input type="checkbox" id="nocolor" checked="checked">색상없음<br/>
+                                                
                                                 <label class="c-1" for="sp-1">
-                                                    <input type="radio" id="sp-1">
+                                                    <input type="checkbox" id="sp-1" name="p_color" value="Black">
                                                 </label>
                                                 <label class="c-2" for="sp-2">
-                                                    <input type="radio" id="sp-2">
+                                                    <input type="checkbox" id="sp-2" name="p_color" value="Bule">
                                                 </label>
-                                                <label class="c-3" for="sp-3">
-                                                    <input type="radio" id="sp-3">
-                                                </label>
-                                                <label class="c-4" for="sp-4">
-                                                    <input type="radio" id="sp-4">
-                                                </label>
-                                                <label class="c-5" for="sp-5">
-                                                    <input type="radio" id="sp-5">
-                                                </label>
-                                                <label class="c-6" for="sp-6">
-                                                    <input type="radio" id="sp-6">
-                                                </label>
-                                                <label class="c-7" for="sp-7">
-                                                    <input type="radio" id="sp-7">
-                                                </label>
+<!--                                                 <label class="c-3" for="sp-3"> -->
+<!--                                                     <input type="radio" id="sp-3"> -->
+<!--                                                 </label> -->
+<!--                                                 <label class="c-4" for="sp-4"> -->
+<!--                                                     <input type="radio" id="sp-4"> -->
+<!--                                                 </label> -->
+<!--                                                 <label class="c-5" for="sp-5"> -->
+<!--                                                     <input type="radio" id="sp-5"> -->
+<!--                                                 </label> -->
+<!--                                                 <label class="c-6" for="sp-6"> -->
+<!--                                                     <input type="radio" id="sp-6"> -->
+<!--                                                 </label> -->
+<!--                                                 <label class="c-7" for="sp-7"> -->
+<!--                                                     <input type="radio" id="sp-7"> -->
+<!--                                                 </label> -->
                                                 <label class="c-8" for="sp-8">
-                                                    <input type="radio" id="sp-8">
+                                                    <input type="checkbox" id="sp-8" name="p_color" value="Red">
                                                 </label>
                                                 <label class="c-9" for="sp-9">
-                                                    <input type="radio" id="sp-9">
+                                                    <input type="checkbox" id="sp-9" name="p_color" value="White">
                                                 </label>
                                             </div>
                                         </div>
@@ -312,6 +325,10 @@
 <!--                                 </div> -->
                             </div>
                         </div>
+                        </form>
+                        <!-- 카테고리 폼 END -->
+                        
+                        
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -319,7 +336,8 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__left">
-                                    <p>Showing (n*12-11)-n*12 of (총개수) results</p>
+<!--                                     <p>Showing (n*12-11)-n*12 of (총개수) results</p> -->
+                                    <p>Showing 1 - 12 of 140 results</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -336,9 +354,17 @@
                     </div>
                     <div class="row">
                     	
+                    	<c:choose>
+                        	<c:when test="${empty productList }">
+                        		<div class="none_search">
+                        			<h4>검색 결과가 존재 하지 않습니다.</h4>
+                        		</div>
+                        	</c:when>
+                        	<c:otherwise>
+                    	
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/resources/upload/thumb-3.png ">
+                                <div class="product__item__pic set-bg" data-setbg="/ShoppingMall/shop/img/shop-details/thumb-3.png ">
                                     <ul class="product__hover">
                                         <li><a href="/ShoppingMall/shop/shop-details224.do"><img src="img/icon/search.png" alt=""></a></li>
                                     </ul>
@@ -368,6 +394,8 @@
                                 </div>
                             </div>
                         </div>
+                        
+                       
                         
                     	<c:forEach items="${productList }" var="shop">
                         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -405,72 +433,72 @@
                         </c:forEach>
                         
                         
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                                    <ul class="product__hover">
-                                        <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>Piqué Biker Jacket</h6>
-                                    <a href="#" class="add-cart">+ 장바구니에 담기</a>
-                                    <div class="rating">
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <h5>$67.24</h5>
-                                    <div class="product__color__select">
-                                        <label for="pc-4">
-                                            <input type="radio" id="pc-4">
-                                        </label>
-                                        <label class="active black" for="pc-5">
-                                            <input type="radio" id="pc-5">
-                                        </label>
-                                        <label class="grey" for="pc-6">
-                                            <input type="radio" id="pc-6">
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                         <div class="col-lg-4 col-md-6 col-sm-6"> -->
+<!--                             <div class="product__item"> -->
+<!--                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg"> -->
+<!--                                     <ul class="product__hover"> -->
+<!--                                         <li><a href="#"><img src="img/icon/search.png" alt=""></a></li> -->
+<!--                                     </ul> -->
+<!--                                 </div> -->
+<!--                                 <div class="product__item__text"> -->
+<!--                                     <h6>Piqué Biker Jacket</h6> -->
+<!--                                     <a href="#" class="add-cart">+ 장바구니에 담기</a> -->
+<!--                                     <div class="rating"> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                     </div> -->
+<!--                                     <h5>$67.24</h5> -->
+<!--                                     <div class="product__color__select"> -->
+<!--                                         <label for="pc-4"> -->
+<!--                                             <input type="radio" id="pc-4"> -->
+<!--                                         </label> -->
+<!--                                         <label class="active black" for="pc-5"> -->
+<!--                                             <input type="radio" id="pc-5"> -->
+<!--                                         </label> -->
+<!--                                         <label class="grey" for="pc-6"> -->
+<!--                                             <input type="radio" id="pc-6"> -->
+<!--                                         </label> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
                         
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                                    <span class="label">Sale</span>
-                                    <ul class="product__hover">
-                                        <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>Multi-pocket Chest Bag</h6>
-                                    <a href="#" class="add-cart">+ 장바구니에 담기</a>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <h5>$43.48</h5>
-                                    <div class="product__color__select">
-                                        <label for="pc-7">
-                                            <input type="radio" id="pc-7">
-                                        </label>
-                                        <label class="active black" for="pc-8">
-                                            <input type="radio" id="pc-8">
-                                        </label>
-                                        <label class="grey" for="pc-9">
-                                            <input type="radio" id="pc-9">
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                         <div class="col-lg-4 col-md-6 col-sm-6"> -->
+<!--                             <div class="product__item sale"> -->
+<!--                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg"> -->
+<!--                                     <span class="label">Sale</span> -->
+<!--                                     <ul class="product__hover"> -->
+<!--                                         <li><a href="#"><img src="img/icon/search.png" alt=""></a></li> -->
+<!--                                     </ul> -->
+<!--                                 </div> -->
+<!--                                 <div class="product__item__text"> -->
+<!--                                     <h6>Multi-pocket Chest Bag</h6> -->
+<!--                                     <a href="#" class="add-cart">+ 장바구니에 담기</a> -->
+<!--                                     <div class="rating"> -->
+<!--                                         <i class="fa fa-star"></i> -->
+<!--                                         <i class="fa fa-star"></i> -->
+<!--                                         <i class="fa fa-star"></i> -->
+<!--                                         <i class="fa fa-star"></i> -->
+<!--                                         <i class="fa fa-star-o"></i> -->
+<!--                                     </div> -->
+<!--                                     <h5>$43.48</h5> -->
+<!--                                     <div class="product__color__select"> -->
+<!--                                         <label for="pc-7"> -->
+<!--                                             <input type="radio" id="pc-7"> -->
+<!--                                         </label> -->
+<!--                                         <label class="active black" for="pc-8"> -->
+<!--                                             <input type="radio" id="pc-8"> -->
+<!--                                         </label> -->
+<!--                                         <label class="grey" for="pc-9"> -->
+<!--                                             <input type="radio" id="pc-9"> -->
+<!--                                         </label> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
                         
 <!--                         <div class="col-lg-4 col-md-6 col-sm-6"> -->
 <!--                             <div class="product__item"> -->
@@ -820,6 +848,8 @@
                         </div>
                     </div>
                     
+                    </c:otherwise>
+                    </c:choose>
                     
                 </div>
             </div>
@@ -919,7 +949,44 @@
     <script src="js/main.js"></script>
     <script src="js/additional.js"></script>
     <script type="text/javascript">
-        
+//     $('#ajax').click(function(){
+//         $.ajax({
+//            type : 'post',                           //전송방식
+//            async : true,                           //비동기통신
+//            url : '/ShoppingMall/shop/shop.do',                     //request
+//            contextType : 'application/x-www-form-urlencoded;charset=utf-8',   //한글처리
+//            data :
+//            	{
+//         	   'p_cate' : $('.shop__sidebar__categories ul li label input').val(),
+//         	   'p_price' : $('.shop__sidebar__price ul li label input').val(),
+//         	   'p_size' : $('.shop__sidebar__size label input').val(),
+//         	   'p_color' : $('.shop__sidebar__color label input').val(),
+        	   
+//         	},
+//            }
+//            success : function(result)
+//               {
+//         	   alert('aa')
+// //                  $('#idCheckResult').text(result);
+//               },
+//            error : function(err)
+//               {
+//                  console.log(err);
+//               }
+//         });
+
+    
+    $('.add-cart').click(function(ignore){
+    	if(${not empty sessionScope.m_Id}){
+			alert('장바구니에 담았습니다.')
+		}else{
+			alert('로그인이 필요합니다.')
+           	ignore.preventDefault();
+			location.href='/ShoppingMall/member/login.do';
+		}
+	});
+	
+    
 
     
     </script>
