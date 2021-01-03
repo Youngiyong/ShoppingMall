@@ -41,7 +41,6 @@ public class LoginController {
     @ResponseBody
     public String userInsertKaKao(@RequestBody MemberVO vo, HttpSession session){
         MemberVO memberVO = memberService.idCheck_Login(vo);
-        System.out.println(memberVO);
         if(memberVO==null){
             memberService.userInsertKaKao(vo);
             session.setAttribute("m_Id", vo.getM_Id());
@@ -59,14 +58,11 @@ public class LoginController {
     @RequestMapping("/member/adminInsert.do")
     public String userInsert(MemberVO vo){
         vo.setM_Addr(vo.getM_Addr() + " "+ vo.getM_Addr2() +vo.getM_Addr3());
-        System.out.println(vo.getM_Addr());
         Object result = (Object) memberService.idCheck_Login(vo);
         if(result==null){
             String inputPass = vo.getM_Pass();
             String pwd = pwdEncoder.encode(inputPass);
             vo.setM_Pass(pwd);
-            System.out.println(pwd);
-            System.out.println(vo.getM_Pass());
             memberService.userInsert(vo);
         }
         else{
@@ -110,19 +106,13 @@ public class LoginController {
         vo.setM_Pass((String) map.get("m_Pass"));
         MemberVO memberVO = memberService.idCheck_Login(vo);
         if (memberVO == null || memberVO.getM_Id() == null) {
-            System.out.println("로그인 실패");
             return "";
 
         } else {
             session.setAttribute("m_Name", memberVO.getM_Name());
-            System.out.println(memberVO.getM_Name());
             session.setAttribute("m_Id", memberVO.getM_Id());
             session.setAttribute("m_Code", memberVO.getM_Code());
-            System.out.println(memberVO.getM_Email());
-            System.out.println("로그인 성공");
             return memberVO;
-//      }
-
         }
     }
 

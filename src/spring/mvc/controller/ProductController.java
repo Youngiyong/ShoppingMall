@@ -42,9 +42,7 @@ public class ProductController {
         // "," 구분자 문자열 split로 잘라서 list 배열에 담음
         String[] list ;
         list = str.split(",");
-
         m.addAttribute("imageList", list);
-        System.out.println(list[0]);
         m.addAttribute("imgPath", "/ShoppingMall/resources/upload/" + list[0]);
         return "/admin/product_modify";
     }
@@ -62,12 +60,9 @@ public class ProductController {
             ivo.setP_Id(vo[i].getP_Id());
             list.add(vo[i]);
             imgList.add(ivo);
-
-            System.out.println(imgList.get(i).getP_Id());
         }
 
         imgPath = productService.getProductImg(imgList);
-
 
          ArrayList<String> aList = new ArrayList<>();
 
@@ -75,10 +70,8 @@ public class ProductController {
              String str = imgPath.get(i).getI_Fname();
              String[] vlist ;
              vlist = str.split(",");
-
              for(int j=0; j<vlist.length; j++){
                  aList.add(vlist[j]);
-                 System.out.println(vlist[j]);
              }
          }
 
@@ -94,8 +87,6 @@ public class ProductController {
              } else
                  System.out.println("파일이 존재하지 않습니다.");
          }
-
-
         productService.deleteProductStockList(list);
         productService.deleteProductImageList(list);
         int result = productService.deleteProductList(list);
@@ -113,9 +104,7 @@ public class ProductController {
     @RequestMapping("/admin/products.do")
     public String getProductList(ProductVO vo, Model m){
         System.out.println("getProductList 함수 호출");
-
         m.addAttribute("productList", productService.getProductList(vo));
-
         return "/admin/products";
     }
 

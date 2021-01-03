@@ -159,7 +159,7 @@
                                 <tr>
                                     <th>상품명</th>
                                     <th>수량</th>
-                                    <th>총 금액</th>
+                                    <th>가격</th>
                                     <th></th>
                                 </tr>
                             </thead>

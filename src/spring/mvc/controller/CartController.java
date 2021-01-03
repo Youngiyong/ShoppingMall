@@ -82,15 +82,7 @@ public class CartController {
 
         List<Map<String,Object>> list = null;
 
-
-        try{
-            list = orderService.getCartList(result);
-        }catch (Exception e){
-            list = null;
-            return "/shop/shopping-cart";
-        }
-
-
+        list = orderService.getCartList(result);
 
 
         List<ProductImageVO> pList = new ArrayList<>();

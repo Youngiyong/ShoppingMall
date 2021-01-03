@@ -35,12 +35,6 @@ public class OrderController {
     @RequestMapping("/admin/orders.do")
     public String getOrderList(Model m){
         List<Map<String, Object>> list = orderService.getOrderList();
-        for(int i=0; i<list.size(); i++){
-            System.out.println(list.get(i));
-            System.out.println(list.get(i).get("M_CODE"));
-            System.out.println(list.get(i).get("O_POST"));
-            System.out.println(list.get(i).get("O_TEL"));
-        }
         m.addAttribute("list", list);
 
         return "/admin/orders";
@@ -49,14 +43,12 @@ public class OrderController {
     @RequestMapping("/admin/orderListUpdate.do")
     @ResponseBody
     public String orderListUpdate(@RequestBody  OrderInfoVO[] vo){
-        System.out.println(vo.length);
-        List<OrderInfoVO> voList = new ArrayList<>();
 
         for(int i=0; i<vo.length; i++){
+            List<OrderInfoVO> voList = new ArrayList<>();
             voList.add(vo[i]);
+            orderService.updateOrderListStatus(voList);
         }
-
-        orderService.updateOrderListStatus(voList);
 
         return "성공";
     }
@@ -75,9 +67,7 @@ public class OrderController {
     	
     	//카트에서 물품 가져오기
     	m.addAttribute("cartList", orderService.cartList(vo));
-    	
-    	 	
-    	
+
     }	
     
     //결제 진행
@@ -105,14 +95,11 @@ public class OrderController {
     	
     	//porder_info 생성
     	
-    	
-    	
     	//카트 데이터 삭제
     	MemberVO vo2 = new MemberVO();
     	vo2.setM_Code((String)session.getAttribute("m_Code"));
     	
-    	
-    	
+
     	//메인 화면으로 돌아가기
     	return "redirect:/shop/shop.do";
     	

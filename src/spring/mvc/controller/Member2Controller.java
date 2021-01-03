@@ -22,15 +22,11 @@ public class Member2Controller {
     @RequestMapping("/admin/updateMemberList.do")
     @ResponseBody
     public String updateMemberList(@RequestBody MemberVO[] vo){
-        List<MemberVO> list = new ArrayList<>();
-
-        System.out.println(vo.length);
         for(int i=0; i<vo.length; i++) {
+            List<MemberVO> list = new ArrayList<>();
             list.add(vo[i]);
-            System.out.println(list.get(i).getM_Name());
+            memberService.updateMemberList(list);
         }
-
-        memberService.updateMemberList(list);
 
          return "성공";
     }
@@ -44,14 +40,13 @@ public class Member2Controller {
     @RequestMapping("/admin/deleteMemberList.do")
     @ResponseBody
     public String deleteMemberList(@RequestBody MemberVO[] vo){
-        List<MemberVO> list = new ArrayList<>();
-
         for(int i=0; i<vo.length; i++){
+            List<MemberVO> list = new ArrayList<>();
             list.add(vo[i]);
+            memberService.deleteMemberList(list);
         }
 
-        int result = memberService.deleteMemberList(list);
-        System.out.println(result);
+
 
         return "성공";
     }

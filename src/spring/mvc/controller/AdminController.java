@@ -33,7 +33,6 @@ public class AdminController {
     private AdminService adminService;
 
 
-
     @RequestMapping("/admin/product.do")
     public String productAdd(Model model, AdminVO adminVO){
 
@@ -42,8 +41,6 @@ public class AdminController {
 
     @RequestMapping("/admin/logout.do")
     public String logout(HttpSession session){
-        System.out.println(session.getAttribute("a_Id"));
-        System.out.println(session.getAttribute("a_Email"));
         session.removeAttribute("a_Id");
         session.removeAttribute("a_Email");
         return "/admin/login";
@@ -77,7 +74,6 @@ public class AdminController {
     @RequestMapping("/admin/loginCheck.do")
     @ResponseBody
     public Object loginCheck(@RequestBody Map<String, Object> map, HttpSession session, ModelAndView modelAndView) {
-
         AdminVO vo = new AdminVO();
         vo.setA_Id((String) map.get("a_Id"));
         vo.setA_Pass((String) map.get("a_Pass"));
@@ -87,14 +83,9 @@ public class AdminController {
             return "";
 
         } else {
-
             session.setAttribute("a_Id", adminVO.getA_Id());
             session.setAttribute("a_Email", adminVO.getA_Email());
-            System.out.println(adminVO.getA_Email());
-            System.out.println("로그인 성공");
             return adminVO;
-//      }
-
      }
     }
 
@@ -172,10 +163,6 @@ public class AdminController {
 
         result = adminService.idSearch(vo);
         if (result != null) {
-            flag = true;
-        } else return "/admin/reset-password_no";
-
-        if (flag==true) {
             adminService.updatePass(result);
             result = adminService.idSearch(vo);
         } else return "/admin/reset-password_no";
